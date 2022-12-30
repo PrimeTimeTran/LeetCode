@@ -14,16 +14,12 @@ class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
         visit = set([0])
         
-        def dfs(k):
-            if k in visit:
-                return
-            visit.add(k)
+        def dfs(r):
+            for key in rooms[r]:
+                if key not in visit:
+                    visit.add(key)
+                    dfs(key)
             
-            for key in rooms[k]:
-                dfs(key)
-            
-        for key in rooms[0]:
-            if key not in visit:
-                dfs(key)
+        dfs(0)
         
         return len(visit) == len(rooms)

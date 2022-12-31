@@ -13,5 +13,4 @@ class Solution:
                 return 1
             memo[(r,c)] = dfs(r-1,c) + dfs(r,c-1)
             return memo[(r,c)]
-            
-        return dfs(m,n)    
+        return dfs(m,n)

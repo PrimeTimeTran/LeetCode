@@ -20,5 +20,4 @@ class Solution:
             heappush(pq, -t)
             if start > end:
                 start += heapq.heappop(pq)
-                
         return len(pq)

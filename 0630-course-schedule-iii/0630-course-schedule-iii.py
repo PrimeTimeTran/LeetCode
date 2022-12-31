@@ -18,7 +18,7 @@ class Solution:
         for t, end in sorted(A, key= lambda x: x[1]):
             start += t
             heappush(pq, -t)
-            while start > end:
+            if start > end:
                 start += heapq.heappop(pq)
                 
         return len(pq)

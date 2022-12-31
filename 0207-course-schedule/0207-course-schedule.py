@@ -1,29 +1,19 @@
 class Solution:
     def canFinish(self, N: int, pre: List[List[int]]) -> bool:
-        g = {i: [] for i in range(N)}
-        
+        g = {c:[] for c in range(N)}
         for a,b in pre:
             g[a].append(b)
-        
-        
-        visit = set()
-        def dfs(crs):
-            if g[crs] == []:
+        seen = set()
+        def dfs(c):
+            if g[c] == []:
                 return True
-            if crs in visit:
+            if c in seen:
                 return False
-            visit.add(crs)
-            
-            for pre in g[crs]:
+            seen.add(c)
+            for pre in g[c]:
                 if not dfs(pre): return False
-            
-            g[crs] = []
-
+            g[c] = []
             return True
-            
-        
-        
         for c in range(N):
             if not dfs(c): return False
-            
         return True

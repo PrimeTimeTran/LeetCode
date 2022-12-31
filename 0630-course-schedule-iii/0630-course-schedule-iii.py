@@ -1,35 +1,39 @@
 '''
-1. Constraints
-We receive a 2d list where the elements are [duration, endDay]
+1. Constraints 
+We receive an 2d array of [duration, date]
 
-We want to return an int, indicating maximum number of courses we can take.
+2. Diagram
 
-
-Diagram
 courses = [[100,200],[1000,1250],[200,1300],[2000,3200]]
-1, 100 <= 200
-2, 1100 <= 1250
-3, 1300 <= 1300
-4, 3300 <= 3200
-res = 3
+output = 3
 
 
+1, 100, 101
+3, 1000, 1100
+2, 200, 1300
+4, 2000, 3300
 
-2. Pseudocode
+3. Pseudocode
 
-- Sort our courses lastDay
-- Iterate through courses and increment start time by course time. 0 + 100 + 1000 + 200 ... n-1
-
+Sort courses on end date
+Iterate over courses and add their duration time to a start time.
+If the duration time exceeds the end time, remove the most recently added time.
 
 '''
 
 class Solution:
     def scheduleCourse(self, courses: List[List[int]]) -> int:
+        time = 0
         pq = []
-        start = 0
-        for t, end in sorted(courses, key = lambda x: x[1]):
-            start += t
-            heapq.heappush(pq, -t)
-            if start > end:
-                start += heapq.heappop(pq)
+        for dur, end in sorted(courses, key= lambda x: x[1]):
+            time += dur
+            heapq.heappush(pq, -dur)
+            while time > end:
+                time += heapq.heappop(pq)
+                
         return len(pq)
+            
+        
+        
+        
+        

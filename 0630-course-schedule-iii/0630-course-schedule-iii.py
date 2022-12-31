@@ -1,14 +1,3 @@
-'''
-courses = [[100,200],[1000,1250],[200,1300],[2000,3200]]
-
-100+1000= 1100
-1100 + 200 = 1300
-1300 + 2000 = 3300
-
-
-
-'''
-
 from heapq import heappush, heappushpop
 
 class Solution:

@@ -30,6 +30,6 @@ class Solution:
         for t, end in sorted(courses, key = lambda x: x[1]):
             start += t
             heapq.heappush(pq, -t)
-            while start > end:
+            if start > end:
                 start += heapq.heappop(pq)
         return len(pq)

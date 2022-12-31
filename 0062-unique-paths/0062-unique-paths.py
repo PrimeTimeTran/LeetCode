@@ -1,7 +1,5 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        self.res = 0
-        
         memo = {}
         def dfs(r,c):
             if (r,c) in memo:

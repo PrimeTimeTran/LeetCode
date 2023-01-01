@@ -10,7 +10,7 @@ class Solution:
         while q:
             cur = q.popleft()
             for des, d in g[cur].items():
-                if not des in seen:
+                if des not in seen:
                     seen.add(des)
                     q.append(des)
                 res = min(res, d)

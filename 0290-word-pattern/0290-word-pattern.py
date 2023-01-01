@@ -1,8 +1,7 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
         words = s.split(' ')
-        if len(pattern) != len(words):
-            return False
+        if len(pattern) != len(words): return False
         map = {}
         for l, word in zip(pattern, words):
             if l not in map:

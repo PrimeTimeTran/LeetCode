@@ -1,16 +1,13 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        if len(pattern) != len(s.split(' ')):
+        words = s.split(' ')
+        if len(pattern) != len(words):
             return False
         map = {}
-        for l, word in zip(pattern, s.split(' ')):
+        for l, word in zip(pattern, words):
             if l not in map:
                 if word in map.values(): return False
                 map[l] = word
             else: 
-                if map[l] != word:
-                    return False
-                
+                if map[l] != word: return False
         return True
-                
-                

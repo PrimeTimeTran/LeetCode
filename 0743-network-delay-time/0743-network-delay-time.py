@@ -1,20 +1,3 @@
-'''
-1. Constraints
-We receive an array of weighted edges. We also receive a start node, k and a variable n for number of nodes.
-
-We should return an integer
-
-2. Diagram
-
-3. Pseudocode
-
-Use a pq to track nodes we need to visit and the time so far.
-Iterate through all nodes until we've visited all nodes.
-If the number of nodes visited is the same as n return our time, otherwise return -1
-
-
-'''
-
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
         g = defaultdict(list)
@@ -23,14 +6,13 @@ class Solution:
             g[u].append((v,t))
             
         seen = set()
-        heap = [(0,k)]
-        while heap:
-            t, u = heapq.heappop(heap)
+        q = [(0,k)]
+        while q:
+            t, u = heapq.heappop(q)
             if u in seen: continue
             seen.add(u)
             if len(seen) == n: break
-
             for v, nt in g[u]:
-                heapq.heappush(heap, (t+nt, v))
-            
+                heapq.heappush(q, (nt+t, v))
         return t if len(seen) == n else -1
+            

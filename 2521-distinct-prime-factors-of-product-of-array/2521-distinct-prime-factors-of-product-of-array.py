@@ -1,7 +1,7 @@
 class Solution:
     def distinctPrimeFactors(self, nums: List[int]) -> int:
         s = set()
-        def process(num, s):
+        def process(num):
             n = num
             for i in range(2, num+1):
                 if n % i == 0:
@@ -11,7 +11,5 @@ class Solution:
                 if n == 1:
                     return
         for n in nums:
-            process(n, s)
-            
-        return len(s)
-        
+            process(n)
+        return len(s)   

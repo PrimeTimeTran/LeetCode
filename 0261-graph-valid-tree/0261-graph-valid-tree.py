@@ -1,12 +1,13 @@
 class Solution:
-    def validTree(self, N: int, edges: List[List[int]]) -> bool:
-        g = {n:[] for n in range(N)}
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        g = {i: [] for i in range(n)}
         
         for a,b in edges:
             g[a].append(b)
             g[b].append(a)
         
         seen = set()
+        
         def dfs(n, prev):
             if n in seen:
                 return False
@@ -17,5 +18,4 @@ class Solution:
                 if not dfs(nei, n): return False
             return True
         
-        
-        return dfs(0, -1) and len(seen) == N
+        return dfs(0, -1) and len(seen) == n

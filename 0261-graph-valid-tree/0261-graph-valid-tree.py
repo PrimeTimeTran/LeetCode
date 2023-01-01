@@ -13,8 +13,7 @@ class Solution:
                 return False
             seen.add(n)
             for nei in g[n]:
-                if nei == prev:
-                    continue
+                if nei == prev: continue
                 if not dfs(nei, n): return False
             return True
         

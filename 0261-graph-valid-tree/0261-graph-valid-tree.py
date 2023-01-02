@@ -1,20 +1,19 @@
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        g = {i:[] for i in range(n)}
+        g = {i: [] for i in range(n)}
         
         for a,b in edges:
             g[a].append(b)
             g[b].append(a)
+            
         
         seen = set()
-        
-        def dfs(n, prev):
+        def dfs(n, p):
             if n in seen:
                 return False
             seen.add(n)
-
             for nei in g[n]:
-                if nei == prev: continue
+                if nei == p: continue
                 if not dfs(nei, n): return False
             return True
         

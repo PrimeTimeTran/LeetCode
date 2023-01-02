@@ -1,7 +1,6 @@
 
 class Solution:
     def validPath(self, n: int, E: List[List[int]], src: int, dst: int) -> bool:
-                
         p = list(range(n))                                     # initialize parents
         def find(x) : return x if p[x] == x else find(p[x])    # find parent
         for u, v in E : p[find(u)] = find(v)                   # make union

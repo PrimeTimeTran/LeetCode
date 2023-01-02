@@ -1,10 +1,6 @@
 
 class Solution:
-    def validPath(self, n: int, E: List[List[int]], src: int, dst: int) -> bool:
-        p = list(range(n))                                     # initialize parents
-        def find(x) : return x if p[x] == x else find(p[x])    # find parent
-        for u, v in E : p[find(u)] = find(v)                   # make union
-        return find(dst) == find(src)    
+    def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
     
         ### UF is a hash map where you can find the root of a group of elements giving an element.
         ### A key in UF is a element, UF[x] is x's parent.

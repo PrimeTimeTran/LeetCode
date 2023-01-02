@@ -36,10 +36,7 @@ class Solution:
                 if dfs(neighbor):
                     return True
             return False
-        
-        # for nei in g[source]:
-        #     if dfs(nei):
-        #         return True
+
         return dfs(source)
     
     

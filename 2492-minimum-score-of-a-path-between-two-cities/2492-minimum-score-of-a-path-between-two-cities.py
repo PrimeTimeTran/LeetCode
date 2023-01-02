@@ -1,19 +1,22 @@
 class Solution:
     def minScore(self, n: int, roads: List[List[int]]) -> int:
         g = defaultdict(dict)
-        for a,b,d in roads:
+        for a,b, d in roads:
             g[a][b] = g[b][a] = d
-            
-        q = deque([1])
-        res = float('inf')
+        
+        self.res = float('inf')
         seen = set()
-        while q:
-            cur = q.popleft()
-            for des, d in g[cur].items():
+        
+        
+        def dfs(n):
+            if n in seen:
+                return 
+            seen.add(n)
+            for des, d in g[n].items():
                 if des not in seen:
-                    seen.add(des)
-                    q.append(des)
-                res = min(res, d)
+                    dfs(des)
+                self.res = min(self.res, d)
+            
+        dfs(1)
         
-        return res
-        
+        return self.res

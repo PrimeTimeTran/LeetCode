@@ -26,6 +26,4 @@ class Solution:
                 if nei == prev: continue
                 if not dfs(nei, n): return False
             return True
-        
-        
         return dfs(0, -1) and len(seen) == n 

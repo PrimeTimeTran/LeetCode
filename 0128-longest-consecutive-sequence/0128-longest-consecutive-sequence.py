@@ -5,7 +5,6 @@ class Node:
         self.size = 1
     
 class UnionFind:
-        
     def find(self, node):
         if node.parent != node:
             node.parent = self.find(node.parent)
@@ -18,8 +17,6 @@ class UnionFind:
             parent_2.parent = parent_1
             parent_1.size += parent_2.size
         return parent_1.size
-                
-        
         
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
@@ -36,5 +33,4 @@ class Solution:
                 if num - 1 in nodes:
                     size = uf.union(node, nodes[num-1])
                 max_size = max(max_size, size)
-                
         return max_size

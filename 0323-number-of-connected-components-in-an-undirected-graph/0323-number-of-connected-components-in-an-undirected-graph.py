@@ -14,5 +14,6 @@ class Solution:
         
         for x,y in edges:
             union(x,y)
-            
+        
+        
         return len({find(x) for x in range(n)})

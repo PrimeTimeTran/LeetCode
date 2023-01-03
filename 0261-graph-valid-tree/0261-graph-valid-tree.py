@@ -3,23 +3,15 @@ class Solution:
         if n - 1 != len(edges):
             return False
         parent = {i: i for i in range(n)}
-        
-        # find operation
         def find(v):
             if parent[v] != v:
-                # use path compression to gain some time 
                 parent[v] = find(parent[v])
             return parent[v]
 
-        for edge in edges:
-            # for each edge, check if two vertices belongs to one set
-            # if yes then a cycle is found
-            set1 = find(edge[0])
-            set2 = find(edge[1])
+        for x, y in edges:
+            set1, set2 = find(x), find(y)
             if set1 == set2:
                 return False
-                
-            # union
             parent[set1] = set2
 
         return True

@@ -20,11 +20,15 @@ class Solution:
     
         parent = list(range(n))
         
-        def find(p):
-            while p != parent[p]:
-                parent[p] = parent[parent[p]]
-                p = parent[p]
-            return p
+        # def find(p):
+        #     while p != parent[p]:
+        #         parent[p] = parent[parent[p]]
+        #         p = parent[p]
+        #     return p
+        def find(x):
+            if parent[x] != x:
+                parent[x] = find(parent[x])
+            return parent[x]
         
         def union(x, y):
             rx, ry = find(x), find(y)

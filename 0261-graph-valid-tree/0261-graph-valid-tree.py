@@ -1,21 +1,25 @@
 class Solution:
     def validTree(self, n, edges):
-        nums = [-1] * n
-        for edge in edges:
-            if not self.union(nums, edge[0], edge[1]):
-                return False
-        return len(edges) == n-1
-
-    def union(self, nums, x, y):
-        xx = self.find(nums, x)
-        yy = self.find(nums, y)
-        if xx == yy:  # cycle detected 
+        if n - 1 != len(edges):
             return False
-        nums[xx] = yy
-        return True
-
-    def find(self, nums, i):
-        if nums[i] == -1:
-            return i
-        return self.find(nums, nums[i])
+        parent = {i: i for i in range(n)}
         
+        # find operation
+        def find(v):
+            if parent[v] != v:
+                # use path compression to gain some time 
+                parent[v] = find(parent[v])
+            return parent[v]
+
+        for edge in edges:
+            # for each edge, check if two vertices belongs to one set
+            # if yes then a cycle is found
+            set1 = find(edge[0])
+            set2 = find(edge[1])
+            if set1 == set2:
+                return False
+                
+            # union
+            parent[set1] = set2
+
+        return True

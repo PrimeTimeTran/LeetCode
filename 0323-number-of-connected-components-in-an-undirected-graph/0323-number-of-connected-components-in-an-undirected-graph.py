@@ -13,7 +13,6 @@ class Solution:
                 parent[rx] = ry
         
         for x,y in edges:
-            union(x,y)
-        
+            union(y,x)
         
         return len({find(x) for x in range(n)})

@@ -1,6 +1,6 @@
 class Solution:
-    def countDigits(self, x: int) -> int:
-        return sum(x % int(y) == 0 for y in str(x))
+    def countDigits(self, num: int) -> int:
+        # return sum(x % int(y) == 0 for y in str(x))
 
         digits = [int(d) for d in str(num)]
         res = 0

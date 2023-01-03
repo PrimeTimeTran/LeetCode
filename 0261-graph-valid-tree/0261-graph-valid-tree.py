@@ -1,29 +1,21 @@
-'''
-
-3. Pseudocode
-- Create our adj list 
-- DFS from 0 node marking nodes we haven't seen.
-    - Guard against cycles
-- Count number of nodes seen, if they match n then we're good.
-
-'''
-
-
 class Solution:
-    def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        g = {i:[] for i in range(n)}
-        
-        for a,b in edges:
-            g[a].append(b)
-            g[b].append(a)
-        
-        seen = set()
-        def dfs(n, prev):
-            if n in seen:
+    def validTree(self, n, edges):
+        nums = [-1] * n
+        for edge in edges:
+            if not self.union(nums, edge[0], edge[1]):
                 return False
-            seen.add(n)
-            for nei in g[n]:
-                if nei == prev: continue
-                if not dfs(nei, n): return False
-            return True
-        return dfs(0, -1) and len(seen) == n 
+        return len(edges) == n-1
+
+    def union(self, nums, x, y):
+        xx = self.find(nums, x)
+        yy = self.find(nums, y)
+        if xx == yy:  # cycle detected 
+            return False
+        nums[xx] = yy
+        return True
+
+    def find(self, nums, i):
+        if nums[i] == -1:
+            return i
+        return self.find(nums, nums[i])
+        

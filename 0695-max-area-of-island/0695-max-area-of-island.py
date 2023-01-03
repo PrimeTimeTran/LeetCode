@@ -9,7 +9,12 @@ class Solution:
             if (r,c) in seen or grid[r][c] == 0:
                 return 0
             seen.add((r,c))
-            return 1+dfs(r+1,c)+dfs(r-1,c)+dfs(r,c+1)+dfs(r,c-1)
+            DIR = [0, 1, 0, -1, 0]
+            res = 1
+            for i in range(4):
+                nr, nc = r + DIR[i], c + DIR[i+1]
+                res += dfs(nr,nc)
+            return res
 
         res = 0
         for r in range(m):

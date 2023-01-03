@@ -3,15 +3,14 @@ class Solution:
         if n - 1 != len(edges):
             return False
         parent = {i: i for i in range(n)}
-        def find(v):
-            if parent[v] != v:
-                parent[v] = find(parent[v])
-            return parent[v]
+        def find(x):
+            if parent[x] != x:
+                parent[x] = find(parent[x])
+            return parent[x]
 
         for x, y in edges:
-            set1, set2 = find(x), find(y)
-            if set1 == set2:
+            rx, ry = find(x), find(y)
+            if rx == ry:
                 return False
-            parent[set1] = set2
-
+            parent[rx] = ry
         return True

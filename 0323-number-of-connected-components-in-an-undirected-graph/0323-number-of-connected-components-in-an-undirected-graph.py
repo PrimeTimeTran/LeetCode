@@ -3,9 +3,7 @@ class Solution:
         parent = list(range(n))
         
         def find(x):
-            if parent[x] != x:
-                parent[x] = find(parent[x])
-            return parent[x]
+            return x if parent[x] == x else find(parent[x])
         
         def union(x,y):
             rx,ry = find(x),find(y)

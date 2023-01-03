@@ -1,3 +1,4 @@
+DIR = [0, 1, 0, -1, 0]
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         seen = set()
@@ -9,7 +10,7 @@ class Solution:
             if (r,c) in seen or grid[r][c] == 0:
                 return 0
             seen.add((r,c))
-            DIR = [0, 1, 0, -1, 0]
+
             res = 1
             for i in range(4):
                 nr, nc = r + DIR[i], c + DIR[i+1]

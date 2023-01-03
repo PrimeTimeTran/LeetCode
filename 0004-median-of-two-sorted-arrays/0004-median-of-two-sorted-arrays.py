@@ -4,7 +4,7 @@ class Solution:
         nums = list(nums)
         
         if len(nums) % 2 == 0:
-            l = int(len(nums)/2) - 1
+            l = (len(nums)//2) - 1
             r = int(len(nums)/2)
             return (nums[l]+nums[r])/2 
         else:

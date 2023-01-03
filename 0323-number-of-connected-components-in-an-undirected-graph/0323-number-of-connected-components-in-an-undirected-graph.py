@@ -1,19 +1,17 @@
 class Solution:
-    def countComponents(self, N: int, edges: List[List[int]]) -> int:
-        g = {i:[] for i in range(N)}
-        for a,b in edges:
-            g[a].append(b)
-            g[b].append(a)
-        count = 0
-        seen = set()
-        def dfs(n):
-            if n in seen:
-                return
-            seen.add(n)
-            for nei in g[n]:
-                dfs(nei)
-        for n in range(N):
-            if not n in seen:
-                dfs(n)
-                count+=1
-        return count
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        parent = list(range(n))
+        
+        def find(x):
+            if parent[x] != x:
+                parent[x] = find(parent[x])
+            return parent[x]
+        
+        def union(x, y):
+            rx, ry = find(x), find(y)
+            if rx != ry:
+                parent[rx] = ry 
+        
+        for x, y in edges:
+            union(x, y)
+        return len({find(i) for i in range(n)})

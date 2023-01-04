@@ -5,12 +5,14 @@ class Solution:
             for j in range(len(w)):
                 pat = w[:j] + "*" + w[j+1:]
                 g[pat].add(w)
+
         q = deque([beginWord])
         visited = {beginWord: 1}
         parent_list = defaultdict(set)
         ans_path = []
 
         while q:
+            print(visited)
             word = q.popleft()
             if word == endWord: break
             for i in range(len(word)):

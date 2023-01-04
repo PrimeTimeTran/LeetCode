@@ -1,11 +1,10 @@
 class Solution:
     def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
         g = defaultdict(set)
-        for word in wordList:
-            if word != beginWord:
-                for i in range(len(word)):
-                    pat = word[:i] + "*" + word[i+1:]
-                    g[pat].add(word)
+        for w in wordList:
+            for j in range(len(w)):
+                pat = w[:j] + "*" + w[j+1:]
+                g[pat].add(w)
         q = deque([beginWord])
         visited = {beginWord: 1}
         parent_list = defaultdict(set)

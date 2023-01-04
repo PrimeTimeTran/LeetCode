@@ -1,14 +1,16 @@
 class Solution:
     def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
-        g = defaultdict(set)
+        g = defaultdict(list)
         for w in wordList:
             for j in range(len(w)):
                 pat = w[:j] + "*" + w[j+1:]
-                g[pat].add(w)
+                g[pat].append(w)
 
         q = deque([beginWord])
         seen = {beginWord: 1}
         parent_list = defaultdict(set)
+        
+        print(g)
 
         while q:
             word = q.popleft()

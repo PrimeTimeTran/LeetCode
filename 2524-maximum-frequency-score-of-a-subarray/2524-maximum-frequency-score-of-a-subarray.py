@@ -1,3 +1,11 @@
+'''
+Calculate freq score of 0 to k. 
+
+Use sliding window to remove/add while recalculating score of left and right values in window respectively.
+Keep a running total of current list and ans so we don't have to recaluate everytime and encounter TLE.
+
+'''
+
 class Solution:
     def maxFrequencyScore(self, nums: List[int], k: int) -> int:
         n = len(nums)
@@ -9,8 +17,8 @@ class Solution:
         
         ct = Counter(nums[:k])
         cur = 0
-        for v in ct:
-            cur = (cur + modpow(v, ct[v])) % MOD
+        for b,e in ct.items():
+            cur = (cur + modpow(b, e)) % MOD
         ans = cur
         for i in range(1, n - k + 1):
             L, R = nums[i - 1], nums[i + k - 1]
@@ -26,4 +34,3 @@ class Solution:
             ct[L] -= 1
             ct[R] += 1
         return ans
-    

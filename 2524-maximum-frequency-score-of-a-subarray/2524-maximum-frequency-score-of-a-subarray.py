@@ -1,36 +1,41 @@
 '''
-Calculate freq score of 0 to k. 
-
-Use sliding window to remove/add while recalculating score of left and right values in window respectively.
-Keep a running total of current list and ans so we don't have to recaluate everytime and encounter TLE.
+Use sliding window of len k from left to right.
+Use a counter to track distinct values and their powers.
+Use cur and ans to track running totals to avoid TLE.
 
 '''
 
 class Solution:
     def maxFrequencyScore(self, nums: List[int], k: int) -> int:
-        n = len(nums)
-        MOD = (10**9 + 7)
+        mod = 10**9 + 7
         
         @cache
-        def modpow(b, e):
-            return b ** e % MOD
+        def powmod(b,e):
+            return b**e % mod
         
-        ct = Counter(nums[:k])
+        c = Counter(nums[:k])
+        
         cur = 0
-        for b,e in ct.items():
-            cur = (cur + modpow(b, e)) % MOD
+        for b,e in c.items():
+            cur = (cur + powmod(b,e)) % mod
         ans = cur
-        for i in range(1, n - k + 1):
-            L, R = nums[i - 1], nums[i + k - 1]
+        
+        for i in range(1, len(nums)-k+1):
+            L,R = nums[i-1], nums[i+k-1]
             if L == R: continue
-            cur -= modpow(L, ct[L])
-            if ct[L] > 1:
-                cur += modpow(L, ct[L] - 1)
-            if ct[R]:
-                cur -= modpow(R, ct[R])
-            cur += modpow(R, ct[R] + 1)
-            cur %= MOD
-            ans = max(cur, ans)
-            ct[L] -= 1
-            ct[R] += 1
+            cur -= powmod(L, c[L])
+            if c[L] > 1:
+                cur += powmod(L, c[L] - 1)
+            
+            if c[R]:
+                cur -= powmod(R, c[R])
+            
+            cur +=  powmod(R, c[R]+1)
+
+            cur %= mod
+            ans = max(ans, cur)
+            
+            c[L] -= 1
+            c[R] += 1
+                
         return ans

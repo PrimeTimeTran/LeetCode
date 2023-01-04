@@ -1,29 +1,34 @@
 class Solution:
     def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
-        graph = collections.defaultdict(list)
-        words = set(wordList)
-        if endWord not in words: return []
-        words.discard(beginWord)
-        q = {beginWord}
-        while q:
-            nq = set()
-            for word in q:
-                for c in "abcdefghijklmnopqrstuvwxyz":
-                    for i in range(len(word)):
-                        nw = word[:i] + c + word[i+1:]
-                        if nw in words:
-                            graph[nw].append(word)
-                            nq.add(nw)
-            words -= set(graph.keys())
-            q = nq
-            
-        # use DFS to reconstruct the path from end to begin
-        def dfs(word):
+        wordDict = defaultdict(set)
+        for word in wordList:
+            if word != beginWord:
+                for i in range(len(word)):
+                        wordDict[word[:i] + "*" + word[i+1:]].add(word)
+        queue = deque([beginWord])
+        visited = {beginWord: 1}
+        parent_list = defaultdict(set)
+        ans_path = []
+        # print(wordDict)
+        
+        while queue:
+            word = queue.popleft()
+            if word == endWord:             
+                break
+            for i in range(len(word)):
+                for next_word in wordDict[word[:i] + "*" + word[i+1:]]:
+                    if next_word not in visited:
+                        visited[next_word] = visited[word] + 1
+                        queue.append(next_word)
+                        parent_list[next_word].add(word)
+                    elif visited[next_word] > visited[word]:
+                        parent_list[next_word].add(word)
+        
+        def dfs(word, path):
             if word == beginWord:
-                return [[beginWord]]
-            res = []
-            for w in graph[word]:
-                res += [k + [word] for k in dfs(w)]
-            return res
-			
-        return dfs(endWord)
+                ans_path.append(path[::-1])
+            for next_word in parent_list[word]:
+                dfs(next_word, path+[next_word])
+        
+        dfs(endWord, [endWord])
+        return ans_path

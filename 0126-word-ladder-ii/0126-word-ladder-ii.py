@@ -1,71 +1,42 @@
+'''
+Guard invalid input
+'''
 class Solution:
-    def neighbour(self, a, b):
-        cnt = 0
-        for i in range(len(a)):
-            if a[i] != b[i]:
-                cnt += 1
-        return cnt == 1
-    
     def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
-        if not beginWord or not endWord in wordList:
-            return []
+        graph = defaultdict(list)
         
-        wordList.insert(0, beginWord)
-        for i in range(1, len(wordList)):
-            if wordList[i] == wordList[0]:
-                wordList[i] = wordList[-1]
-                wordList.pop()
-                break
-                
-        wti = dict()
-        for i in range(len(wordList)):
-            wti[wordList[i]] = i 
+        def word2repres(word):
+            return [word[0 : i] + '?' + word[i + 1 ::] for i in range(len(word))]
         
-        edges = [[] for _ in range(len(wordList))]
-
-        for i in range(len(wordList)):
-            for j in range(i + 1, len(wordList)):
-                    if self.neighbour(wordList[i], wordList[j]):
-                        edges[i].append(j)
-                        edges[j].append(i)
-    
-        # BFS
-        start_node, target_node = 0, wti[endWord]
-        r, min_step = 0, float('inf')
-        vis = [float('inf') for _ in range(len(wordList))]
-        vis[start_node] = 0
-        q = [start_node]
-        while q:
-            sz = len(q)
-            for i in range(sz):
-                fr = q.pop(0)
-                if fr == target_node:
-                    min_step = min(min_step, r)
-                else:
-                    for j in edges[fr]:
-                        if r+1 < vis[j]:
-                            vis[j] = r + 1
-                            q.append(j)
-            r += 1
+        wordList = wordList + [beginWord]
+        for word in wordList:
+            for r in word2repres(word):
+                graph[r].append(word)
         
-        if min_step == float('inf'):
-            return []
+        queue = deque([beginWord])
+        visited = set([beginWord])
+        parents = defaultdict(list)
+        res = []
+        while queue:
+            layer = set()
+            for i in range(len(queue)):
+                word = queue.popleft()
+                for r in  word2repres(word):
+                    for neigh in graph[r]:
+                        if neigh not in visited:
+                            layer.add(neigh)
+                            parents[neigh].append(word)
+            queue.extend(layer)
+            visited.update(layer)
         
-        q2 = [[wordList[target_node]]]
-        r = min_step
-        while r:
-            sz = len(q2)
-            for i in range(sz):
-                seq = q2.pop(0)
-                back = seq[-1]
-                curr = wti[back]
-                for j in edges[curr]:
-                    if vis[j] == r - 1:
-                        seq.append(wordList[j])
-                        q2.append(seq[:])
-                        seq.pop()
-            r -= 1
-        ans = []
-        while q2:
-            ans.append(q2.pop(0)[::-1])
-        return ans
+        def dfs(node, curr):
+            if node == beginWord:
+                res.append(curr[::-1])
+                return
+            for par in parents[node]:
+                curr.append(par)
+                dfs(par, curr)
+                curr.pop()
+        
+        dfs(endWord, [endWord])
+        return res

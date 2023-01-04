@@ -4,15 +4,17 @@ class Solution:
         for a,b,d in roads:
             g[a][b] = g[b][a] = d
             
-        q = deque([1])
-        res = float('inf')
         seen = set()
-        while q:
-            cur = q.popleft()
-            for des, d in g[cur].items():
-                if des not in seen:
-                    seen.add(des)
-                    q.append(des)
-                res = min(res, d)
+        self.res = float('infinity')
+        def dfs(n):
+            if n in seen:
+                return
+            seen.add(n)
+            for nei, d in g[n].items():
+                if nei not in seen:
+                    dfs(nei)
+                self.res = min(self.res, d)
         
-        return res
+        dfs(1)
+        return self.res
+        

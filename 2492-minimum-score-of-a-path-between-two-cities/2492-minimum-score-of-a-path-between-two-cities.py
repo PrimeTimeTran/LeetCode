@@ -3,6 +3,9 @@ DFS:
 From node one traverse through neighbors using adj list comparing roads to find the minimum score road.
 Guard against cycles by checking if road seen with a set.
 
+BFS: 
+
+
 '''
 
 class Solution:
@@ -11,22 +14,16 @@ class Solution:
         for a,b,d in roads:
             g[a].append((b,d))
             g[b].append((a,d))
-            
-            
+
+        res = inf
         seen = set()
-        self.res = float('infinity')
+        q = deque([1])
         
-        def dfs(n):
-            if n in seen:
-                return
-            seen.add(n)
+        while q:
+            n = q.popleft()
             for nei, d in g[n]:
                 if nei not in seen:
-                    dfs(nei)
-                self.res = min(self.res, d)
-        
-        dfs(1)
-        return self.res
-        
-        
-        
+                    q.append(nei)
+                    seen.add(n)
+                res = min(res, d)
+        return res

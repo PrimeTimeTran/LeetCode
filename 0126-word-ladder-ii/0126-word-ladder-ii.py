@@ -9,10 +9,8 @@ class Solution:
         q = deque([beginWord])
         visited = {beginWord: 1}
         parent_list = defaultdict(set)
-        ans_path = []
 
         while q:
-            print(visited)
             word = q.popleft()
             if word == endWord: break
             for i in range(len(word)):
@@ -24,7 +22,8 @@ class Solution:
                         parent_list[next_word].add(word)
                     elif visited[next_word] > visited[word]:
                         parent_list[next_word].add(word)
-        print(visited)
+
+        ans_path = []
         def dfs(word, path):
             if word == beginWord:
                 ans_path.append(path[::-1])

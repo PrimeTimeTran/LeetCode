@@ -13,10 +13,8 @@ class Solution:
             cur = (cur + modpow(v, ct[v])) % MOD
         ans = cur
         for i in range(1, n - k + 1):
-            L = nums[i - 1]
-            R = nums[i + k - 1]
-            if L == R: 
-                continue
+            L, R = nums[i - 1], nums[i + k - 1]
+            if L == R: continue
             cur -= modpow(L, ct[L])
             if ct[L] > 1:
                 cur += modpow(L, ct[L] - 1)

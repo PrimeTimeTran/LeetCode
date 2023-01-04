@@ -13,8 +13,7 @@ class Solution:
 
         while q:
             word = q.popleft()
-            if word == endWord:             
-                break
+            if word == endWord: break
             for i in range(len(word)):
                 pat = word[:i] + "*" + word[i+1:]
                 for next_word in g[pat]:

@@ -18,12 +18,11 @@ class Solution:
         seen = set([beginWord])
         q = deque([beginWord])
         res = 1
-        
         while q:
-            for i in range(len(q)):
+            for _ in range(len(q)):
                 word = q.popleft()
                 if word == endWord:
-                    return res  
+                    return res
                 for j in range(len(word)):
                     pat = word[:j] + '*' + word[j+1:]
                     for nei in g[pat]:

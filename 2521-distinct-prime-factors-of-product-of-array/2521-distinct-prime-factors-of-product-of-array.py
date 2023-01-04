@@ -13,5 +13,4 @@ class Solution:
         
         for n in nums:
             process(n)
-        print(seen)
         return len(seen)

@@ -7,7 +7,7 @@ class Solution:
             if c not in d:
                 return False
 
-        for i in range(0, int((len(s) + 1) / 2)):
+        for i in range(0, (len(s) + 1) // 2):
             if d[s[i]] != s[-i - 1]:
                 return True
 

@@ -1,11 +1,9 @@
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
-        if endWord not in wordList:
-            return 0
+        # if endWord not in wordList:
+        #     return 0
         
         g = defaultdict(list)
-        # wordList.append(beginWord)
-        
         for w in wordList:
             for j in range(len(w)):
                 pat = w[:j] + "*" + w[j+1:]

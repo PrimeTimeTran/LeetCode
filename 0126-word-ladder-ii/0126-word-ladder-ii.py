@@ -7,7 +7,7 @@ class Solution:
                 g[pat].add(w)
 
         q = deque([beginWord])
-        visited = {beginWord: 1}
+        seen = {beginWord: 1}
         parent_list = defaultdict(set)
 
         while q:
@@ -16,11 +16,11 @@ class Solution:
             for i in range(len(word)):
                 pat = word[:i] + "*" + word[i+1:]
                 for next_word in g[pat]:
-                    if next_word not in visited:
-                        visited[next_word] = visited[word] + 1
+                    if next_word not in seen:
+                        seen[next_word] = seen[word] + 1
                         q.append(next_word)
                         parent_list[next_word].add(word)
-                    elif visited[next_word] > visited[word]:
+                    elif seen[next_word] > seen[word]:
                         parent_list[next_word].add(word)
 
         ans_path = []

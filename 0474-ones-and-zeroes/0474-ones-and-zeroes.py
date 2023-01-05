@@ -10,6 +10,7 @@ class Solution:
             dp[(idx,zeros,ones)] = helper(idx+1, zeros, ones)
             
             numZeros, numOnes = strs[idx].count('0')+zeros, strs[idx].count('1')+ones
+
             if numZeros <= m and numOnes <= n:
                 p = 1 + helper(idx+1, numZeros, numOnes)
                 dp[(idx,zeros,ones)] = max(dp[(idx,zeros,ones)], p)

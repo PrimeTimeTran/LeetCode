@@ -1,27 +1,33 @@
 '''
-BFS:
-Using q track movements toward target using BFS. Track moves, pos, speed in q
+target = 6
+pos = 6
+speed = -2
+moves = 5
 
-Add updated q item in each process. 
-Check if pos is target. Return moves in so.
-
-Lastly check if pos > than target and speed pos, or pos < target and speed negative. If so add new item to q.
+AAARA
 
 
+BFS
 
 '''
+
 class Solution:
     def racecar(self, target: int) -> int:
-        q = deque([(0,0,1)])
+        # moves, speed, pos
+        q = deque([[0,1,0]])
         
         while q:
-            moves, pos, speed = q.popleft()
+            moves, speed, pos = q.popleft()
+            
+            # Check if pos == target, if so return
             if pos == target:
                 return moves
             
-            q.append((moves+1, pos+speed, speed*2))
+            q.append([moves+1, speed*2, pos+speed])
             
+            # Check if past target, if so, reverse direction
             if pos+speed > target and speed > 0 or pos+speed < target and speed < 0:
                 speed = -1 if speed > 0 else 1
-                q.append((moves+1, pos, speed))
                 
+                q.append([moves+1, speed, pos])
+            

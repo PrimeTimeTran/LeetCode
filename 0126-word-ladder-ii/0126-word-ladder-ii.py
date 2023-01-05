@@ -10,21 +10,18 @@ class Solution:
         seen = {beginWord: 1}
         parent_list = defaultdict(set)
         
-        print(g)
-
         while q:
             word = q.popleft()
             if word == endWord: break
             for i in range(len(word)):
                 pat = word[:i] + "*" + word[i+1:]
-                for next_word in g[pat]:
-                    if next_word not in seen:
-                        seen[next_word] = seen[word] + 1
-                        q.append(next_word)
-                        parent_list[next_word].add(word)
-                    elif seen[next_word] > seen[word]:
-                        parent_list[next_word].add(word)
-
+                for nxt in g[pat]:
+                    if nxt not in seen:
+                        seen[nxt] = seen[word] + 1
+                        q.append(nxt)
+                        parent_list[nxt].add(word)
+                    elif seen[nxt] > seen[word]:
+                        parent_list[nxt].add(word)
         ans_path = []
         def dfs(word, path):
             if word == beginWord:

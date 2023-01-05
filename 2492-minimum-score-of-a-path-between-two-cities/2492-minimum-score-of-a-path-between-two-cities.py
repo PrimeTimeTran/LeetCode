@@ -1,29 +1,27 @@
 '''
-DFS: 
-From node one traverse through neighbors using adj list comparing roads to find the minimum score road.
-Guard against cycles by checking if road seen with a set.
-
-BFS: 
-
+Create a graph using roads. 
+DFS from node 1 looking for smallest score road.
 
 '''
 
 class Solution:
     def minScore(self, n: int, roads: List[List[int]]) -> int:
         g = defaultdict(list)
+        
         for a,b,d in roads:
             g[a].append((b,d))
             g[b].append((a,d))
-
-        res = inf
-        seen = set()
-        q = deque([1])
         
-        while q:
-            n = q.popleft()
+        self.res = inf
+        seen = set()
+        def dfs(n):
+            if n in seen:
+                return
             for nei, d in g[n]:
                 if nei not in seen:
-                    q.append(nei)
                     seen.add(n)
-                res = min(res, d)
-        return res
+                    dfs(nei)
+                self.res = min(self.res, d)
+        
+        dfs(1)
+        return self.res

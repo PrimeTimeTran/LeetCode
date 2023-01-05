@@ -1,6 +1,6 @@
 '''
+Topological Sort
 Create graph using chars of word of words.
-
 Iterate words 2 at a time, guarding for matching prefixes having a longer word before a shorter. Return "" if true.
 Loop through chars of w1 looking for first differing char. The first differing char add it to word one's list in the graph.
 Topsort of graph with loop detection.
@@ -9,29 +9,28 @@ Return the reverse joined res because to create lexicographically increasing ord
 
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
-        g = {c: [] for w in words for c in w}
-        
-        for i in range(len(words)-1):
-            w1,w2 = words[i], words[i+1]
-            minlength = min(len(w1), len(w2))
-            if len(w1) > len(w2) and w1[:minlength] == w2[:minlength]:
-                return ''
-            for j in range(minlength):
-                if w1[j] != w2[j]:
-                    g[w1[j]].append(w2[j])
-                    break
-        res = []
-        seen = {}
-        def dfs(c):
-            if c in seen:
-                return seen[c]
-            seen[c] = False
-            for n in g[c]:
-                if not dfs(n): return False
-            seen[c] = True
-            res.append(c)
-            return True
-        
-        for c in g:
-            if not dfs(c): return ""
-        return "".join(res[::-1])
+        # Kahn's BFS
+        indegree, graph = {c: 0 for word in words for c in word}, collections.defaultdict(set)
+        for i in range(1, len(words)):
+            is_prefix = True
+            for a, b in zip(words[i-1], words[i]):
+                if a == b:
+                    continue
+                if b not in graph[a]: 
+                    indegree[b] += 1
+                is_prefix = False
+                graph[a].add(b)
+                break
+            if is_prefix == True and len(words[i-1]) > len(words[i]):
+                return ""
+        res = ""
+        # start w 0 indegree nodes
+        queue = deque([c for c in indegree if indegree[c]==0])
+        while queue:
+            c = queue.popleft()
+            res += c
+            for n in graph[c]:
+                indegree[n] -= 1
+                if indegree[n]==0: 
+                    queue.append(n)
+        return res if len(res) == len(indegree) else ''  

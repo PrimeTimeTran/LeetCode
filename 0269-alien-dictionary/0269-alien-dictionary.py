@@ -1,13 +1,15 @@
 '''
-Create a graph using chars of word.
-Guard for long matching prefix words appearing before shorter.
-Find first diff char of w1 and w2. Add w2 to g of w1
+Create graph using chars of word of words.
+
+Iterate words 2 at a time, guarding for matching prefixes having a longer word before a shorter. Return "" if true.
+Loop through chars of w1 looking for first differing char. The first differing char add it to word one's list in the graph.
+Topsort of graph with loop detection.
+Return the reverse joined res because to create lexicographically increasing order string.
 '''
 
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
         g = {c: [] for w in words for c in w}
-        # g = defaultdict(list)
         
         for i in range(len(words)-1):
             w1,w2 = words[i], words[i+1]
@@ -29,8 +31,6 @@ class Solution:
             seen[c] = True
             res.append(c)
             return True
-        
-        
         
         for c in g:
             if not dfs(c): return ""

@@ -1,7 +1,7 @@
 '''
 Create graph/adj list/hm of wildcarded words with matches
 Use BFS to search from start to end word. Iterate for every item in q and only add non seen words to q.
-
+For every word wildcard varient, increment res.
 
 
 {

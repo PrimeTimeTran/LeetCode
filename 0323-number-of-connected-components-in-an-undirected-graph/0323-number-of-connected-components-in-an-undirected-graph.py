@@ -1,6 +1,11 @@
+'''
+Define find. Define union. Union with edges and return len of set found items.
+
+'''
+
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
-        parent = list(range(n))
+        parent = [i for i in range(n)]
         
         def find(x):
             if parent[x] != x:
@@ -8,11 +13,13 @@ class Solution:
             return parent[x]
         
         def union(x,y):
-            rx,ry = find(x),find(y)
-            if parent[rx] != parent[ry]:
+            rx,ry = find(x), find(y)
+            if rx != ry:
                 parent[rx] = ry
         
-        for x,y in edges:
-            union(y,x)
         
-        return len({find(x) for x in range(n)})
+        for x,y in edges:
+            union(x,y)
+        
+        
+        return len({find(i) for i in range(n)})

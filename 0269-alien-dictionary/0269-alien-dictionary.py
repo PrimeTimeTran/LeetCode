@@ -16,7 +16,7 @@ class Solution:
             
             minlength = min(len(w1), len(w2))
             
-            # Check prefix                    
+            # Check prefix appears after                    
             if len(w1) > len(w2) and w1[:minlength] == w2[:minlength]:
                 return ""
             
@@ -35,7 +35,6 @@ class Solution:
             seen[c] = True
             res.append(c)
             return True
-        print(res)
         for c in g:
             if not dfs(c): return ""
         

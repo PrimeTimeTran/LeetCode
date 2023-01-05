@@ -28,7 +28,7 @@ class Solution:
         res = 0
         for r in range(m):
             for c in range(n):
-                if dfs(r,c):
+                if dfs(r,c) and grid[r][c] == '1':
                     res+=1
                     
         return res

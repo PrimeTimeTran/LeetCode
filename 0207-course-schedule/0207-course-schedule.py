@@ -1,19 +1,22 @@
 class Solution:
-    def canFinish(self, N: int, pre: List[List[int]]) -> bool:
-        g = {c:[] for c in range(N)}
-        for a,b in pre:
+    def canFinish(self, N: int, P: List[List[int]]) -> bool:
+        g = defaultdict(list)
+        for a,b in P:
             g[a].append(b)
+        
         seen = set()
-        def dfs(c):
-            if g[c] == []:
+        def dfs(n):
+            if g[n] == []:
                 return True
-            if c in seen:
+            if n in seen:
                 return False
-            seen.add(c)
-            for pre in g[c]:
-                if not dfs(pre): return False
-            g[c] = []
+            seen.add(n)
+            for nei in g[n]:
+                if not dfs(nei): return False
+            g[n] = []
             return True
         for c in range(N):
             if not dfs(c): return False
+        
+        
         return True

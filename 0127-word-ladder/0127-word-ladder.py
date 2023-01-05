@@ -1,6 +1,6 @@
 '''
 Create graph/adj list/hm of wildcarded words with matches
-Use BFS to search from start to end word. Iterate for every item in q and only add non seen words to q.
+Use BFS to search graph. Start from begin word in graph to neighbor's adding non seen words to q.
 For every word wildcard varient, increment res.
 
 
@@ -21,21 +21,21 @@ For every word wildcard varient, increment res.
 '''
 
 class Solution:
-    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+    def ladderLength(self, start: str, end: str, words: List[str]) -> int:
         g = defaultdict(list)
-        
-        for w in wordList:
+
+        for w in words:
             for j in range(len(w)):
                 pat = w[:j] + '*' + w[j+1:]
                 g[pat].append(w)
+
         res = 1
-        
-        seen = set(beginWord)
-        q = deque([beginWord])
+        q = deque([start])
+        seen = set(start)
         while q:
             for _ in range(len(q)):
                 w = q.popleft()
-                if w == endWord:
+                if w == end:
                     return res
                 for j in range(len(w)):
                     pat = w[:j] + '*' + w[j+1:]
@@ -43,5 +43,5 @@ class Solution:
                         if nei not in seen:
                             seen.add(nei)
                             q.append(nei)
-            res+=1
+            res += 1
         return 0

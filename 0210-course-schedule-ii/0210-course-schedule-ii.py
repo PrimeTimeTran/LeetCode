@@ -1,41 +1,35 @@
 '''
 1. Constraints
 
-Return array/list
+2. Diagram
 
 
-2. Pseudocode
-
-Create an g/adj list using pre
-
-Iterate over each course and if we encounter a cycle, return an empty array.
-    - Check if course seen, if so check if course taken
-    - Loop over the courses' pre
-    - Add course to res
-
-We return our list
+3. Pseudocode
+Create graph using edges.
+Create a topilogical sort using DFS and return it's reversed version.
 
 '''
 
 class Solution:
-    def findOrder(self, N: int, pre: List[List[int]]) -> List[int]:
-        g = {c:[] for c in range(N)}
-        for a,b in pre:
+    def findOrder(self, N: int, P: List[List[int]]) -> List[int]:
+        g = defaultdict(list)
+        for a,b in P:
             g[a].append(b)
-        res = []
+            
         seen = {}
-        def dfs(c):
-            if c in seen:
-                return seen[c]
-            seen[c] = False
-            for p in g[c]:
-                if not dfs(p): return False
-            seen[c] = True
-            res.append(c)
+        def dfs(n):
+            if n in seen:
+                return seen[n]
+            seen[n] = False
+            
+            for nei in g[n]:
+                if not dfs(nei): return False
+            res.append(n)
+            seen[n] = True
             return True
-        
+            
+        res = []
         for c in range(N):
             if not dfs(c): return []
-        return res        
-        
+            
         return res

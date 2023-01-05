@@ -1,13 +1,4 @@
 '''
-target = 6
-pos = 6
-speed = -2
-moves = 5
-
-AAARA
-
-
-BFS
 
 '''
 
@@ -19,15 +10,13 @@ class Solution:
         while q:
             moves, speed, pos = q.popleft()
             
-            # Check if pos == target, if so return
             if pos == target:
                 return moves
             
             q.append([moves+1, speed*2, pos+speed])
             
-            # Check if past target, if so, reverse direction
-            if pos+speed > target and speed > 0 or pos+speed < target and speed < 0:
+            overshotTarget = pos+speed > target and speed > 0 or pos+speed < target and speed < 0
+            if overshotTarget:
                 speed = -1 if speed > 0 else 1
-                
                 q.append([moves+1, speed, pos])
             

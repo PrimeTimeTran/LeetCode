@@ -16,12 +16,12 @@ class Solution:
             for i in range(len(q)):
                 r, c = q.popleft()
                 for i in range(4):
-                    row, col = d[i] + r, d[i+1] + c
-                    out = row < 0 or col < 0 or row == m or col == n
-                    if out or grid[row][col] != 1:
+                    nr, nc = d[i] + r, d[i+1] + c
+                    out = nr < 0 or nc < 0 or nr == m or nc == n
+                    if out or grid[nr][nc] != 1:
                         continue
-                    grid[row][col] = 2
-                    q.append([row, col])
+                    grid[nr][nc] = 2
+                    q.append([nr, nc])
                     fresh -= 1
             time += 1
 

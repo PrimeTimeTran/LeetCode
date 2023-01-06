@@ -1,3 +1,9 @@
+'''
+[0,1]
+[0, 1, 2, 3, 4]
+
+'''
+
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         if n - 1 != len(edges):

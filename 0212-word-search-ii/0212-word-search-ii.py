@@ -35,8 +35,7 @@ class Solution:
 
         def dfs(r, c, node, word):
             out = r < 0 or c < 0 or r == m or c == n
-            if out:
-                return
+            if out: return
             char = board[r][c]
             if char not in node.children or (r, c) in seen:
                 return

@@ -1,25 +1,23 @@
+'''
+Loop grid performing DFS on any land found. 
+DFS marks all land cells neighboring as seen and returns the sum of recursive calls.
+'''
+
 class Solution:
-    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        m,n=len(grid), len(grid[0])
+    def maxAreaOfIsland(self, g: List[List[int]]) -> int:
+        m,n = len(g), len(g[0])
         
         seen = set()
         def dfs(r,c):
             out = r < 0 or c < 0 or r == m or c == n
-            if out:
-                return 0
-            if (r,c) in seen or grid[r][c] == 0:
+            if out: return 0
+            if g[r][c] == 0 or (r,c) in seen:
                 return 0
             seen.add((r,c))
-            dir = [0,1,0,-1,0]
-            res = 1
-            for i in range(4):
-                nr,nc = r+dir[i], c+ dir[i+1]
-                res+= dfs(nr,nc)
-            return res
-                
+            return 1 + dfs(r+1,c) + dfs(r-1,c) + dfs(r,c+1) + dfs(r,c-1)
+        
         res = 0
         for r in range(m):
             for c in range(n):
-                if grid[r][c]:
-                    res = max(dfs(r,c), res)
+                res = max(dfs(r,c), res)
         return res

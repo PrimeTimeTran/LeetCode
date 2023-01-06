@@ -12,20 +12,20 @@ class TrieNode:
         cur.isWord = True
 
     def prune(self, word):
-        curr = self
-        stack = []
-
-        for ch in word:
-            stack.append(curr)
-            curr = curr.children[ch]
-
-        curr.isWord = False
-
-        for t_node, ch in reversed(list(zip(stack, word))):
-            if len(t_node.children[ch].children) > 0:
+        stack, cur = [], self
+        
+        for c in word:
+            stack.append(cur)
+            cur = cur.children[c]
+            
+        cur.isWord = False
+        
+        for n, c in reversed(list(zip(stack, word))):
+            if len(n.children[c].children) > 0:
                 return
             else:
-                del t_node.children[ch]
+                del n.children[c]
+         
 
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:

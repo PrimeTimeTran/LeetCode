@@ -17,7 +17,7 @@ class Solution:
         
         for x,y in edges:
             rx,ry = find(x), find(y)
-            
+            # print(parent, rx, ry)
             if rx == ry:
                 return False
             

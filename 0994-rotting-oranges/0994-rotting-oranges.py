@@ -11,20 +11,14 @@ class Solution:
                 if grid[r][c] == 2:
                     q.append([r, c])
 
-        dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+        d = [0,1,0,-1,0]
         while q and fresh > 0:
             for i in range(len(q)):
                 r, c = q.popleft()
-                for dr, dc in dirs:
-                    row, col = dr + r, dc + c
-                    out = (
-                        row < 0
-                        or col < 0
-                        or row == m
-                        or col == n
-                        or grid[row][col] != 1
-                    )
-                    if out:
+                for i in range(4):
+                    row, col = d[i] + r, d[i+1] + c
+                    out = row < 0 or col < 0 or row == m or col == n
+                    if out or grid[row][col] != 1:
                         continue
                     grid[row][col] = 2
                     q.append([row, col])

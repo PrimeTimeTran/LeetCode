@@ -44,9 +44,7 @@ class Solution:
             node = node.children[char]
             word += char
 
-            if node.isWord:
-                res.append(word)
-                root.prune(word)
+            if node.isWord: res.append(word); root.prune(word)
 
             dfs(r + 1, c, node, word)
             dfs(r - 1, c, node, word)

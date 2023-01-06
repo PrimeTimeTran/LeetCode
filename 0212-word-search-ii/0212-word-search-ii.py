@@ -37,8 +37,7 @@ class Solution:
             out = r < 0 or c < 0 or r == m or c == n
             if out: return
             char = board[r][c]
-            if char not in node.children or (r, c) in seen:
-                return
+            if char not in node.children or (r, c) in seen: return
 
             seen.add((r, c))
 

@@ -1,7 +1,7 @@
 '''
-With nested loops transform perimeter island cells to T. 
-Next transform all O's to X's.
-Transform T's back to X's
+With nested loops transform perimeter island cells to T guarding for cycles. 
+With nested loops transform O cells to X cells.
+With nested loops transform T cells to O cells.
 '''
 
 class Solution:
@@ -21,7 +21,8 @@ class Solution:
 
         for r in range(m):
             for c in range(n):
-                if board[r][c] == 'O' and (r in [0, m-1] or c in [0, n-1]):
+                perimeter = (r in [0, m-1] or c in [0, n-1])
+                if board[r][c] == 'O' and perimeter:
                     capture(r,c)                   
         
         for r in range(m):

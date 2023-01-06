@@ -1,7 +1,8 @@
 '''
-Traverse using nested loops calling DFS on unseen land cells.
-In DFS, guard for our, water, seen.
-Return 1 + recursive call to neighbors.
+Traverse using nested loops calling DFS land cell.
+In DFS, guard for out or water, returning 1; the addition to perimeter.
+If DFS cell in seen, return 0.
+Return recursive sum of DFS called on neighbors.
 '''
 class Solution:
     def islandPerimeter(self, g: List[List[int]]) -> int:

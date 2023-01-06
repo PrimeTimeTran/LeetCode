@@ -13,12 +13,12 @@ class Solution:
 
         seen = set()
         self.res = 0
-        edges = {(a, b) for a, b in connections}
+        roads = {(a, b) for a, b in connections}
         def dfs(c):
             for n in neighbors[c]:
                 if n in seen:
                     continue
-                if (n, c) not in edges:
+                if (n, c) not in roads:
                     self.res += 1
                 seen.add(n)
                 dfs(n)

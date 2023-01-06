@@ -33,7 +33,7 @@ class Solution:
         for w in words:
             root.addWord(w)
         m, n = len(board), len(board[0])
-        res, seen = set(), set()
+        res, seen = [], set()
 
         def dfs(r, c, node, word):
             out = r < 0 or c < 0 or r == m or c == n
@@ -49,7 +49,7 @@ class Solution:
             word += char
 
             if node.isWord:
-                res.add(word)
+                res.append(word)
                 root.prune(word)
 
             dfs(r + 1, c, node, word)
@@ -63,4 +63,4 @@ class Solution:
             for c in range(n):
                 dfs(r, c, root, "")
                 
-        return list(res)
+        return res

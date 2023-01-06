@@ -1,4 +1,3 @@
-DIR = [0,1,0,-1,0]
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         m,n = len(grid), len(grid[0])

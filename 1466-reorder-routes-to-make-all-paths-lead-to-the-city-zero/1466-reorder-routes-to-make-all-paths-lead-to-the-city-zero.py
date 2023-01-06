@@ -1,14 +1,19 @@
+'''
+Create a undirected acyclic graph as "happy case".
+Traverse happy case graph and if it isn't found in "reality" graph set, increment res.
+'''
+
 class Solution:
     def minReorder(self, n: int, connections: List[List[int]]) -> int:
-        self.res = 0
-        seen = set()
-        edges = {(a, b) for a, b in connections}
         neighbors = defaultdict(list)
 
         for a, b in connections:
             neighbors[a].append(b)
             neighbors[b].append(a)
 
+        seen = set()
+        self.res = 0
+        edges = {(a, b) for a, b in connections}
         def dfs(c):
             for n in neighbors[c]:
                 if n in seen:

@@ -27,7 +27,6 @@ class TrieNode:
             else:
                 del t_node.children[ch]
 
-
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
         root = TrieNode()
@@ -41,9 +40,7 @@ class Solution:
             if out:
                 return
             char = board[r][c]
-            if char not in node.children:
-                return
-            if (r, c) in seen:
+            if char not in node.children or (r, c) in seen:
                 return
 
             seen.add((r, c))
@@ -65,5 +62,5 @@ class Solution:
         for r in range(m):
             for c in range(n):
                 dfs(r, c, root, "")
-
+                
         return list(res)

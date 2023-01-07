@@ -1,8 +1,5 @@
 class Solution:
     def solve(self, b: List[List[str]]) -> None:
-        """
-        Do not return anything, modify board in-place instead.
-        """
         m,n = len(b), len(b[0])
         seen = set()
         def dfs(r,c):
@@ -15,8 +12,6 @@ class Solution:
             dfs(r-1,c)
             dfs(r,c+1)
             dfs(r,c-1)
-            
-            
             
         for r in range(m):
             for c in range(n):

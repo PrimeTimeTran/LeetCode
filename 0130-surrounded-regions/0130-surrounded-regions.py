@@ -7,9 +7,7 @@ class Solution:
         seen = set()
         def dfs(r,c):
             out = r < 0 or c < 0 or r == m or c == n or (r,c) in seen 
-            if out:
-                return
-            if b[r][c] == 'X':
+            if out or b[r][c] == 'X':
                 return
             seen.add((r,c))
             b[r][c] = 'T'

@@ -4,18 +4,19 @@ class Solution:
         for a,b in connections:
             g[a].append(b)
             g[b].append(a)
-            
-        seen = set()
-        seen.add(0)
+        
         self.res = 0
         roads = {(a,b) for a,b in connections}
+        seen = set([0])
         def dfs(n):
-            for nei in g[n]:
-                if nei in seen: continue
-                if (nei,n) not in roads:
-                    self.res += 1
-                seen.add(nei)
-                dfs(nei)
+            for c in g[n]:
+                if c in seen:
+                    continue
+                if (c,n) not in roads:
+                    self.res+=1
+                seen.add(c)
+                dfs(c)
+                
         
         dfs(0)
         return self.res

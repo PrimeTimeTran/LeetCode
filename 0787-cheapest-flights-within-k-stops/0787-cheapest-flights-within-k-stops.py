@@ -1,3 +1,4 @@
+from heapq import heappop, heappush
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
         g = defaultdict(list)
@@ -6,16 +7,13 @@ class Solution:
 
         pq, seen = [(0, src, k + 1)], dict()
         while pq:
-            d, u, s = heapq.heappop(pq)
-            if u == dst:
-                return d
-
+            d, u, s = heappop(pq)
+            if u == dst: return d
             if u in seen and seen[u] >= s: continue
             seen[u] = s
-
             if s:
                 for v, w in g[u]:
-                    heapq.heappush(pq, (d + w, v, s - 1))
+                    heappush(pq, (d + w, v, s - 1))
         return -1
 
 #         prices = [inf]*n

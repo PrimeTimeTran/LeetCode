@@ -9,7 +9,7 @@ class Solution:
             seen = set()
             while q:
                 x, y, val = q.popleft()
-                out  = x < 0 or x >= m or y < 0 or y >= n
+                out  = x < 0 or x == m or y < 0 or y == n
                 if out or g[x][y] in [0, -1] or (x, y) in seen:
                     continue
                 seen.add((x, y))

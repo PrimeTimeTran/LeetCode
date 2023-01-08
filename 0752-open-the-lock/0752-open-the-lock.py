@@ -1,3 +1,8 @@
+'''
+BFS
+BFS through all combinations. 
+'''
+
 class Solution:
     def openLock(self, deadends: List[str], target: str) -> int:
         def neighbors(code):

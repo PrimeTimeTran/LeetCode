@@ -1,25 +1,23 @@
 '''
-Use BFS to implement dikjstra's algorithm.
-Take the shortest path possible first from each node working through neighbors watching for cycles.
+BFS graph carrying time forward with a PQ. If number of seen nodes break loop and return last time.
+Guard cycles with set
 
 '''
 
-from heapq import heappush, heappop
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
         g = defaultdict(list)
-        
         for u,v,w in times:
-            g[u].append([v,w])
+            g[u].append((v,w))
+            
+        pq = [[0,k]]
         seen = set()
-        q = [[0,k]]
-        while q:
-            t, u = heappop(q)
+        while pq:
+            t,u = heapq.heappop(pq)
             if u in seen: continue
             seen.add(u)
             if len(seen) == n: break
             for v, nt in g[u]:
-                heappush(q, [t+nt, v])
-            
-        
+                heapq.heappush(pq, [nt+t, v])
         return t if len(seen) == n else -1
+                

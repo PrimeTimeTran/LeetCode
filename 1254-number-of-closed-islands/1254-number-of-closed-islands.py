@@ -5,11 +5,12 @@ class Solution:
         def dfs(r, c):
             if 0 <= r < m and 0 <= c < n and g[r][c] == 0:
                 g[r][c] = 1
-                dfs(r, c + 1)
                 dfs(r + 1, c)
                 dfs(r - 1, c)
+                dfs(r, c + 1)
                 dfs(r, c - 1)
-
+        
+        # Transform edge islands to water
         for r in range(m):
             for c in range(n):
                 edge = r == 0 or c == 0 or r == m - 1 or c == n - 1

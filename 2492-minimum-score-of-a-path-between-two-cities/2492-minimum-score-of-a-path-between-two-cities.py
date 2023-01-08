@@ -18,9 +18,10 @@ class Solution:
         def dfs(n):
             if n in seen:
                 return
+            seen.add(n)
             for nei, w in g[n]:
                 if nei not in seen:
-                    seen.add(n)
+                    
                     dfs(nei)
                     
                 self.res = min(self.res, w)

@@ -1,29 +1,34 @@
 '''
-Create g with wildcard keys containing their variants.
-BFS from start looking for word matching end.
+Create wildcard keys with matching potential values as adj list.
+Use BFS to with nested for loop to work though layer, count number of layers.
 
 '''
+
 class Solution:
-    def ladderLength(self, s: str, e: str, words: List[str]) -> int:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         g = defaultdict(list)
         
-        for w in words:
-            for j in range(len(w)):
-                pat = w[:j] + '*' + w[j+1:]
+        for w in wordList:
+            for i in range(len(w)):
+                pat = w[:i] + '*' + w[i+1:]
                 g[pat].append(w)
-        res = 1
-        seen = set()        
-        q = deque([s])
-        while q: 
+        
+        t = 1
+        q = deque([beginWord])
+        seen = set([beginWord])
+        while q:
             for _ in range(len(q)):
                 w = q.popleft()
-                if w == e: return res
-                for j in range(len(w)):
-                    pat = w[:j] + '*' + w[j+1:]
+                if w == endWord: 
+                    return t
+                for i in range(len(w)):
+                    pat = w[:i] + '*' + w[i+1:]
                     for nei in g[pat]:
                         if nei not in seen:
                             seen.add(nei)
                             q.append(nei)
-            
-            res+=1
-        return 0
+                
+            t+=1
+        
+        
+        return 0 

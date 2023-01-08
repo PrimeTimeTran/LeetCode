@@ -19,5 +19,5 @@ class Solution:
             for v, nt in g[u]:
                 heapq.heappush(pq, [time+nt, v])
                 # pq.append([time+nt, v])
-        
+        return -1
         return time if len(seen) == n else -1

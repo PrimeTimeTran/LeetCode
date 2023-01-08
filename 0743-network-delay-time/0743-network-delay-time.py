@@ -12,9 +12,12 @@ class Solution:
         
         while pq:
             time, u = heapq.heappop(pq)
+            # time, u = pq.pop()
             if u in seen: continue
             seen.add(u)
-            if len(seen) == n: break
+            if len(seen) == n: return time
             for v, nt in g[u]:
                 heapq.heappush(pq, [time+nt, v])
+                # pq.append([time+nt, v])
+        
         return time if len(seen) == n else -1

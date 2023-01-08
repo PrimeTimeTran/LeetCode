@@ -1,8 +1,8 @@
 d = [0,1,0,-1,0]
 class Solution:
     def wallsAndGates(self, g: List[List[int]]) -> None:
-        if not g:
-            return 
+        # if not g: return 
+            
         m, n= len(g), len(g[0])
         for r in range(m):
             for c in range(n):

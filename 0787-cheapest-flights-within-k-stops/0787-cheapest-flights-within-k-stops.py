@@ -10,8 +10,7 @@ class Solution:
             if u == dst:
                 return d
 
-            if u in seen and seen[u] >= s:
-                continue
+            if u in seen and seen[u] >= s: continue
             seen[u] = s
 
             if s:

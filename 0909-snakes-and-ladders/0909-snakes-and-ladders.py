@@ -1,7 +1,7 @@
 class Solution:
-    def snakesAndLadders(self, board: List[List[int]]) -> int:
-        length = len(board)
-        board.reverse()
+    def snakesAndLadders(self, g: List[List[int]]) -> int:
+        length = len(g)
+        g.reverse()
 
         def intToPos(square):
             r = (square - 1) // length
@@ -12,18 +12,18 @@ class Solution:
 
         q = deque()
         q.append([1, 0])
-        visit = set()
+        seen = set()
         while q:
             square, moves = q.popleft()
 
             for i in range(1, 7):
                 nxtSquare = square + i
                 r, c = intToPos(nxtSquare)
-                if board[r][c] != -1:
-                    nxtSquare = board[r][c]
+                if g[r][c] != -1:
+                    nxtSquare = g[r][c]
                 if nxtSquare == length * length:
                     return moves + 1
-                if nxtSquare not in visit:
-                    visit.add(nxtSquare)
+                if nxtSquare not in seen:
+                    seen.add(nxtSquare)
                     q.append([nxtSquare, moves + 1])
         return -1

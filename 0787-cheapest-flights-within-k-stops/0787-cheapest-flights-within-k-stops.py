@@ -1,28 +1,27 @@
 '''
-Dijkstra
-Create graph with flights and BFS with PQ. Check for cycles and update res on each item.
-Each item has price, vertex, and steps remaining
-
+BFS G with PQ with cost, src, stops. 
 '''
 
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
         g = defaultdict(list)
-        for u,v,w in flights:
-            g[u].append((v, w))
-            
-        # price, src, steps remaining
-        pq, seen = [(0, src, k + 1)],  {}
-        while pq: 
-            price, u, s = heapq.heappop(pq)
-            if u == dst:
-                return price
-            if u in seen and seen[u] >= s: continue
-            seen[u] = s
-            
-            if s:
-                for v, w in g[u]:
-                    heapq.heappush(pq, [price+w, v, s-1])
-        return -1
-                    
         
+        for u,v,w in flights:
+            g[u].append([v,w])
+            
+        pq = [[0, src, k+1]]
+        seen = {}
+        
+        while pq:
+            cost, u, stops = heapq.heappop(pq)
+            if u == dst: return cost
+            
+            if u in seen and seen[u] >= stops: continue
+            seen[u] = stops
+            
+            if stops:
+                for v, w in g[u]:
+                    heapq.heappush(pq, [cost+w, v, stops-1])
+        return -1
+                
+                

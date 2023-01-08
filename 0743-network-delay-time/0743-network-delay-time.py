@@ -6,4 +6,4 @@ class Solution:
             for u, v, w in times:
                 if dist[u-1] + w < dist[v-1]:
                     dist[v-1] = dist[u-1] + w
-        return max(dist) if max(dist) < float("inf") else -1
+        return max(dist) if max(dist) < inf else -1

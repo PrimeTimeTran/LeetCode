@@ -1,6 +1,7 @@
 '''
 Dijkstra
 Create graph with flights and BFS with PQ. Check for cycles and update res on each item.
+Each item has price, vertex, and steps remaining
 
 '''
 
@@ -10,7 +11,7 @@ class Solution:
         for u,v,w in flights:
             g[u].append((v, w))
             
-        # price, src, steps remeaning
+        # price, src, steps remaining
         pq, seen = [(0, src, k + 1)],  {}
         while pq: 
             price, u, s = heapq.heappop(pq)

@@ -3,7 +3,7 @@ class Solution:
         g = defaultdict(list)
         for a, b in sorted(tickets)[::-1]:
             g[a].append(b)
-            print(g)
+        
         route = []
         def visit(airport):
             while g[airport]:

@@ -1,3 +1,13 @@
+'''
+BFS
+BFS using G with wildcard keys and word values.
+Use HM to count layers to ensure we can safely add this word without entering loop.
+If so, add word to parent HM.
+
+After BFS, DFS from endWord to beginWord adding all their words in the sequence. When beginword
+found return the reversed path.
+
+'''
 class Solution:
     def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
         g = defaultdict(list)
@@ -15,13 +25,14 @@ class Solution:
             if word == endWord: break
             for i in range(len(word)):
                 pat = word[:i] + "*" + word[i+1:]
-                for nxt in g[pat]:
-                    if nxt not in seen:
-                        seen[nxt] = seen[word] + 1
-                        q.append(nxt)
-                        parent_list[nxt].add(word)
-                    elif seen[nxt] > seen[word]:
-                        parent_list[nxt].add(word)
+                for nei in g[pat]:
+                    if nei not in seen:
+                        seen[nei] = seen[word] + 1
+                        parent_list[nei].add(word)
+                        q.append(nei)
+                    elif seen[nei] > seen[word]:
+                        parent_list[nei].add(word)
+                        
         ans_path = []
         def dfs(word, path):
             if word == beginWord:

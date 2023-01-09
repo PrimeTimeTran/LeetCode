@@ -1,6 +1,8 @@
 '''
 BFS
-BFS through all combinations. 
+BFS through all combinations. Stop traversing on deadends. Add neighbors to Q.
+Find neighbors by traversing code index's and adding both -1 and 1, 
+yielding and returning the code with the new val injected.
 '''
 
 class Solution:
@@ -8,9 +10,9 @@ class Solution:
         def neighbors(code):
             for i in range(4):
                 x = int(code[i])
-                for diff in (-1, 1):
-                    y = (x + diff + 10) % 10
-                    yield code[:i] + str(y) + code[i + 1:]
+                for diff in [-1,1]:
+                    y = (x+diff+10) % 10
+                    yield code[:i] + str(y) + code[i+1:]
 
         deadSet = set(deadends)
         if "0000" in deadSet: return -1

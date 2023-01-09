@@ -1,8 +1,11 @@
 '''
 BFS
-BFS through all combinations. Stop traversing on deadends. Add neighbors to Q.
+BFS through all combinations stopping on deadends. Add neighbors to Q.
 Find neighbors by traversing code index's and adding both -1 and 1, 
-yielding and returning the code with the new val injected.
+yielding the codes with new val injected.
+
+Increment res once for each layer
+
 '''
 
 class Solution:
@@ -12,8 +15,8 @@ class Solution:
                 x = int(code[i])
                 for diff in [-1,1]:
                     y = (x+diff+10) % 10
-                    yield code[:i] + str(y) + code[i+1:]
-
+                    yield code[:i]+str(y)+code[i+1:]
+            
         deadSet = set(deadends)
         if "0000" in deadSet: return -1
         q = deque(["0000"])

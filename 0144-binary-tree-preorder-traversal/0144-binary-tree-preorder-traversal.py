@@ -3,12 +3,13 @@
 
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        res = []
+        self.res = []
         def dfs(n):
             if n:
-                res.append(n.val)
+                self.res.append(n.val)
+                
                 dfs(n.left)
                 dfs(n.right)
                 
-        dfs(root) 
-        return res
+        dfs(root)
+        return self.res

@@ -24,8 +24,7 @@ class Solution:
             
         seen, self.res = set(), inf
         def dfs(n):
-            if n in seen:
-                return
+            if n in seen: return
             seen.add(n)
             for v, dis in g[n]:
                 if v not in seen:

@@ -10,10 +10,9 @@ class Solution:
         res = inf
         while q:
             u = q.popleft()
-            if u in seen: continue
-            seen.add(u)
             for v, w in g[u]:
                 if v not in seen:
+                    seen.add(u)
                     q.append(v)
                 res = min(res, w)
                 

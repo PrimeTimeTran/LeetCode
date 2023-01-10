@@ -16,11 +16,9 @@ class Solution:
             res = dfs(r,c-1) and res
             return res
             
-        
         res = 0
         for r in range(m):
             for c in range(n):
-                # if grid2[r][c] and dfs(r,c)  and (r,c) not in seen: 
                 if grid2[r][c] and (r,c) not in seen and dfs(r,c): 
                     res +=1
                     

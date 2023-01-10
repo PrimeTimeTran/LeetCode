@@ -15,7 +15,7 @@ class Solution:
         # else:
         #     l2.next = self.mergeTwoLists(l1, l2.next)
         #     return l2
-        dummy = ListNode()
+        dummy = ListNode
         tail = dummy
         while l1 and l2:
             if l1.val < l2.val:

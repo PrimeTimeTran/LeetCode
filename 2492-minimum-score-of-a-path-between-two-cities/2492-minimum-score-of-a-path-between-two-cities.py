@@ -6,14 +6,16 @@ class Solution:
             g[u].append((v,w))
             g[v].append((u,w))
             
-        self.res, seen = inf, set()
-        def dfs(u):
-            if u in seen: return
+        seen, q = set(), deque([1])
+        res = inf
+        while q:
+            u = q.popleft()
+            if u in seen: continue
             seen.add(u)
             for v, w in g[u]:
                 if v not in seen:
-                    dfs(v)
-                self.res = min(self.res, w)
-                    
-        dfs(1)
-        return self.res
+                    q.append(v)
+                res = min(res, w)
+                
+        return res
+            

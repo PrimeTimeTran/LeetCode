@@ -20,14 +20,14 @@ class Solution:
         self.itinerary.append(node)
     
     def _makeGraph(self, edges):
-        graph = defaultdict(list)
-        for e in edges:
-            graph[e[0]].append(e[1])
-        return graph
+        g = defaultdict(list)
+        for a,b in edges:
+            g[a].append(b)
+        return g
 
     def findItinerary(self, tickets):
         tickets.sort(key= lambda x: x[1])
-        graph = self._makeGraph(tickets)
+        g = self._makeGraph(tickets)
         self.itinerary = []
-        self._DFS(graph, "JFK")
+        self._DFS(g, "JFK")
         return self.itinerary[::-1]

@@ -11,7 +11,6 @@ class Solution:
             seen[headA] = headA
             headA = headA.next
         while headB:
-            print(headB.val)
             if headB in seen:
                 return seen[headB]
             headB = headB.next

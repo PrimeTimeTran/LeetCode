@@ -18,27 +18,27 @@ class Solution:
 
         q = deque([beginWord])
         seen = {beginWord: 1}
-        parent_list = defaultdict(set)
-        
+        parent = defaultdict(set)
+
         while q:
             word = q.popleft()
-            if word == endWord: break
+            if word == endWord:
+                break
             for i in range(len(word)):
                 pat = word[:i] + "*" + word[i+1:]
-                for nei in g[pat]:
-                    if nei not in seen:
-                        seen[nei] = seen[word] + 1
-                        parent_list[nei].add(word)
-                        q.append(nei)
-                    elif seen[nei] > seen[word]:
-                        parent_list[nei].add(word)
-                        
-        ans_path = []
+                for w in g[pat]:
+                    if w not in seen:
+                        seen[w] = seen[word] + 1
+                        parent[w].add(word)
+                        q.append(w)
+                    elif seen[w] > seen[word]:
+                        parent[w].add(word)
+
+        ans = []
         def dfs(word, path):
             if word == beginWord:
-                ans_path.append(path[::-1])
-            for next_word in parent_list[word]:
+                ans.append(path[::-1])
+            for next_word in parent[word]:
                 dfs(next_word, path+[next_word])
-        
         dfs(endWord, [endWord])
-        return ans_path
+        return ans

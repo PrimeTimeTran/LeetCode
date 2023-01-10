@@ -1,6 +1,6 @@
 '''
-Using two sets, mark cells which can be reached by pac and atl oceans.
-If the cell can be reached by both pac and atl add it to the res.
+Using two sets, mark cells which can be reached by pac and atl oceans by traversing coastlines.
+Using a loop check if the cell can be reached by both pac and atl. If so add it to the res.
 '''
 
 class Solution:

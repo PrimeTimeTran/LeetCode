@@ -31,21 +31,17 @@ class Solution:
                 if w1[j] != w2[j]:
                     g[w1[j]].append(w2[j])
                     break
-        
         res, seen = [], {}
         def dfs(c):
             if c in seen:
                 return seen[c]
-            
             seen[c] = False
             for nei in g[c]:
                 if not dfs(nei): return False
             seen[c] = True
             res.append(c)
             return True
-        
         for c in g:
             if not dfs(c): return ""
-        
         
         return ''.join(res[::-1])

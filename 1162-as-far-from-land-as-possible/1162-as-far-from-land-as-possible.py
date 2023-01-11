@@ -5,8 +5,7 @@ class Solution:
         if len(q) == m * n or len(q) == 0: return -1
         level = 0
         while q:
-            size = len(q)
-            for _ in range(size):
+            for _ in range(len(q)):
                 i,j = q.popleft()
                 for x,y in [(1,0), (-1, 0), (0, 1), (0, -1)]:
                     xi, yj = x+i, y+j

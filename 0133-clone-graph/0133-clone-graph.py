@@ -4,11 +4,6 @@ class Node:
     def __init__(self, val = 0, neighbors = None):
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
-        
-        
-        
-Perform DFS on node copying the node and it's neighbors.
-Check for cycle using set and return the copy.
 """
 
 class Solution:
@@ -22,5 +17,4 @@ class Solution:
             for nei in n.neighbors:
                 copy.neighbors.append(dfs(nei))
             return copy
-        
         return dfs(node) if node else None

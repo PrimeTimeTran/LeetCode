@@ -8,14 +8,14 @@ class Solution:
                 q.append([r+d[i],c+d[i+1], 1])
             seen = set()
             while q:
-                x, y, val = q.popleft()
-                out  = x < 0 or x == m or y < 0 or y == n
-                if out or g[x][y] in [0, -1] or (x, y) in seen:
+                r, c, val = q.popleft()
+                out  = r < 0 or r == m or c < 0 or c == n
+                if out or g[r][c] in [0, -1] or (r, c) in seen:
                     continue
-                seen.add((x, y))
-                g[x][y] = min(g[x][y], val)
+                seen.add((r, c))
+                g[r][c] = min(g[r][c], val)
                 for i in range(4):
-                    q.append([x+d[i],y+d[i+1], val+1])
+                    q.append([r+d[i],c+d[i+1], val+1])
             
         for r in range(m):
             for c in range(n):

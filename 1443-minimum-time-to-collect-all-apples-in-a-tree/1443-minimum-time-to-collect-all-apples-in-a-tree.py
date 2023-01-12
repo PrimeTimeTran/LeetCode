@@ -13,10 +13,10 @@ class Solution:
                 return 0
             seen.add(n)
             secs = 0
-            for child in g[n]:
-                secs += dfs(child)
+            for nei in g[n]:
+                secs += dfs(nei)
             if secs > 0:
                 return secs + 2
             return 2 if hasApple[n] else 0
-
+            
         return max(dfs(0) - 2, 0)

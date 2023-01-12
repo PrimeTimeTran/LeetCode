@@ -1,21 +1,22 @@
 class Solution:
     def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
         g = defaultdict(list)
-        
-        for a,b in edges:
+
+        for a, b in edges:
             g[a].append(b)
             g[b].append(a)
-        
-        visited = set()
-        def dfs(node):
-            if node in visited:
+
+        seen = set()
+
+        def dfs(n):
+            if n in seen:
                 return 0
-            visited.add(node)
+            seen.add(n)
             secs = 0
-            for child in g[node]:
+            for child in g[n]:
                 secs += dfs(child)
             if secs > 0:
                 return secs + 2
-            return 2 if hasApple[node] else 0
+            return 2 if hasApple[n] else 0
 
         return max(dfs(0) - 2, 0)

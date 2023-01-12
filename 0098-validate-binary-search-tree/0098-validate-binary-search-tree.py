@@ -1,17 +1,16 @@
 class Solution:
     def isValidBST(self, root):
-        def valid(root):
-            if not root:
-                return (True, float('-inf'), float('inf'))
+        def valid(n, left, right):
+            if not n: return True
 
-            left_res = valid(root.left)
-            right_res = valid(root.right)
+            leftValid = valid(n.left, left, n.val)
+            rightValid = valid(n.right, n.val, right)
+            
+            if not leftValid or not rightValid:
+                return False
 
-            if not left_res[0] or not right_res[0] or root.val <= left_res[1] or root.val >= right_res[2]:
-                return (False, 0, 0)
-
-            return (True, max(root.val, right_res[1]), min(root.val, left_res[2]) )
-        self.prev = None
-        return valid(root)[0]
-
-    # The return result stores [True/False, max_so_far, min_so_far]
+            if n.val > left and n.val < right:
+                return True 
+            return False
+        
+        return valid(root, -inf, inf)

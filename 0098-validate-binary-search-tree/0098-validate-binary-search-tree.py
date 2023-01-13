@@ -1,3 +1,9 @@
+'''
+Check left node smaller and right node larger of every parent in tree.
+Preorder: Action, Left, Right
+Inorder: Left, Action, Right
+Postorder: Left, Right, Action
+'''
 class Solution:
     def isValidBST(self, root):
         # PRE

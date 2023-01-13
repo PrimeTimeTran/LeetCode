@@ -1,9 +1,8 @@
 class Solution:
     def shortestBridge(self, grid: List[List[int]]) -> int:
-        m = len(grid)
-        n = len(grid[0])
         seen = set()
         DIR = [0,1,0,-1,0]
+        m, n = len(grid), len(grid[0])
 
         def dfs(r, c):
             seen.add((r, c))

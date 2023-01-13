@@ -1,11 +1,3 @@
-'''
-deeedbbcccbdaa
-aa
-
-Move through string adding chars to stack. If the element last k elements added are the same, remove all of them.
-
-'''
-
 class Solution:
     def removeDuplicates(self, s: str, k: int) -> str:
         stack = []

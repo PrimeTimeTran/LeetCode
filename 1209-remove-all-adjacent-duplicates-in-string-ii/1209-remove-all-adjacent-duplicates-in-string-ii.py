@@ -1,18 +1,27 @@
+'''
+deeedbbcccbdaa
+aa
+
+Move through string adding chars to stack. If the element last k elements added are the same, remove all of them.
+
+'''
+
 class Solution:
-    def removeDuplicates(self, string: str, k: int) -> str:
-        s = []
-        for c in string:
-            if len(s) > 0:
-                if len(s) and s[-1][0] == c:
-                    p = s[-1][1]
-                    if p == k-1:
+    def removeDuplicates(self, s: str, k: int) -> str:
+        stack = []
+        for c in s:
+            if len(stack) > 0:
+                if len(stack) and stack[-1][0] == c:
+                    prev = stack[-1][1]
+                    if prev == k-1:
                         for _ in range(k-1):
-                            s.pop()
+                            stack.pop()
                     else:
-                        s.append([c, p+1])
+                        stack.append([c,prev+1])
                 else:
-                    s.append([c,1])
+                    stack.append([c, 1])
             else:
-                s.append([c, 1])
-        res = [t[0] for t in s]
-        return "".join(res)
+                stack.append([c,1])
+            
+        stack = [t[0] for t in stack]
+        return "".join(stack)

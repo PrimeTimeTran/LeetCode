@@ -5,8 +5,7 @@ class Solution:
             if n == len(graph)-1:
                 res.append(cur+[n])
             for nei in graph[n]:
-                dfs(nei, cur + [n])
-                    
-        dfs(0,[])
+                dfs(nei, cur+[n])
+                
+        dfs(0, [])
         return res
-            

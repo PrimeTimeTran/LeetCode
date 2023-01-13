@@ -10,11 +10,10 @@ class Solution:
             cur = [0]
             for j in g[i]:
                 c = dfs(j)
-                if s[i] != s[j]:
+                if s[j] != s[i]:
                     cur.append(c)
             cur = nlargest(2, cur)
-            res[0] = max(res[0], sum(cur)+1)
+            res[0] = max(res[0], sum(cur)+1) 
             return max(cur)+1
-            
         dfs(0)
         return res[0]

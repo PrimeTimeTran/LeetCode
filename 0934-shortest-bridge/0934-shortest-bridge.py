@@ -4,8 +4,7 @@ class Solution:
         DIR = [0,1,0,-1,0]
         m, n = len(grid), len(grid[0])
         
-        def out(r,c):
-            return not (0 <= r < m and 0 <= c < n)
+        def out(r,c): return not (0 <= r < m and 0 <= c < n)
         def dfs(r, c):
             seen.add((r, c))
             

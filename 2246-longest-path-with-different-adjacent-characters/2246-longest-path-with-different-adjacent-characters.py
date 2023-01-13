@@ -7,15 +7,14 @@ class Solution:
         
         res = [0]
         def dfs(i):
-            candi = [0]
+            cur = [0]
             for j in g[i]:
-                cur = dfs(j)
+                c = dfs(j)
                 if s[i] != s[j]:
-                    candi.append(cur)
-                    
-            candi = nlargest(2, candi)
-            res[0] = max(res[0], sum(candi) + 1)
-            return max(candi) + 1
-        
+                    cur.append(c)
+            cur = nlargest(2, cur)
+            res[0] = max(res[0], sum(cur)+1)
+            return max(cur)+1
+            
         dfs(0)
         return res[0]

@@ -8,11 +8,13 @@ class Solution:
         while q:
             for _ in range(len(q)):
                 r, c = q.popleft()
-                if (0 in [r, c] or r == m-1 or c == n-1) and [r, c] != entrance:
+                border = (0 in [r, c] or r == m-1 or c == n-1)
+                if border and [r, c] != entrance:
                     return steps
                 for i in range(4):
                     nr,nc = r+DIR[i],c+DIR[i+1]
-                    if 0 <= nr < m and 0 <= nc < n and maze[nr][nc] == '.' and (nr,nc) not in seen:
+                    inbounds = 0 <= nr < m and 0 <= nc < n
+                    if inbounds and maze[nr][nc] == '.' and (nr,nc) not in seen:
                         seen.add((nr,nc))
                         q.append([nr,nc])
             steps+=1

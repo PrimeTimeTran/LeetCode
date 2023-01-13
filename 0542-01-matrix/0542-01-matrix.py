@@ -15,7 +15,8 @@ class Solution:
             r, c = q.popleft()
             for i in range(4):
                 nr, nc = r + DIR[i], c + DIR[i + 1]
-                if nr < 0 or nr == m or nc < 0 or nc == n or mat[nr][nc] != -1: continue
+                out = nr < 0 or nr == m or nc < 0 or nc == n
+                if out or mat[nr][nc] != -1: continue
                 mat[nr][nc] = mat[r][c] + 1
                 q.append((nr, nc))
         return mat

@@ -5,12 +5,13 @@ class Solution:
         m, n = len(grid), len(grid[0])
         
         def out(r,c): return not (0 <= r < m and 0 <= c < n)
+        
         def dfs(r, c):
             seen.add((r, c))
             
             for i in range(4):
                 nr, nc = r+DIR[i], c+DIR[i+1]
-                if out(nr,nc) or (nr, nc) in seen or grid[r][c] != 1:
+                if out(nr,nc) or (nr, nc) in seen or not grid[r][c]:
                     continue
                 dfs(nr, nc)
         

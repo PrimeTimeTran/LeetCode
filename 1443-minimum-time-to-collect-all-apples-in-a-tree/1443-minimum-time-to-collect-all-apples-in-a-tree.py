@@ -7,7 +7,7 @@ class Solution:
             
         seen = set()
         def dfs(n):
-            if n in seen: return 0 
+            if n in seen: return 0
             seen.add(n)
             secs = sum(dfs(nei) for nei in g[n])
             if secs > 0:

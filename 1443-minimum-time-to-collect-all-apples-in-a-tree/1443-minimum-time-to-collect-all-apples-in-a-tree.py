@@ -7,11 +7,9 @@ class Solution:
             
         seen = set()
         def dfs(n):
-            secs = 0
+            if n in seen: return 0 
             seen.add(n)
-            for nei in g[n]:
-                if nei not in seen:
-                    secs += dfs(nei)
+            secs = sum(dfs(nei) for nei in g[n])
             if secs > 0:
                 return secs + 2
             return 2 if hasApple[n] else 0

@@ -7,4 +7,4 @@ class Solution:
             else:
                 hash.add(c)
         
-        return len(s) - len(hash)+1 if len(hash) > 0 else len(s)
+        return len(s) - len(hash) +1 if len(hash) > 0 else len(s)

@@ -17,7 +17,7 @@ class Solution:
                 if i != p:
                     dfs(i, n)
                     count[n] += count[i]
-                    res[n] += res[i]+count[i]
+                    res[n] += count[i] + res[i]
         def dfs2(n, p):
             for i in g[n]:
                 if i != p:

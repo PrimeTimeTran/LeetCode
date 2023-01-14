@@ -4,7 +4,6 @@ class Solution:
         N = len(A)
         seen = set()
         def dfs(n):
-            print(n)
             for i, nei in enumerate(A[n]):
                 if nei and i not in seen:
                     seen.add(i)

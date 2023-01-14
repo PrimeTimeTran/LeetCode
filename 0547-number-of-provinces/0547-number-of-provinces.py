@@ -1,18 +1,17 @@
 class Solution:
     def findCircleNum(self, A: List[List[int]]) -> int:
-        res = 0 
+        res = 0
         N = len(A)
         seen = set()
-        
         def dfs(n):
+            print(n)
             for i, nei in enumerate(A[n]):
                 if nei and i not in seen:
                     seen.add(i)
                     dfs(i)
         
-        
-        for n in range(N):
-            if n not in seen:
-                dfs(n)
+        for i in range(N):
+            if i not in seen:
+                dfs(i)
                 res+=1
         return res

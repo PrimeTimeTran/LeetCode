@@ -5,11 +5,11 @@ class Solution:
         for i, j in connections:
             G[i].add(j)
             G[j].add(i)
-        seen = [0] * n
+        seen = set()
 
         def dfs(i):
-            if seen[i]: return 0
-            seen[i] = 1
+            if i in seen: return 0
+            seen.add(i)
             for j in G[i]: dfs(j)
             return 1
 

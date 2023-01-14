@@ -3,8 +3,7 @@ class Solution:
         g = defaultdict(list)
         
         for a, b in edges:
-            g[a].append(b)
-            g[b].append(a)
+            g[a].append(b); g[b].append(a)
             
         seen = set()
         def dfs(n):

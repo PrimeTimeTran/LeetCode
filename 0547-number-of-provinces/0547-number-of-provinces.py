@@ -1,3 +1,8 @@
+'''
+Loop through items in list and dfs marking them as seen.
+Increment res after each dfs, counting number of islands.
+'''
+
 class Solution:
     def findCircleNum(self, A: List[List[int]]) -> int:
         res = 0

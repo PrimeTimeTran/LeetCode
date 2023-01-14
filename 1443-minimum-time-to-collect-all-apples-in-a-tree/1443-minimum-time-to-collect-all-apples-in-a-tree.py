@@ -16,5 +16,4 @@ class Solution:
             if secs > 0:
                 return secs + 2
             return 2 if hasApple[n] else 0
-        
         return max(dfs(0) - 2, 0)

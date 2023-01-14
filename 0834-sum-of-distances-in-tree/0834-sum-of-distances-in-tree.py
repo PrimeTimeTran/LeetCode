@@ -3,9 +3,8 @@ class Solution:
         g = defaultdict(set)
         res = [0] * N
         count = [1] * N
-        for i, j in edges:
-            g[i].add(j)
-            g[j].add(i)
+        for a, b in edges:
+            g[a].add(b); g[b].add(a)
 
         def dfs(root, pre):
             for i in g[root]:

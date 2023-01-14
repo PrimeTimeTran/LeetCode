@@ -1,24 +1,18 @@
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
-        g = defaultdict(list)
+        parent = [i for i in range(n)]
         
-        for a, b in edges:
-            g[a].append(b)
-            g[b].append(a)
+        def find(x):
+            if parent[x] != x:
+                parent[x] = find(parent[x])
+            return parent[x]
+        
+        def union(x,y):
+            nx, ny = find(x), find(y)
+            if nx != ny:
+                parent[nx] = ny
+        
+        for x,y in edges:
+            union(x,y)
             
-            
-        seen = set()
-        def dfs(n):
-            if n in seen:
-                return
-            seen.add(n)
-            for nei in g[n]:
-                dfs(nei)
-        
-        
-        res = 0
-        for i in range(n):
-            if i not in seen:
-                dfs(i)
-                res+=1
-        return res
+        return len({find(x) for x in range(n)})

@@ -5,13 +5,13 @@ class Solution:
             g[u].append((v,succProb[i]))
             g[v].append((u,succProb[i]))
 
-        h = [(-1, start)]
+        pq = [(-1, start)]
         seen = set()
-        while h: 
-            p, u = heappop(h)
+        while pq: 
+            p, u = heappop(pq)
             if u == end: return -p
             seen.add(u)
             for v, w in g[u]:
                 if v in seen: continue 
-                heappush(h, (p * w, v))
+                heappush(pq, (p * w, v))
         return 0

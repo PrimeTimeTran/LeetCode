@@ -1,3 +1,8 @@
+'''
+Count number of 
+
+'''
+
 class Solution:
     def longestPalindrome(self, s: str) -> int:
         hash = set()
@@ -7,4 +12,4 @@ class Solution:
             else:
                 hash.add(c)
         
-        return len(s) - len(hash) +1 if len(hash) > 0 else len(s)
+        return len(s) - len(hash) + 1 if len(hash) > 0 else len(s)

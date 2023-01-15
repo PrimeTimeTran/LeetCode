@@ -6,7 +6,7 @@ class Solution:
             g[v].append(u)
             prob[u, v] = prob[v, u] = succProb[i]
 
-        h = [(-1, start)] #Dijkstra's algo
+        h = [(-1, start)]
         seen = set()
         while h: 
             p, n = heappop(h)

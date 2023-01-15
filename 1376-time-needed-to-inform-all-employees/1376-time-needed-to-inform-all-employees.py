@@ -12,4 +12,3 @@ class Solution:
             for v in g[u]:
                 q.append((v, time+informTime[u]))
         return res
-            

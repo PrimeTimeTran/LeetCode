@@ -8,10 +8,10 @@ class Solution:
         h = [(-1, start)]
         seen = set()
         while h: 
-            p, n = heappop(h)
-            if n == end: return -p
-            seen.add(n)
-            for nn, w in g[n]:
-                if nn in seen: continue 
-                heappush(h, (p * w, nn))
+            p, u = heappop(h)
+            if u == end: return -p
+            seen.add(u)
+            for v, w in g[u]:
+                if v in seen: continue 
+                heappush(h, (p * w, v))
         return 0

@@ -18,6 +18,6 @@ class Solution:
             win[c] = win.get(c, 0) + 1
             while len(list(set(s[l:r+1]))) > 2:
                 l+=1
-                cur = s[l:r+1]
+                # cur = s[l:r+1]
             res = max(res, r-l+1)
         return res

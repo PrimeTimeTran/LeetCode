@@ -18,11 +18,11 @@ class Solution:
                     dfs(i, n)
                     count[n] += count[i]
                     res[n] += count[i] + res[i]
-
+                    
         def dfs2(n, p):
             for i in g[n]:
                 if i != p:
-                    res[i] = res[n] - count[i] + N - count[i]
+                    res[i] = res[n] -count[i] + N - count[i]
                     dfs2(i, n)
         dfs(0, -1)
         dfs2(0, -1)

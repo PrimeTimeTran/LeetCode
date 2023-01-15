@@ -7,8 +7,7 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         def valid(n, left, right):
-            if not n:
-                return True
+            if not n: return True
             
             if n.val > left and n.val < right:
                 return valid(n.left, left, n.val) and valid(n.right, n.val, right)

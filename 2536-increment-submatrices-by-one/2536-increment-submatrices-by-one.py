@@ -1,21 +1,15 @@
 class Solution:
     def rangeAddQueries(self, n: int, queries: List[List[int]]) -> List[List[int]]:
-        # mat = [[0]*n for _ in range(n)]
-        # for q in queries:
-        #     for r in range(q[0], q[2]+1):
-        #         for c in range(q[1], q[3]+1):
-        #             mat[r][c] += 1
-        # return mat
-        mat = [[0] * n for _ in range(n)]
-        for r1, c1, r2, c2 in queries:
-            mat[r1][c1] += 1
-            if r2 + 1 < n: mat[r2 + 1][c1] -= 1
-            if c2 + 1 < n: mat[r1][c2 + 1] -= 1
-            if r2 + 1 < n and c2 + 1 < n: mat[r2 + 1][c2 + 1] += 1
-        for i in range(n):
-            for j in range(1, n):
-                mat[i][j] += mat[i][j - 1]
-        for i in range(1, n):
-            for j in range(n):
-                mat[i][j] += mat[i - 1][j]
-        return mat
+        ans = [[0]*n for _ in range(n)]
+        for i, j, ii, jj in queries: 
+            ans[i][j] += 1
+            if ii+1 < n: ans[ii+1][j] -= 1
+            if jj+1 < n: ans[i][jj+1] -= 1
+            if ii+1 < n and jj+1 < n: ans[ii+1][jj+1] += 1
+        for i in range(n): 
+            prefix = 0 
+            for j in range(n): 
+                prefix += ans[i][j]
+                ans[i][j] = prefix 
+                if i: ans[i][j] += ans[i-1][j]
+        return ans 

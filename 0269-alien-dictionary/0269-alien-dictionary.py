@@ -8,20 +8,19 @@ t > f
 w > e > r
 
 3. Pseudocode
-Create G using char of words. 
-Identify most significant differing character and append word's to it. Guard for longer word first between two words with common prefix.
-
-Perform Top sort using seen hashmap.
-
-4. Code
+Create G using chars of words and word pairs.
+Find most significant differing char and append post char to it. 
+Guard for longer word first in word pair with common prefix.
+Perform top sort using seen hashmap.
+Return joined reversed topsort.
 '''
 
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
-        g = {c: [] for w in words for c in w}
+        g = {c:[] for w in words for c in w}
         
         for i in range(len(words)-1):
-            w1,w2 = words[i], words[i+1]
+            w1, w2 = words[i], words[i+1]
             minlength = min(len(w1), len(w2))
             if len(w1) > len(w2) and w1[:minlength] == w2[:minlength]:
                 return ""
@@ -39,7 +38,8 @@ class Solution:
             seen[c] = True
             res.append(c)
             return True
+        
         for c in g:
             if not dfs(c): return ""
-            
+        print(g, res)
         return "".join(res[::-1])

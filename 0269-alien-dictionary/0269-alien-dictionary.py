@@ -1,18 +1,5 @@
 '''
-1. Constraints
-Given a list of words and return a string the alien alphabet.
 
-2. Diagram
-
-t > f
-w > e > r
-
-3. Pseudocode
-Create G using chars of words and word pairs.
-Find most significant differing char and append post char to it. 
-Guard for longer word first in word pair with common prefix.
-Perform top sort using seen hashmap.
-Return joined reversed topsort.
 '''
 
 class Solution:
@@ -41,5 +28,4 @@ class Solution:
         
         for c in g:
             if not dfs(c): return ""
-        print(g, res)
         return "".join(res[::-1])

@@ -15,7 +15,6 @@ class Solution:
                     q.append((r,c))
                 else:
                     mat[r][c] = -1
-        
         d = [0,-1,0,1,0]
         while q:
             r, c = q.popleft()

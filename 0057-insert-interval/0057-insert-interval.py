@@ -4,15 +4,10 @@ Input list of lists and new interval/list. Return output list of lists.
 
 2. Diagram
 
-
-
 3. Pseudocode
-Loop through intervals comparing current start > previous end.
-
+Loop through intervals comparing cur interval to inserted interval.
 
 4. Code
-
-
 
 '''
 class Solution:

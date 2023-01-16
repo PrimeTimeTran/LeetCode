@@ -1,27 +1,21 @@
 '''
-[0,1]
-[0, 1, 2, 3, 4]
-
+DFS
+DFS from root node marking nodes seen as we go. Pass in previous to prevent a loop
 '''
-
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        if n - 1 != len(edges):
-            return False
-
-        parent = [i for i in range(n)]
-        def find(x):
-            if parent[x] != x:
-                parent[x] = find(parent[x])
-            return parent[x]
+        g = defaultdict(list)
         
-        for x,y in edges:
-            rx,ry = find(x), find(y)
-            # print(parent, rx, ry)
-            if rx == ry:
+        for a, b in edges:
+            g[a].append(b); g[b].append(a)
+            
+        seen = set()
+        def dfs(n, p):
+            if n in seen:
                 return False
-            
-            parent[rx] = ry
-            
-        return True
-            
+            seen.add(n)
+            for nei in g[n]:
+                if p == nei: continue
+                if not dfs(nei, n): return False
+            return True
+        return dfs(0, -1) and len(seen) == n

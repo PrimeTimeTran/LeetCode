@@ -16,7 +16,6 @@ class Solution:
             p,u,stops = heappop(pq)
             if u == dst: return p
             if u in seen and seen[u] >= stops: 
-                print('si')
                 continue
             seen[u] = stops-1
             if stops:

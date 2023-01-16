@@ -1,21 +1,19 @@
 '''
-1.
-Given a list of words and should return a string if valid lexicographicallyy sorted string can be found.
+1. Constraints
+Given a list of words and return a string the alien alphabet.
 
-2.
+2. Diagram
 
-t > f 
+t > f
 w > e > r
 
-3.
-- Create adj list using chars of words.
-- Iterate thru pairs of words finding greatest largest difference.
-- Using G perform a topilogical sort and return reversed version.
+3. Pseudocode
+Create G using char of words. 
+Identify most significant differing character and append word's to it. Guard for longer word first between two words with common prefix.
 
+Perform Top sort using seen hashmap.
 
-4.
-
-
+4. Code
 '''
 
 class Solution:
@@ -24,10 +22,10 @@ class Solution:
         
         for i in range(len(words)-1):
             w1,w2 = words[i], words[i+1]
-            minlen = min(len(w1), len(w2))
-            if len(w1) > len(w2) and w1[:minlen] == w2[:minlen]:
+            minlength = min(len(w1), len(w2))
+            if len(w1) > len(w2) and w1[:minlength] == w2[:minlength]:
                 return ""
-            for j in range(minlen):
+            for j in range(minlength):
                 if w1[j] != w2[j]:
                     g[w1[j]].append(w2[j])
                     break
@@ -43,5 +41,5 @@ class Solution:
             return True
         for c in g:
             if not dfs(c): return ""
-        
-        return ''.join(res[::-1])
+            
+        return "".join(res[::-1])

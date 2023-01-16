@@ -7,7 +7,7 @@ class Solution:
     def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
         g = defaultdict(list)
         for i, m in enumerate(manager):
-            if m >= 0: g[m].append(i)
+            g[m].append(i)
 
         def dfs(i):
             return max([dfs(j) for j in g[i]] or [0]) + informTime[i]

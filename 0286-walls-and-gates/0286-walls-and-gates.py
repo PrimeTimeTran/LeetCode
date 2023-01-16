@@ -8,19 +8,19 @@ class Solution:
         def bfs(r,c):
             q = deque([])
             for i in range(4):
-                nr, nc = r+d[i], c+d[i+1]
-                q.append((nr,nc, 1))
+                nr,nc = r+d[i],c+d[i+1]
+                q.append((nr,nc,1))
             seen = set()
             while q:
-                r,c, v = q.popleft()
+                r,c,v = q.popleft()
                 o = r < 0 or c < 0 or r == m or c == n
                 if o or g[r][c] in [-1, 0] or (r,c) in seen:
                     continue
                 seen.add((r,c))
                 g[r][c] = min(v, g[r][c])
                 for i in range(4):
-                    nr, nc = r+d[i], c+d[i+1]
-                    q.append([nr,nc, v+1])
+                    nr,nc = r+d[i],c+d[i+1]
+                    q.append((nr,nc,v+1))
                         
             
         for r in range(m):

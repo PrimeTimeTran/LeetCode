@@ -15,11 +15,14 @@ class Solution:
         while pq:
             p,u,stops = heappop(pq)
             if u == dst: return p
-            if u in seen and seen[u] >= stops: continue
+            if u in seen and seen[u] >= stops: 
+                print('si')
+                continue
             seen[u] = stops-1
             if stops:
                 for v, w in g[u]:
                     heappush(pq, (w+p, v, stops-1))
+        print(seen)
         return -1
             
             

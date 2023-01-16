@@ -9,6 +9,6 @@ class Solution:
         for i, m in enumerate(manager):
             g[m].append(i)
 
-        def dfs(i):
-            return max([dfs(j) for j in g[i]] or [0]) + informTime[i]
+        def dfs(u):
+            return max([dfs(v) for v in g[u]] or [0]) + informTime[u]
         return dfs(headID)

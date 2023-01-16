@@ -21,7 +21,6 @@ class Solution:
             if stops:
                 for v, w in g[u]:
                     heappush(pq, (w+p, v, stops-1))
-        print(seen)
         return -1
             
             

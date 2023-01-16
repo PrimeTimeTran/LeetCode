@@ -7,20 +7,20 @@ Add city to seen to prevent loops and dfs it. Guard cycle by continuing on seen 
 class Solution:
     def minReorder(self, n: int, connections: List[List[int]]) -> int:
         g = defaultdict(list)
-        
         for a,b in connections:
-            g[a].append(b); g[b].append(a)
-        
-        self.res = 0
-        seen = set([0])
+            g[a].append(b);
+            g[b].append(a)
+            
         roads = {(a,b) for a,b in connections}
-        
+        self.res, seen = 0, set([0])
         def dfs(n):
-            for c in g[n]:
-                if c in seen: continue
-                if (c,n) not in roads:
-                    self.res +=1
-                seen.add(c)
-                dfs(c)
-        dfs(0)        
+            for nei in g[n]:
+                if nei in seen:
+                    continue
+                if (nei, n) not in roads:
+                    self.res+=1
+                seen.add(nei)
+                dfs(nei)
+                    
+        dfs(0)
         return self.res

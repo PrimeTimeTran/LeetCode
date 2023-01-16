@@ -2,10 +2,11 @@ class Solution:
     def findOrder(self, N: int, P: List[List[int]]) -> List[int]:
         g = defaultdict(list)
         
-        for a,b in P:
+        for a, b in P:
             g[a].append(b)
             
-        res, seen = [], {}
+            
+        res,seen = [], {}
         def dfs(n):
             if n in seen:
                 return seen[n]

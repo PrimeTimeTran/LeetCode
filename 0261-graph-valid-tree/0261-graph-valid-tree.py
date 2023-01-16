@@ -5,12 +5,12 @@ Guard cycles with a set and continue of nei == p. If DFS isn't successful, retur
 Return true if the loop completes with no return.
 
 UF
-
+Create parent list to hold representatives.
+Define find, union,
 '''
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        if n - 1 != len(edges):
-            return False
+        if n - 1 != len(edges): return False
         parent = [i for i in range(n)]
         
         def find(x):

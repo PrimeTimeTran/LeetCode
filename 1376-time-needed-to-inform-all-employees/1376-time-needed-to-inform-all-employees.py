@@ -9,14 +9,14 @@ how long it takes to tell this employee. Update global max with each item.
 class Solution:
     def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
         g = defaultdict(list)
-        for v,u in enumerate(manager):
+        for v, u in enumerate(manager):
             g[u].append(v)
-
-        q = deque([[0,headID]])
-        res = 0
+        
+        res, q = 0, deque([[0, headID]])
         while q:
             t, u = q.popleft()
             res = max(res, t)
             for v in g[u]:
-                q.append((t+informTime[u], v))
+                q.append([informTime[u]+t, v])
         return res
+            

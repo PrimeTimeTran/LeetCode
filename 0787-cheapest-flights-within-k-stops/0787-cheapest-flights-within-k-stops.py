@@ -11,16 +11,14 @@ class Solution:
             
         pq = [[0,src,k+1]]
         seen = {}
-        
         while pq:
-            c, u, stops = heappop(pq)
-            if u == dst: return c
+            p, u, stops = heappop(pq)
+            if u == dst: return p
             if u in seen and seen[u] >= stops: continue
             seen[u] = stops - 1
             if stops:
                 for v, w in g[u]:
-                    heappush(pq, [c+w, v, stops-1])
+                    heappush(pq, [p+w, v, stops-1])
         return -1
+                
             
-             
-        

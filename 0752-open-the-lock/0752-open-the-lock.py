@@ -15,7 +15,7 @@ class Solution:
                 x = int(code[i])
                 for diff in [-1,1]:
                     y = (diff+x+10) % 10
-                    yield code[:i]+ str(y) + code[i+1:]
+                    yield code[:i]+ str(y)+ code[i+1:]
         deadSet = set(deadends)
         if "0000" in deadSet: return -1
         q = deque(["0000"])
@@ -25,8 +25,9 @@ class Solution:
                 code = q.popleft()
                 if code == target: return steps
                 for nei in neighbors(code):
-                    if nei in deadSet: continue
-                    deadSet.add(nei)
-                    q.append(nei)
+                    if nei not in deadSet:
+                        deadSet.add(nei)
+                        q.append(nei)
             steps+=1
         return -1
+    

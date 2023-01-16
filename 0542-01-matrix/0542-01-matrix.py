@@ -17,7 +17,6 @@ class Solution:
                     mat[r][c] = -1
         
         d = [0,-1,0,1,0]
-        seen = set()
         while q:
             r, c = q.popleft()
             for i in range(4):

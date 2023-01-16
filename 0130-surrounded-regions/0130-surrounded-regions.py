@@ -1,5 +1,6 @@
 '''
-Iterate mat DFSing on border O cells. In DFS change O cell and neighbor O cells to T
+Iterate mat DFSing on border O cells. In DFS change O cell and neighbor O cells to T.
+
 Iterate mat and turn all O cell to X.
 Iterate mat and turn all T cell to O.
 '''
@@ -13,8 +14,8 @@ class Solution:
         
         seen = set()
         def dfs(r,c):
-            o = r < 0 or c < 0 or r == m or c == n or (r,c) in seen
-            if o or b[r][c] == 'X':
+            o = r < 0 or c < 0 or r == m or c == n
+            if o or b[r][c] == 'X' or (r,c) in seen:
                 return
             seen.add((r,c))
             b[r][c] = 'T'

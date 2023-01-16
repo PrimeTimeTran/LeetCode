@@ -1,11 +1,14 @@
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
+        d = [0,1,0,-1,0]
+        
         m,n = len(image), len(image[0])
-        q = deque([[sr,sc]])
-        seen = set((sr,sc))
+        
         old = image[sr][sc]
         image[sr][sc] = color
-        d = [0,1,0,-1,0]
+        
+        q = deque([[sr,sc]])
+        seen = set((sr,sc))
         
         while q:
             r, c = q.popleft()

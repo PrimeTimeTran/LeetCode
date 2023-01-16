@@ -24,7 +24,7 @@ class Solution:
                 nr,nc = r+d[i],c+d[i+1]
                 o = nr < 0 or nc < 0 or nr == m or nc == n or mat[nr][nc] != -1
                 if o or (nr,nc) in seen: continue
-                seen.add((nr,nc))
+                # seen.add((nr,nc))
                 mat[nr][nc] = mat[r][c]+1
                 q.append((nr,nc))
         return mat

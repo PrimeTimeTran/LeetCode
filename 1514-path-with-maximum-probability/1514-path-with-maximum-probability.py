@@ -15,12 +15,9 @@ class Solution:
         seen = set()
         while pq:
             p, u = heappop(pq)
-            # if u in seen: continue
             if u == end: return -p
             seen.add(u)
             for v, w in g[u]:
                 if v not in seen:
                     heappush(pq, (p*w, v))
-            
-            
         return 0

@@ -11,8 +11,8 @@ class Solution:
             g[a].append(b);
             g[b].append(a)
             
-        roads = {(a,b) for a,b in connections}
         self.res, seen = 0, set([0])
+        roads = {(a,b) for a,b in connections}
         def dfs(n):
             for nei in g[n]:
                 if nei in seen:

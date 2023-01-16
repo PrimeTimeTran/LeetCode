@@ -16,7 +16,7 @@ class Solution:
                 nr,nc = r+d[i], c+d[i+1]
                 out = nr < 0 or nc < 0 or nr == m or nc == n or (nr,nc) in seen
                 if out: continue
-                seen.add((r,c))
+                seen.add((nr,nc))
                 if image[nr][nc] == old:
                     image[nr][nc] = color
                     q.append([nr,nc])

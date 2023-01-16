@@ -1,14 +1,14 @@
+'''
+BFS 
+Create G and then BFS with accumulated time and manager node. Use manager node + time on each append to calculate
+how long it takes to tell this employee. Update global max with each item.
+'''
 class Solution:
     def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
         g = defaultdict(list)
-        for i, u in enumerate(manager):
-            g[u].append(i)
-        
-        q = deque([[0, headID]])
-        res = 0
-        while q:
-            t, u = q.popleft()
-            res = max(res, t)
-            for v in g[u]:
-                q.append([t+informTime[u], v])
-        return res
+        for i, m in enumerate(manager):
+            if m >= 0: g[m].append(i)
+
+        def dfs(i):
+            return max([dfs(j) for j in g[i]] or [0]) + informTime[i]
+        return dfs(headID)

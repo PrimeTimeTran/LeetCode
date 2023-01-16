@@ -1,24 +1,24 @@
 '''
 DFS
-DFS from root node marking nodes seen as we go. Pass in previous to prevent a loop
+DFS from 0 node passing in previous node in each recursive call.
+Guard cycles with a set and continue of nei == p. If DFS isn't successful, return false.
+Return true if the loop completes with no return.
 '''
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        g = defaultdict(list)
+        if n - 1 != len(edges):
+            return False
+        parent = {i:i for i in range(n)}
         
-        for a,b in edges:
-            g[a].append(b); g[b].append(a)
+        def find(x):
+            if parent[x] != x:
+                parent[x] = find(parent[x])
+            return parent[x]            
         
-        seen = set()
-        def dfs(n, p):
-            if n in seen:
+        for x,y in edges:
+            rx, ry = find(x), find(y)
+            if rx == ry:
                 return False
-            seen.add(n)
-            
-            for nei in g[n]:
-                if nei == p: continue
-                if not dfs(nei, n): return False
-                    
-            return True
+            parent[rx] = ry
         
-        return dfs(0,-1) and len(seen) == n
+        return True

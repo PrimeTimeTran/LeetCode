@@ -1,6 +1,6 @@
-d = [0,1,0,-1,0]
 class Solution:
     def wallsAndGates(self, g: List[List[int]]) -> None:
+        d = [0,1,0,-1,0]
         m, n = len(g), len(g[0])
         def bfs(r,c):
             q = deque([])

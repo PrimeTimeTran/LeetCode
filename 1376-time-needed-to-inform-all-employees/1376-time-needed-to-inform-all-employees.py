@@ -1,6 +1,6 @@
 '''
 DFS
-Create G and DFS from headID. Return DFS call to headID and then return local max in recursive DFS
+Create G and DFS from headID. Return DFS call to headID an return local max in recursive DFS
 
 BFS 
 Create G and then BFS with accumulated time and manager node. Use manager node + time on each append to calculate
@@ -11,12 +11,8 @@ class Solution:
         g = defaultdict(list)
         for v, u in enumerate(manager):
             g[u].append(v)
-        
-        res, q = 0, deque([[0, headID]])
-        while q:
-            t, u = q.popleft()
-            res = max(res, t)
-            for v in g[u]:
-                q.append([informTime[u]+t, v])
-        return res
             
+        def dfs(n):
+            return max([dfs(i) for i in g[n]] or [0])+informTime[n]
+            
+        return dfs(headID)

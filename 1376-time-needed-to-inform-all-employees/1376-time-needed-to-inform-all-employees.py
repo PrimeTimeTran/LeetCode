@@ -4,11 +4,11 @@ class Solution:
         for i, u in enumerate(manager):
             g[u].append(i)
         
-        q = deque([(headID, 0)])
+        q = deque([[0, headID]])
         res = 0
         while q:
-            u, time = q.popleft()
-            res = max(time, res)
+            t, u = q.popleft()
+            res = max(res, t)
             for v in g[u]:
-                q.append((v, time+informTime[u]))
+                q.append([t+informTime[u], v])
         return res

@@ -12,9 +12,10 @@ class Solution:
         def dfs(n):
             if n in seen:
                 return seen[n]
-            copy = Node(n.val)
-            seen[n] = copy
+            c = Node(n.val)
+            seen[n] = c
             for nei in n.neighbors:
-                copy.neighbors.append(dfs(nei))
-            return copy
+                c.neighbors.append(dfs(nei))
+            return c
+            
         return dfs(node) if node else None

@@ -12,7 +12,12 @@ class Solution:
         for v, u in enumerate(manager):
             g[u].append(v)
             
-        def dfs(n):
-            return max([dfs(i) for i in g[n]] or [0])+informTime[n]
-            
-        return dfs(headID)
+        res = 0
+        q = deque([[0, headID]])
+        while q:
+            t, u = q.popleft()
+            res = max(res, t)
+            for v in g[u]:
+                q.append((t+informTime[u], v))
+        return res
+        

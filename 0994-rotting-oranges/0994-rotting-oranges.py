@@ -1,3 +1,9 @@
+'''
+Iterate matrix adding rotten oranges to Q and counting fresh oranges.
+BFS Q incrementing time at each layer. Change fresh oranges to rotten, add them to q, and decrementing fresh count.
+If at the end fresh is 0, return time, else -1
+'''
+
 class Solution:
     def orangesRotting(self, g: List[List[int]]) -> int:
         m,n = len(g), len(g[0])

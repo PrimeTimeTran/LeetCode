@@ -33,12 +33,12 @@ class Solution:
                         q.append(nei)
                     elif seen[nei] > seen[word]:
                         parent[nei].add(word)
-                        
         ans = []
         def dfs(w, path):
             if w == beginWord:
                 ans.append(path[::-1])
-            for nei in parent[w]:
-                dfs(nei, path+[nei])
+            else:
+                for nei in parent[w]:
+                    dfs(nei, path+[nei])
         dfs(endWord, [endWord])
         return ans

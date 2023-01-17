@@ -28,16 +28,16 @@ class Solution:
                 for nei in g[pat]:
                     if nei not in seen:
                         seen[nei] = seen[word]+1
-                        q.append(nei)
                         parent[nei].add(word)
+                        q.append(nei)
                     elif seen[nei] > seen[word]:
                         parent[nei].add(word)
         ans = []
-        def dfs(w, path):
+        def dfs(w, p):
             if w == beginWord:
-                ans.append(path[::-1])
+                ans.append(p[::-1])
             else:
                 for nei in parent[w]:
-                    dfs(nei, path+[nei])
+                    dfs(nei, p+[nei])
         dfs(endWord, [endWord])
         return ans

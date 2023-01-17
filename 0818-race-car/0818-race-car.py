@@ -11,7 +11,7 @@ class Solution:
             
             q.append([m+1, s*2, p+s])
             
-            overshotTarget = p+s > target and s > 0 or p+s < target and s < 0
-            if overshotTarget:
+            passed = p+s > target and s > 0 or p+s < target and s < 0
+            if passed:
                 s = -1 if s > 0 else 1
                 q.append([m+1, s, p])

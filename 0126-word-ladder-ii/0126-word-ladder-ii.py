@@ -1,10 +1,9 @@
 '''
 BFS
-BFS using G with wildcard keys and word values.
-Use seen HM to count layers away ensuring safe add this word without entering loop.
-If so, add word to parent HM.
+BFS with G of wildcard keys and word values.
+Guard for cycles using HM which has word key and layer distance. Add word if unseen or greater than current word.
 
-After BFS, DFS from endWord to beginWord adding all their words in the sequence. When beginword
+DFS from endWord to beginWord using parent HM adding all words in the path. When beginword
 found return the reversed path.
 
 '''
@@ -28,9 +27,9 @@ class Solution:
                 pat = word[:i] + "*" + word[i+1:]
                 for nei in g[pat]:
                     if nei not in seen:
-                        seen[nei] = seen[word] + 1
-                        parent[nei].add(word)
+                        seen[nei] = seen[word]+1
                         q.append(nei)
+                        parent[nei].add(word)
                     elif seen[nei] > seen[word]:
                         parent[nei].add(word)
         ans = []

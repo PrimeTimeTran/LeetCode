@@ -1,22 +1,17 @@
-'''
-
-'''
-
 class Solution:
     def racecar(self, target: int) -> int:
-        # moves, speed, pos
-        q = deque([[0,1,0]])
+        # pos, speed, moves
+        q = deque([[0, 1, 0]])
         
-        while q:
-            moves, speed, pos = q.popleft()
+        
+        while q: 
+            m, s, p  = q.popleft()
             
-            if pos == target:
-                return moves
+            if p == target: return m
             
-            q.append([moves+1, speed*2, pos+speed])
+            q.append([m+1, s*2, p+s])
             
-            overshotTarget = pos+speed > target and speed > 0 or pos+speed < target and speed < 0
+            overshotTarget = p+s > target and s > 0 or p+s < target and s < 0
             if overshotTarget:
-                speed = -1 if speed > 0 else 1
-                q.append([moves+1, speed, pos])
-            
+                s = -1 if s > 0 else 1
+                q.append([m+1, s, p])

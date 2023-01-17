@@ -26,14 +26,14 @@ class Solution:
                 break
             for i in range(len(word)):
                 pat = word[:i] + "*" + word[i+1:]
-                for w in g[pat]:
-                    if w not in seen:
-                        seen[w] = seen[word] + 1
-                        parent[w].add(word)
-                        q.append(w)
-                    elif seen[w] > seen[word]:
-                        parent[w].add(word)
-        
+                for nei in g[pat]:
+                    if nei not in seen:
+                        seen[nei] = seen[word] + 1
+                        parent[nei].add(word)
+                        q.append(nei)
+                    elif seen[nei] > seen[word]:
+                        parent[nei].add(word)
+                        
         ans = []
         def dfs(w, path):
             if w == beginWord:

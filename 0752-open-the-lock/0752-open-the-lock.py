@@ -1,10 +1,8 @@
 '''
 BFS
-BFS combinations/neighbors of input code. Add neighbors to Q.
-Find neighbors by traversing code index's until 1, adding both -1 and 1 with modulo protector, 
-yielding the codes with new val injected inside
-
-Increment res once for each layer. The first layer being 8
+BFS neighbors of input code comparing to target. If target == code return steps.
+Find neighbors of a code using it's index and diff of [-1,1] and modulo trick.
+yielding the codes with new val injected inside.
 '''
 
 class Solution:
@@ -12,8 +10,8 @@ class Solution:
         def neighbors(code):
             for i in range(4):
                 x = int(code[i])
-                for diff in [-1,1]:
-                    y = (diff+x+10)%10
+                for dir in [-1,1]:
+                    y = (dir+x+10) % 10
                     yield code[:i]+ str(y)+code[i+1:]
         deadSet = set(deadends)
         if "0000" in deadSet: return -1
@@ -23,7 +21,6 @@ class Solution:
             for _ in range(len(q)):
                 code = q.popleft()
                 if code == target: return steps
-                
                 for nei in neighbors(code):
                     if nei not in deadSet:
                         deadSet.add(nei)

@@ -15,7 +15,6 @@ class Solution:
                     yield code[:i]+str(y)+code[i+1:]
         dead = set(deadends)
         if "0000" in dead: return -1
-        
         q = deque(['0000'])
 
         moves = 0

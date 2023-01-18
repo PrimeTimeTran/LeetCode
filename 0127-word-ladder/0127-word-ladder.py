@@ -1,13 +1,14 @@
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         g = defaultdict(list)
+        
         for w in wordList:
             for i in range(len(w)):
                 pat = w[:i]+'*'+w[i+1:]
                 g[pat].append(w)
-        q = deque([beginWord])
+        
         seen = set()
-        res = 1
+        res, q = 1, deque([beginWord])
         while q:
             for _ in range(len(q)):
                 w = q.popleft()

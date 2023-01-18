@@ -1,8 +1,9 @@
 class Solution:
     def canReach(self, A: List[int], i: int) -> bool:
         if 0 <= i < len(A) and A[i] >= 0:
-            A[i] = -A[i]
-            return A[i] == 0 or self.canReach(A, i + A[i]) or self.canReach(A, i - A[i])
+            J = A[i]
+            A[i]=-1
+            return J == 0 or self.canReach(A, i + J) or self.canReach(A, i -J)
         return False
     
         q = [start] # use bfs       

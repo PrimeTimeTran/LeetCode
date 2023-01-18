@@ -12,11 +12,9 @@ class Solution:
             return [i for i in range(n)]
 
         neighbors = defaultdict(set)
-        for start, end in edges:
-            neighbors[start].add(end)
-            neighbors[end].add(start)
+        for a, b in edges:
+            neighbors[a].add(b); neighbors[b].add(a)
 
-        # Initialize the first layer of leaves
         leaves = []
         for i in range(n):
             if len(neighbors[i]) == 1:

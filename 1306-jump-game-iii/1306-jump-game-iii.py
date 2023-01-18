@@ -1,17 +1,10 @@
-'''
-Create G and BFS from start to all other neighbors searching for 0 using a Q
-
-Index
-0  1  2  3  4  5  6
-
-Values
-4, 2, 3, 0, 3, 1, 2
-               . 
-
-
-'''
 class Solution:
-    def canReach(self, a: List[int], start: int) -> bool:
+    def canReach(self, A: List[int], i: int) -> bool:
+        if 0 <= i < len(A) and A[i] >= 0:
+            A[i] = -A[i]
+            return A[i] == 0 or self.canReach(A, i + A[i]) or self.canReach(A, i - A[i])
+        return False
+    
         q = [start] # use bfs       
         while q:
             i = q.pop()

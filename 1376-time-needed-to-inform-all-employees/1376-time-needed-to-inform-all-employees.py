@@ -11,13 +11,12 @@ class Solution:
         g = defaultdict(list)
         for v, u in enumerate(manager):
             g[u].append(v)
-            
-        res = 0
-        q = deque([[0, headID]])
-        while q:
-            t, u = q.popleft()
-            res = max(res, t)
-            for v in g[u]:
-                q.append((t+informTime[u], v))
-        return res
         
+        q = deque([[0, headID]])
+        res = 0
+        while q:
+            w, u = q.popleft()
+            res = max(res, w)
+            for v in g[u]:
+                q.append([informTime[u]+w, v])
+        return res

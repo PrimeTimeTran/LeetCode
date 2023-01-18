@@ -11,8 +11,7 @@ class Solution:
         if n <= 2:
             return [i for i in range(n)]
 
-        # Build the graph with the adjacency list
-        neighbors = [set() for i in range(n)]
+        neighbors = defaultdict(set)
         for start, end in edges:
             neighbors[start].add(end)
             neighbors[end].add(start)

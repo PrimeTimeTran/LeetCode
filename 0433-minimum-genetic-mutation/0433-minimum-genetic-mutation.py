@@ -1,6 +1,6 @@
 class Solution:
     def minMutation(self, start: str, end: str, bank: List[str]) -> int:
-        q, bank = collections.deque([(start,0)]), set(bank)
+        q, bank = deque([(start,0)]), set(bank)
         while q:
             g, m = q.popleft()
             if g == end: 

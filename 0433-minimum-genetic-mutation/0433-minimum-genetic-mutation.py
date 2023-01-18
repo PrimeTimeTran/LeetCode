@@ -7,7 +7,7 @@ class Solution:
             if g == end : return m
             for i in range(len(g)):
                 for n in "ATGC":
-                    gm = g[0:i] + n + g[i+1:]
+                    gm = g[:i] + n + g[i+1:]
                     if gm in bank:
                         bank.remove(gm)
                         q.append((gm, m+1))

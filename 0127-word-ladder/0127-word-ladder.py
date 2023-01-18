@@ -1,12 +1,10 @@
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         g = defaultdict(list)
-        
         for w in wordList:
             for i in range(len(w)):
                 pat = w[:i]+'*'+w[i+1:]
                 g[pat].append(w)
-                
         q = deque([beginWord])
         seen = set()
         res = 1
@@ -22,4 +20,3 @@ class Solution:
                             q.append(nei)
             res+=1
         return 0
-        

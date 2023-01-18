@@ -1,8 +1,7 @@
 '''
 BFS
-Iterate cells adding 0 cells to Q and changing others to -1. BFS Q ignorng out of bounds and cells which aren't -1.
-For each cell item, increment cell by 1 + current cell value befoore appending new coords.
-
+Iterate cells adding 0 cells to Q and changing others to -1. BFS Q ignoring out and non -1 cells.
+For each cell item, increment cell by 1 + current cell value before appending new coords.
 '''
 class Solution:
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
@@ -17,11 +16,13 @@ class Solution:
                     mat[r][c] = -1
         d = [0,-1,0,1,0]
         while q:
-            r, c = q.popleft()
+            r, c  = q.popleft()
             for i in range(4):
-                nr,nc = r+d[i],c+d[i+1]
-                o = nr < 0 or nc < 0 or nr == m or nc == n or mat[nr][nc] != -1
-                if o: continue
-                mat[nr][nc] = mat[r][c]+1
+                nr, nc = r+d[i],c+d[i+1]
+                o = nr < 0 or nc < 0 or nr == m or nc == n
+                if o or mat[nr][nc] != -1:
+                    continue
+                mat[nr][nc] = mat[r][c] + 1
                 q.append((nr,nc))
         return mat
+                

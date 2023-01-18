@@ -1,10 +1,10 @@
 class Solution:
-    def canReach(self, A: List[int], i: int) -> bool:
-        if 0 <= i < len(A) and A[i] >= 0:
-            J = A[i]
-            A[i]=-1
-            return J == 0 or self.canReach(A, i + J) or self.canReach(A, i -J)
-        return False
+    def canReach(self, a: List[int], start: int) -> bool:
+        # if 0 <= i < len(A) and A[i] >= 0:
+        #     J = A[i]
+        #     A[i]=-1
+        #     return J == 0 or self.canReach(A, i + J) or self.canReach(A, i -J)
+        # return False
     
         q = [start] # use bfs       
         while q:

@@ -9,6 +9,6 @@ class Solution:
         ans = 0
         for i in range(n): 
             for j in range(i+1, n):
-                val = len(g.get(i, set())) + len(g.get(j, set())) - (j in g.get(i, set()))
+                val = len(g[i]) + len(g[j]) - (j in g[i])
                 ans = max(ans, val)
         return ans 

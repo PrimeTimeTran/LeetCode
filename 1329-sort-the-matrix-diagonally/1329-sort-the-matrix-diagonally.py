@@ -6,7 +6,7 @@ class Solution:
             for j in range(m):
                 d[i - j].append(A[i][j])
         for k in d:
-            d[k].sort(reverse=1)
+            d[k].sort(reverse=True)
         for i in range(n):
             for j in range(m):
                 A[i][j] = d[i - j].pop()

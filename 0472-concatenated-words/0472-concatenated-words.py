@@ -8,7 +8,7 @@ class Solution:
         words_dict = set(words)
         for word in words:
             words_dict.remove(word)
-            if self.check(word, words_dict) is True:
+            if self.check(word, words_dict):
                 res.append(word)
             words_dict.add(word)
         return res

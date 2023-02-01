@@ -7,6 +7,7 @@ class Solution:
             if r == c == N - 1:
                 return res
             for nr, nc in [(r + 1, c), (r, c + 1), (r - 1, c), (r, c - 1)]:
-                if 0 <= nr < N and 0 <= nc < N and (nr, nc) not in seen:
+                inbounds = 0 <= nr < N and 0 <= nc < N
+                if inbounds and (nr, nc) not in seen:
                     seen.add((nr, nc))
                     heappush(pq, (grid[nr][nc], nr, nc))

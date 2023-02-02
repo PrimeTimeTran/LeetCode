@@ -1,6 +1,7 @@
 class Solution:
     def reverseString(self, s: List[str]) -> None:
-        s[:] = s[::-1]
+        s.reverse()
+        # s[:] = s[::-1]
         # def helper(l, r):
         #     if l < r:
         #         s[l], s[r] = s[r], s[l]

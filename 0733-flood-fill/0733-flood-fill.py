@@ -20,5 +20,4 @@ class Solution:
                 if image[nr][nc] == old:
                     image[nr][nc] = color
                     q.append([nr,nc])
-                    
         return image

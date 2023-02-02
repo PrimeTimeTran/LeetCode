@@ -1,18 +1,3 @@
-'''
-1. Constraints
-Receive list of words and string reprensenting the alphabet
-Return a boolean
-
-2. Diagram
-
-
-
-3. Pseudocode
-Create g of key letter and value index from order
-
-
-'''
-
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         g = {c: i for i, c in enumerate(order)}

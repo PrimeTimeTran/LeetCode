@@ -15,9 +15,7 @@ Create g of key letter and value index from order
 
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
-        g = {}
-        for i, c in enumerate(order):
-            g[c] = i
+        g = {c: i for i, c in enumerate(order)}
         
         for i in range(len(words)-1):
             w1, w2 = words[i], words[i+1]

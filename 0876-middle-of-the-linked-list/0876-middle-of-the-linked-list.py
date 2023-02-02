@@ -10,5 +10,4 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
             
-        print(slow.val)
         return slow

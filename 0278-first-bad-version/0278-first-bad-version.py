@@ -3,4 +3,4 @@
 
 class Solution:
     def firstBadVersion(self, n: int) -> int:
-        return bisect_left(range(n), True, 1, key=isBadVersion)
+        return bisect_left(range(n), True, key=isBadVersion)

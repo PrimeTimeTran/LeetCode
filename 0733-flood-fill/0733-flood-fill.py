@@ -15,7 +15,7 @@ class Solution:
             for i in range(4):
                 nr, nc = d[i]+r, d[i+1]+c
                 inbounds = 0 <= nr < m and 0 <= nc < n
-                if inbounds and (nr,nc) not in seen and image[nr][nc] == old:
+                if inbounds and image[nr][nc] == old and (nr,nc) not in seen:
                     seen.add((nr,nc))
                     image[nr][nc] = color
                     q.append((nr,nc))

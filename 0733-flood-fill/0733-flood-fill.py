@@ -4,8 +4,8 @@ class Solution:
         d = [0,-1,0,1,0]
         old = image[r][c]
         image[r][c] = color
-        m, n = len(image), len(image[0])
         q = deque([[r,c]])
+        m, n = len(image), len(image[0])
         while q: 
             r, c = q.popleft()
             for i in range(4):

@@ -10,8 +10,7 @@ class Solution:
     def preorder(self, root: 'Node') -> List[int]:
         res = []
         def dfs(n):
-            if not n:
-                return None
+            if not n: return
             res.append(n.val)
             for nei in n.children:
                 dfs(nei)

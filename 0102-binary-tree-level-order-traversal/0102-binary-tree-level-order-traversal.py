@@ -7,8 +7,8 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         res = []
-        
         q = deque([root])
+        
         while q:
             level = []
             for _ in range(len(q)):
@@ -21,5 +21,5 @@ class Solution:
                         q.append(n.right)
             if level:
                 res.append(level)
-        print(res)
         return res
+            

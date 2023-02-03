@@ -18,6 +18,5 @@ class Solution:
                 cur = q.popleft()
                 cur.next, rightNode = rightNode, cur
                 if cur.right:
-                    q.append(cur.right)
-                    q.append(cur.left)
+                    q.extend([cur.right, cur.left])
         return root

@@ -9,11 +9,11 @@ class Node:
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
         res = []
-        def dfs(r):
-            if not r:
+        def dfs(n):
+            if not n:
                 return None
-            res.append(r.val)
-            for nei in r.children:
+            res.append(n.val)
+            for nei in n.children:
                 dfs(nei)
         dfs(root)
         return res

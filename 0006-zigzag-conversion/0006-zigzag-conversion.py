@@ -1,15 +1,16 @@
 class Solution:
-    def convert(self, s: str, numRows: int) -> str:
-        if numRows == 1 or numRows >= len(s):
+    def convert(self, s: str, n: int) -> str:
+        if n >= len(s) or n == 1:
             return s
-        L = [''] * numRows
-        index, ver = 0, 1
-
-        for x in s:
-            L[index] += x
-            if index == 0:
-                ver = 1
-            elif index == numRows -1:
-                ver = -1
-            index += ver
-        return ''.join(L)
+        l = [''] * n
+        i, v = 0, 1
+        for c in s:
+            l[i] += c
+            if i == 0:
+                v = 1
+            elif i == (n-1):
+                v = -1
+            i += v
+        return ''.join(l)
+                
+        

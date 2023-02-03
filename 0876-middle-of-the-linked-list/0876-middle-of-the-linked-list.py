@@ -5,9 +5,10 @@
 #         self.next = next
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        slow,fast = head, head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
+        s, f = head,head
+        while f and f.next:
+            s = s.next
+            f = f.next.next
             
-        return slow
+        return s
+        

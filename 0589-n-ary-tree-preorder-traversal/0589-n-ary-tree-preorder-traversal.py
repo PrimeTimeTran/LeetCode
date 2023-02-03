@@ -14,5 +14,6 @@ class Solution:
             res.append(n.val)
             for nei in n.children:
                 dfs(nei)
+                
         dfs(root)
         return res

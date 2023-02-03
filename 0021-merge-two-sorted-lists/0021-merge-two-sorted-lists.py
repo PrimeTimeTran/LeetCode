@@ -10,6 +10,5 @@ class Solution:
                 t.next = l2
                 l2 = l2.next
             t = t.next
-
         t.next = l1 or l2
         return d.next

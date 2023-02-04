@@ -20,14 +20,13 @@ class Solution:
         while q and f > 0:
             for _ in range(len(q)):
                 r,c = q.popleft()
-
                 for i in range(4):
                     nr,nc = r+d[i], c+d[i+1]
-                    inbounds = 0<= nr<m and 0<= nc<n
+                    inbounds = 0 <= nr < m and 0 <= nc < n
                     if inbounds and (nr,nc) not in seen and g[nr][nc] == 1:
                         f-=1
-                        seen.add((nr,nc))
                         g[nr][nc] = 2
+                        seen.add((nr,nc))
                         q.append((nr,nc))
             
             t+=1

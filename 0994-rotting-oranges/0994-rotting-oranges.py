@@ -28,6 +28,5 @@ class Solution:
                         g[nr][nc] = 2
                         seen.add((nr,nc))
                         q.append((nr,nc))
-            
             t+=1
         return t if f == 0 else -1

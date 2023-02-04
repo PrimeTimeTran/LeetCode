@@ -9,7 +9,7 @@ class Solution:
         if p and q:
             r = TreeNode(p.val+q.val)
             r.left = self.mergeTrees(p.left, q.left)
-            r.right = self.mergeTrees(p.right, q.right)
+            r.right = self.mergeTrees(p.right,q.right)
             return r
-        else:
+        else: 
             return p or q

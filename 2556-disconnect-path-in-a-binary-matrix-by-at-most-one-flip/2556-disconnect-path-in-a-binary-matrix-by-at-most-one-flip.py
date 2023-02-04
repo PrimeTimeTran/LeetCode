@@ -13,10 +13,6 @@ class Solution:
                 continue
             seen[i][j] = True
             diagonals[i + j] += 1
-            if i:
-                q.append((i - 1, j))
-            if j:
-                q.append((i, j - 1))
             if i < m - 1:
                 q.append((i + 1, j))
             if j < n - 1:

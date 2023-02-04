@@ -5,10 +5,10 @@ class Solution:
         l = 0
         for r, c in enumerate(s):
             cnt[c] -= 1
-            while cnt[c] < 0:  # If number of characters `c` is more than our expectation
-                cnt[s[l]] += 1  # Slide left until cnt[c] == 0
+            while cnt[c] < 0:
+                cnt[s[l]] += 1
                 l += 1
-            if r - l + 1 == len(p):  # If we already filled enough `p.length()` chars
+            if r - l + 1 == len(p):
                 return True
             
         return False

@@ -15,8 +15,9 @@ class Solution:
         while q:
             r = None
             for _ in range(len(q)):
-                c = q.popleft()
-                c.next, r = r, c
-                if c.right:
-                    q.extend([c.right, c.left])
+                cur = q.popleft()
+                cur.next, r = r, cur
+                if cur.right:
+                    q.extend([cur.right, cur.left])
+                    
         return root

@@ -6,10 +6,10 @@ Flow 4 cardinal directions to unseen inbound cells and add them to PQ and seen s
 
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
-        n = len(grid)
         res = 0 
-        pq = [[grid[0][0], 0, 0]]
+        n = len(grid)
         seen = set((0,0))
+        pq = [[grid[0][0], 0, 0]]
         while pq:
             V, r, c = heappop(pq)
             res = max(res, V)

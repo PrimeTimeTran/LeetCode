@@ -1,4 +1,3 @@
-import collections
 
 class MyCalendar:
     def __init__(self):

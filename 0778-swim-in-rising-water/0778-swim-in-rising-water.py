@@ -16,6 +16,7 @@ class Solution:
             if r == c == n-1: return res
             for nr, nc in [[r+1,c],[r,c+1], [r-1,c], [r,c-1]]:
                 inbounds = 0 <= nr < n and 0 <= nc < n
-                if inbounds and (nr,nc) not in seen:
+                unseen = (nr,nc) not in seen
+                if inbounds and unseen:
                     seen.add((nr,nc))
                     heappush(pq, [grid[nr][nc], nr, nc])

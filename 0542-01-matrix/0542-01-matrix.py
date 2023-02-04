@@ -1,6 +1,6 @@
 '''
 BFS
-Iterate cells adding 0 cells to Q and changing others to -1. BFS Q ignoring out and non -1 cells.
+Iterate cells adding 0 cells to Q and changing others to -1. BFS Q on inbound and non 0 cells.
 For each cell item, increment cell by 1 + current cell value before appending new coords.
 '''
 class Solution:

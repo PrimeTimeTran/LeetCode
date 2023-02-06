@@ -4,8 +4,6 @@ class Solution:
         r = sum(nums)
         for i, n in enumerate(nums):
             r-=n
-            if l == r:
-                return i
+            if l == r: return i
             l+=n
-        
         return -1

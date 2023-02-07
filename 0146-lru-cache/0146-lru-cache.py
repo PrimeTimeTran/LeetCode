@@ -1,3 +1,36 @@
+'''
+1. Constraints
+We'll receive a stream of data and we need to return values depending on the stream's messages.
+
+2. Diagram
+
+["LRUCache", "put",  "put",  "get", "put",  "get", "put",  "get", "get", "get"]
+[[2],        [1, 1], [2, 2], [1],   [3, 3], [2],   [4, 4], [1],   [3],   [4]]
+                                                                          ^ 
+CAP 2
+CACHE
+
+{
+    3:3,
+    4:4,
+}              
+
+LL:
+3 > 4
+
+return 1
+return -1
+return -1
+return 3
+return 4
+
+
+3. Pseudocode
+
+4. Code
+
+'''
+
 class ListNode:
     def __init__(self, key, val):
         self.key,self.val = key ,val
@@ -11,7 +44,6 @@ class LRUCache:
         self.left, self.right = ListNode(0,0), ListNode(0,0)
         self.left.next, self.right.prev = self.right, self.left
 
-
     def get(self, key: int) -> int:
         if key in self.cache:
             self.remove(self.cache[key])
@@ -20,11 +52,11 @@ class LRUCache:
         return -1
 
     def remove(self, n) -> None:
-        nxt, prev = n.next, n.prev
-        nxt.prev, prev.next = prev, nxt
+        prev, nxt = n.prev, n.next
+        prev.next, nxt.prev = nxt, prev
 
     def insert(self, n) -> None:
-        prev,nxt = self.right.prev, self.right
+        prev, nxt = self.right.prev, self.right
         prev.next = nxt.prev = n
         n.prev, n.next = prev, nxt
 
@@ -37,3 +69,5 @@ class LRUCache:
             lru = self.left.next
             self.remove(lru)
             del self.cache[lru.key]
+            
+            

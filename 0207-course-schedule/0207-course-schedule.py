@@ -5,18 +5,18 @@ class Solution:
         for a, b in P:
             g[a].append(b)
             
-        seen = set()
-        def dfs(n):
-            if g[n] == []:
-                return True
-            if n in seen:
-                return False
-            seen.add(n)
-            for nei in g[n]:
+        vis = set()
+        def dfs(c):
+            if g[c] == []: return True
+            if c in vis:
+                return False 
+            vis.add(c)
+            for nei in g[c]:
                 if not dfs(nei): return False
-            g[n] = []
+            g[c] = []
             return True
         
-        for c in range(N):
-            if not dfs(c): return False
+        for i in range(N):
+            if not dfs(i): return False
+                
         return True

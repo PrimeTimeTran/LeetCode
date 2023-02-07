@@ -7,3 +7,4 @@ class Solution:
             if l == r: return i
             l+=n
         return -1
+            

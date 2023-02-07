@@ -1,7 +1,7 @@
 class Solution:
     def earliestAcq(self, logs: List[List[int]], N: int) -> int:
-        # uf = {x: x for x in range(N)}
-        uf = [i for i in range(N)]
+        uf = {x: x for x in range(N)}
+        # uf = [i for i in range(N)]
         self.groups = N
 
         def merge(x, y):

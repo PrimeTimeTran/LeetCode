@@ -5,11 +5,9 @@ class Solution:
         for a,b in P:
             g[a].append(b)
         
-        
         res, seen = [], {}
         def dfs(c):
-            if c in seen:
-                return seen[c]
+            if c in seen: return seen[c]
             seen[c] = False
             for nei in g[c]:
                 if not dfs(nei): return False

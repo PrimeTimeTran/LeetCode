@@ -1,5 +1,11 @@
 class Solution:
-    def addToArrayForm(self, A: List[int], K: int) -> List[int]:
-        for i in range(len(A)-1,-1,-1):
-            K, A[i] = divmod(A[i]+K, 10)
-        return [int(i) for i in str(K)] + A if K else A
+    def addToArrayForm(self, a: List[int], k: int) -> List[int]:
+        s = ''
+        for n in a:
+            s += str(n)
+            
+        arr = []
+        for n in str(int(s)+ k):
+            arr.append(int(n))
+        print(arr)
+        return arr

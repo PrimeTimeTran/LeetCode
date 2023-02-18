@@ -8,3 +8,8 @@ class Solution:
         root.left = root.right
         root.right = tmp
         return root
+    
+    
+    
+    
+    

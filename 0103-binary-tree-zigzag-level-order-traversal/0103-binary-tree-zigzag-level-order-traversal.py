@@ -34,7 +34,6 @@ class Solution:
             if level:
                 res.append(level[::dir])
                 dir *= (-1)
-        print(res)
         return res
             
         

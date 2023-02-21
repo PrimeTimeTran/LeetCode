@@ -1,10 +1,10 @@
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
-        left, right = 0, len(nums)-1
-        while left < right:
-            mid = int((left + right)/2)
-            if (mid % 2 == 1 and nums[mid - 1] == nums[mid]) or (mid%2 == 0 and nums[mid] == nums[mid + 1]):
-                left = mid + 1
-            else:
-                right = mid
-        return nums[left]
+        L, R, mid, ans = 0, len(nums)-1, 0, 0
+        while L <= R:
+            mid = ((L + R) >> 2) << 1  # Does the same thing as above, i.e, ensuring mid is even
+            if mid+1 < len(nums) and nums[mid] == nums[mid+1]:
+                L = mid + 2
+            else: 
+                R, ans = mid - 1, nums[mid]
+        return ans

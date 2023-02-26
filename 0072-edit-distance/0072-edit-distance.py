@@ -7,9 +7,8 @@ class Solution:
         if word1[0]==word2[0]:
             return self.minDistance(word1[1:],word2[1:])
         if (word1,word2) not in cache:
-            inserted = 1+ self.minDistance(word1,word2[1:])
-            deleted  = 1+ self.minDistance(word1[1:],word2)
-            replaced = 1+ self.minDistance(word1[1:],word2[1:])
+            inserted = 1 + self.minDistance(word1,word2[1:])
+            deleted  = 1 + self.minDistance(word1[1:],word2)
+            replaced = 1 + self.minDistance(word1[1:],word2[1:])
             cache[(word1,word2)]= min(inserted,deleted,replaced)
         return cache[(word1,word2)]
-        

@@ -29,9 +29,7 @@ class Solution:
         def union(x,y):
             nx, ny = find(x), find(y)
             if nx != ny:
-                p[nx] = ny
-        
-        
+                p[ny] = nx
         for x, y in edges:
             union(x,y)
             

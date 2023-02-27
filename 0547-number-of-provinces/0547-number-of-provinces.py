@@ -1,8 +1,8 @@
 class Solution:
     def findCircleNum(self, A: List[List[int]]) -> int:
-        n = len(A)
-        seen = set()
         res = 0
+        seen = set()
+        n = len(A)
         
         def dfs(i):
             for j, connected in enumerate(A[i]):

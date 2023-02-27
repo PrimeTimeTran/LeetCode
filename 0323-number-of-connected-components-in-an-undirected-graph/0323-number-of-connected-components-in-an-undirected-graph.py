@@ -26,10 +26,12 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
+        
         def union(x,y):
             nx, ny = find(x), find(y)
             if nx != ny:
                 p[nx] = ny
+
         for x, y in edges:
             union(x,y)
             

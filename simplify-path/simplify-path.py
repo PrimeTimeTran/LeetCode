@@ -2,6 +2,7 @@ class Solution:
     def simplifyPath(self, path: str) -> str:
         result = []
         for part in path.split('/'):
+            print(part)
             if part == '..':
                 if len(result):
                     result.pop()

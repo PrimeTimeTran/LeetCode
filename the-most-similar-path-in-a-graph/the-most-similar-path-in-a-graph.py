@@ -1,17 +1,14 @@
 class Solution:
     def mostSimilar(self, n: int, roads: List[List[int]], names: List[str], tp: List[str]) -> List[int]:
-        # construct graph
         graph = [[] for _ in range(n)]
         for u, v in roads:
             graph[u].append(v)
             graph[v].append(u)
         
-        # init variables
         m = len(tp)
         dp = [[m] * n for _ in range(m)]
         prev = [[0] * n for _ in range(m)]
         
-        # populate dp
         for v in range(n):
             dp[0][v] = (names[v] != tp[0])
         for i in range(1, m):
@@ -22,7 +19,6 @@ class Solution:
                         prev[i][v] = u
                 dp[i][v] += (names[v] != tp[i])
                 
-        # re-construct path
         path, min_dist = [0], m
         for v in range(n):
             if dp[-1][v] < min_dist:

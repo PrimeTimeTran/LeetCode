@@ -19,6 +19,7 @@ public class Solution {
             return false;
         }
     }
+
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         Course clist[] = new Course[numCourses];
         for (int i = 0; i < numCourses; i++) {

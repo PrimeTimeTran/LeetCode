@@ -1,8 +1,7 @@
 class Solution:
     def canFinish(self, N: int, pre: List[List[int]]) -> bool:
         g = {n:[] for n in range(N)}
-        for a,b in pre:
-            g[a].append(b)
+        for a,b in pre: g[a].append(b)
         seen = set()        
         def dfs(c):
             if g[c] == []:

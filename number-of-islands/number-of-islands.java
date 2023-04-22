@@ -19,6 +19,7 @@ class Solution {
       boolean out = r < 0 || c < 0 || r == grid.length || c == grid[0].length;
       if (out) return false;
       if (Character.toString(grid[r][c]).equals("0")) return false;
+      // if (String.valueOf(grid[r][c]).equals("0")) return false;
       String coords = String.format("%s,%s", r, c);
       if (seen.contains(coords)) return false;
       seen.add(coords);

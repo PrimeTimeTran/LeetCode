@@ -1,6 +1,8 @@
 class Solution {
     Set<String> seen;
-    public int numIslands(char[][] grid) {
+    char[][] grid;
+    public int numIslands(char[][] g) {
+      grid = g;
       int count = 0;
       int m = grid.length, n = grid[0].length;
       seen = new HashSet<String>(); 

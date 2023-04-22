@@ -1,5 +1,5 @@
 class Solution {
-    HashSet<String> seen;
+    Set<String> seen;
     public int numIslands(char[][] grid) {
       int count = 0;
       int m = grid.length, n = grid[0].length;

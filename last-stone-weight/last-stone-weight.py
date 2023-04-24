@@ -13,4 +13,3 @@ class Solution:
                 heapq.heappush(stones, diff)
             
         return abs(stones[0]) if len(stones) else 0
-        

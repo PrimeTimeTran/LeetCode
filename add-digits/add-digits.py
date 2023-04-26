@@ -3,7 +3,7 @@ class Solution:
         while num > 9:
             total = 0
             while num:
-                total += num%10
+                total += num % 10
                 num //= 10
             num = total
         return num

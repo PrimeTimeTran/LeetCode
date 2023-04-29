@@ -5,19 +5,25 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isCousins(self, root, x, y):
-        def dept(node, d, par):
-            if not node: return 
-			# if we find node with value x, then keep its depth and parent in a and aparent variables
-            if node.val == x:
-                self.a = d
-                self.aparent= par
-			# if we find node with value y, then keep its depth and parent in b and bparent variables
-            elif node.val == y:
-                self.b = d
-                self.bparent= par
-            dept(node.left, d+1, node)
-            dept(node.right, d+1, node)
-        dept(root, 0, None)
-        # return True if a and b are equal and their parents are not same
-        return self.a == self.b and self.aparent != self.bparent
+    def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+        self.xDepth = 0
+        self.yDepth = 0
+        self.xpar = None
+        self.ypar = None
+        def dfs(n, d, p):
+            if n.val == x:
+                self.xDepth = d
+                self.xpar = p
+                return
+            if n.val == y:
+                self.yDepth = d
+                self.ypar = p
+                return
+            if n.left:
+                dfs(n.left, d+1, n.val)
+            if n.right:
+                dfs(n.right, d+1, n.val)
+        dfs(root, 1, root.val)
+        print(self.xDepth)
+        print(self.yDepth)
+        return self.xDepth == self.yDepth and self.ypar != self.xpar

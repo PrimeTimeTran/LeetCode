@@ -17,23 +17,3 @@ class Solution:
                 root.right, self.previous_right = self.previous_right, root
                 root.left = None
         helper()
-        
-        if not root: return []
-
-        res = []
-
-        def dfs(n):
-            if n:
-                res.append(n.val)
-                dfs(n.left)
-                dfs(n.right)
-        dfs(root)
-
-        r = TreeNode(res.pop(0), None)
-        while res:
-            t = TreeNode(res.pop(0), None)
-            t.left = None
-            r.right = t
-            r = t
-
-        return r

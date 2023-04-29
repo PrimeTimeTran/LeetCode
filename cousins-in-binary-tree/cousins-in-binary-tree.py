@@ -24,6 +24,4 @@ class Solution:
             if n.right:
                 dfs(n.right, d+1, n.val)
         dfs(root, 1, root.val)
-        print(self.xDepth)
-        print(self.yDepth)
         return self.xDepth == self.yDepth and self.ypar != self.xpar

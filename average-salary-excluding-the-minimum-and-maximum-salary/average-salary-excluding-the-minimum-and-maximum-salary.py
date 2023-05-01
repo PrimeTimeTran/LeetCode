@@ -1,3 +1,9 @@
 class Solution:
     def average(self, salary: List[int]) -> float:
-        return (sum(salary) - max(salary) - min(salary)) / (len(salary) - 2)
+        smallest, largest = min(salary), max(salary)
+        total = 0
+        for s in salary:
+            if s != smallest and s != largest:
+                total += s
+
+        return total / (len(salary)-2)

@@ -5,8 +5,8 @@ function memoize(fn) {
     const cache = [];
 
     return function(...args) {       
-        const key = args.join("-").toString();
-        if(cache[key] != undefined )return cache[key];
+        const key = args.join("-");
+        if(cache[key] != undefined ) return cache[key];
         return cache[key] = Number(fn(...args));
     }
 }

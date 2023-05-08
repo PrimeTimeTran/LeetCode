@@ -7,11 +7,11 @@ function memoize(fn) {
     return function(...args) {       
         var key = args.join("-").toString();
 
-        if(cache[`${key}`] != undefined ){
-            return cache[`${key}`];
+        if(cache[key] != undefined ){
+            return cache[key];
         }
 
-        return cache[`${key}`] = Number(fn(...args));
+        return cache[key] = Number(fn(...args));
     }
 }
 

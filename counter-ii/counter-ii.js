@@ -7,10 +7,7 @@ var createCounter = function(init) {
     return {
         increment: () => ++val,
         decrement: () => --val,
-        reset: () => {
-            val = init
-            return val
-        },
+        reset: () => val = init,
     }    
 };
 

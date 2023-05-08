@@ -5,14 +5,8 @@
 var createCounter = function(init) {
     let val = init
     return {
-        increment: () => {
-            val += 1
-            return val
-        },
-        decrement: () => {
-            val -= 1
-            return val
-        },
+        increment: () => ++val,
+        decrement: () => --val,
         reset: () => {
             val = init
             return val

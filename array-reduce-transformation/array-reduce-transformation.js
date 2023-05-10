@@ -12,4 +12,10 @@ var reduce = function(nums, fn, init) {
     acc = fn(acc, n)
   }
   return acc
+
+  // let val = init
+  // for (let n of nums) {
+  //   val = fn(val, n)
+  // }
+  // return val
 };

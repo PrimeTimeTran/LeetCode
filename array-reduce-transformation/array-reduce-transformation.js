@@ -5,5 +5,5 @@
  * @return {number}
  */
 var reduce = function(nums, fn, init) {
-  return nums.reduce((acc, val) => fn(acc, val), init)  
+      return nums.reduce((acc, val) => fn(acc, val), init)  
 };

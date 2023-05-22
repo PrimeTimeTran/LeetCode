@@ -10,20 +10,20 @@ class Solution:
             res.append(key)
         return res
     
-        # O(1) time 
-        if k == len(nums):
-            return nums
+        # # O(1) time 
+        # if k == len(nums):
+        #     return nums
         
-        # 1. build hash map : character and how often it appears
-        # O(N) time
-        count = Counter(nums)   
-        # 2-3. build heap of top k frequent elements and
-        # convert it into an output array
-        # O(N log k) time
-        return heapq.nlargest(k, count.keys(), key=count.get) 
+        # # 1. build hash map : character and how often it appears
+        # # O(N) time
+        # count = Counter(nums)   
+        # # 2-3. build heap of top k frequent elements and
+        # # convert it into an output array
+        # # O(N log k) time
+        # return heapq.nlargest(k, count.keys(), key=count.get) 
     
-        vals = {}
-        for n in nums:
-            vals[n] = vals.get(n,0)+1
-        arr = sorted(vals, key = vals.get, reverse = True)
-        return arr[:k]
+        # vals = {}
+        # for n in nums:
+        #     vals[n] = vals.get(n,0)+1
+        # arr = sorted(vals, key = vals.get, reverse = True)
+        # return arr[:k]

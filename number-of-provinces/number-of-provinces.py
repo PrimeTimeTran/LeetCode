@@ -9,10 +9,8 @@ class Solution:
                 if connected and j not in seen:
                     seen.add(j)
                     dfs(j)
-        
         for i in range(n):
             if i not in seen:
                 dfs(i)
                 res+=1
         return res
-        

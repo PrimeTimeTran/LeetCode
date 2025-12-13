@@ -13,7 +13,7 @@ class Solution:
         C.sort()
         def back(rem, path):
             if sum(path) == T:
-                return res.append(path[:])
+                return res.append(path)
             if sum(path) > T:
                 return
             for i in range(len(rem)):

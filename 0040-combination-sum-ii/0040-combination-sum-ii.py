@@ -1,20 +1,24 @@
-# https://leetcode.com/problems/subsets-ii
 '''
-
+1. Understand
+2. Diagram
+3. Pseudocode
+4. Code
+5. BigO
+Time:    O()
+Space:   O()
 '''
 class Solution:
     def combinationSum2(self, C: List[int], T: int) -> List[List[int]]:
         res = []
         C.sort()
-        def back(cur, path):
+        def back(rem, path):
+            if sum(path) == T:
+                return res.append(path[:])
             if sum(path) > T:
                 return
-            if sum(path) == T:
-                res.append(path)
-                return
-            for i in range(len(cur)):
-                if i > 0 and cur[i] == cur[i-1]:
+            for i in range(len(rem)):
+                if i > 0 and rem[i] == rem[i-1]:
                     continue
-                back(cur[i+1:], path + [cur[i]])
+                back(rem[i+1:], path+[rem[i]])
         back(C, [])
         return res

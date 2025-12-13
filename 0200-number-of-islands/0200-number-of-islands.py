@@ -7,8 +7,7 @@ class Solution:
             return parent[x]
         def union(x, y):
             rx, ry = find(x), find(y)
-            if rx == ry:
-                return
+            if rx == ry: return
             if rank[rx] < rank[ry]:
                 parent[rx] = ry
             elif rank[rx] > rank[ry]:

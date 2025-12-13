@@ -9,7 +9,7 @@ class Solution:
                 parent[x] = find(parent[x])
             return parent[x]
         for i in range(n):
-            for j in range(i+1, n):
+            for j in range(n):
                 if isConnected[i][j]:
                     union(i, j)
         return len({find(i) for i in range(n)})

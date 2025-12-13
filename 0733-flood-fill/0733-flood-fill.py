@@ -1,18 +1,22 @@
+'''
+PQ from initial r & c. 
+Use set to filter seen cells.
+Store PQ popped cell's color in tmp before changing it to the input color.
+For neighbors of a popped cell, check if it's inbounds and if it's the tmp color. If it is, add it to the PQ.
+'''
 class Solution:
-    def floodFill(self, image: List[List[int]], r: int, c: int, color: int) -> List[List[int]]:
-        seen = set()
-        d = [0,-1,0,1,0]
-        old = image[r][c]
-        image[r][c] = color
-        q = deque([[r,c]])
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
         m, n = len(image), len(image[0])
-        while q: 
-            r, c = q.popleft()
-            for i in range(4):
-                nr, nc = d[i]+r, d[i+1]+c
-                inbounds = 0 <= nr < m and 0 <= nc < n
-                if inbounds and image[nr][nc] == old and (nr,nc) not in seen:
-                    seen.add((nr,nc))
-                    image[nr][nc] = color
-                    q.append((nr,nc))
+        q = [[sr, sc, image[sr][sc]]]
+        seen = set()
+
+        while q:
+            r, c, tmp = heappop(q)
+            image[r][c] = color
+            for dr, dc in [r+1,c],[r-1,c],[r,c+1],[r,c-1]:
+                if (dr,dc) in seen: continue
+                seen.add((dr, dc))
+                inbounds = 0 <= dr < m and 0 <= dc < n
+                if inbounds and image[dr][dc] == tmp:
+                    heappush(q, [dr, dc, tmp])
         return image

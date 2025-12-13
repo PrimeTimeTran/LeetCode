@@ -1,16 +1,19 @@
+'''
+1. Understand
+2. Diagram
+3. Pseudocode
+4. Code
+5. BigO
+Time:    O()
+Space:   O()
+'''
 class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        return list(itertools.permutations(nums))
-        
+    def permute(self, nums):
         res = []
-        if len(nums) == 0:
-            return [[]]
-        for i in range(len(nums)):
-            n = nums.pop(0)
-            perms = self.permute(nums)
-            for p in perms:
-                p.append(n)
-            res.extend(perms)
-            nums.append(n)
-
+        def back(rem, path):
+            if not rem:
+                res.append(path)
+            for i in range(len(rem)):
+                back(rem[:i] + rem[i+1:], path+[rem[i]])
+        back(nums, [])
         return res

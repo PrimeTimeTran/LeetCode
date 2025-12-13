@@ -1,7 +1,11 @@
 '''
-For each character of the string create a lower & uppercase set.
-For both items, combine them with candidate res you have so far(extending it).
-Return the result from doing this with all chars of the string.
+1. Understand
+2. Diagram
+3. Pseudocode
+4. Code
+5. BigO
+Time:    O()
+Space:   O()
 '''
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:

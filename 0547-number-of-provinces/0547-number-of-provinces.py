@@ -1,17 +1,20 @@
+'''
+UF connected components using the isConnected list.
+Return the length of unique representatives.
+'''
 class Solution:
-    def findCircleNum(self, A: List[List[int]]) -> int:
-        res = 0
-        n = len(A)      
-        seen = set()
-        
-        def dfs(i):
-            for j, connected in enumerate(A[i]):
-                if connected and j not in seen:
-                    seen.add(j)
-                    dfs(j)
-        
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        n = len(isConnected)
+        parent = list(range(n))
+        def union(x, y):
+            parent[find(x)] = find(y)
+        def find(x):
+            if x != parent[x]:
+                parent[x] = find(parent[x])
+            return parent[x]
         for i in range(n):
-            if i not in seen:
-                dfs(i)
-                res+=1
-        return res
+            for j in range(i+1, n):
+                if isConnected[i][j]:
+                    union(i, j)
+        return len({find(i) for i in range(n)})
+        

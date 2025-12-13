@@ -1,17 +1,11 @@
 class Solution:
-    def canFinish(self, N: int, P: List[List[int]]) -> bool:
-        g = defaultdict(list)
-        for a, b in P:
-            g[a].append(b)
-        seen = {}
-        def dfs(n):
-            if n in seen: return seen[n]
-            seen[n] = False
-            for p in g[n]:
-                if not dfs(p): return False
-            seen[n] = True
+    def canFinish(self, N: int, P: List[List[int]]) -> List[int]:
+        g, seen = defaultdict(list), {}
+        for u, v in P: g[u].append(v)
+        def dfs(c):
+            if c in seen: return seen[c]
+            seen[c] = False
+            if not all(dfs(p) for p in g[c]): return False
+            seen[c] = True
             return True
-        for i in range(N):
-            if not dfs(i):
-                return False
-        return True
+        return False if not all(dfs(c) for c in range(N)) else True 

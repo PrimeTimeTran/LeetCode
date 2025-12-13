@@ -1,7 +1,3 @@
-'''
-UF connected components using the isConnected list.
-Return the length of unique representatives.
-'''
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         n = len(isConnected)

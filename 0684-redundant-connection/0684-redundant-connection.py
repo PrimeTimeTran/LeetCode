@@ -7,10 +7,10 @@ class Solution:
                 parent[x] = find(parent[x])
             return parent[x]
         def union(x, y):
-            rootX, rootY = find(x), find(y)
-            if rootX == rootY: return False
-            parent[rootX] = rootY
+            rx, ry = find(x), find(y)
+            if rx == ry: return False
+            parent[rx] = ry
             return True
         for u, v in edges:
-            if not union(u,v):
-                return [u, v]
+            if not union(u, v):
+                return [u,v]

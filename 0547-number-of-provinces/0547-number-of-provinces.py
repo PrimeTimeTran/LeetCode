@@ -7,8 +7,7 @@ class Solution:
                 parent[x] = find(parent[x])
             return parent[x]
         def union(x, y):
-            rootX, rootY = find(x), find(y)
-            parent[rootX] = rootY 
+            parent[find(x)] = find(y)
         for i in range(n):
             for j in range(1, n):
                 if isConnected[i][j]:

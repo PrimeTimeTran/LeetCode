@@ -9,7 +9,14 @@ class Solution:
             return parent[x]
         def union(x, y):
             rx, ry = find(x), find(y)
-            parent[rx] = ry
+            if rx == ry: return
+            if parent[rx] < parent[ry]:
+                parent[rx] = ry
+            elif parent[rx] > parent[ry]:
+                parent[ry] = rx
+            else:
+                parent[ry] = rx
+                rank[rx] += 1
         
         for r in range(m):
             for c in range(n):

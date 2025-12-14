@@ -3,11 +3,9 @@ class Solution:
         res = [0] * len(nums)
         prefix = postfix = 1
         for i, n in enumerate(nums):
-            # pass
             res[i] = prefix
             prefix *= n
-        for i in range(len(nums) -1, -1, -1):
-            # pass
+        for i in range(len(nums)-1, -1, -1):
             res[i] *= postfix
             postfix *= nums[i]
         return res

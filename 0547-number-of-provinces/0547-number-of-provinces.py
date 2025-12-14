@@ -2,15 +2,15 @@ class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         n = len(isConnected)
         parent = list(range(n))
-        def union(x, y):
-            parent[find(x)] = find(y)
         def find(x):
             if x != parent[x]:
                 parent[x] = find(parent[x])
             return parent[x]
+        def union(x, y):
+            rootX, rootY = find(x), find(y)
+            parent[rootX] = rootY 
         for i in range(n):
-            for j in range(i+1, n):
+            for j in range(1, n):
                 if isConnected[i][j]:
                     union(i, j)
-        return len({find(i) for i in range(n)})
-        
+        return len({find(x) for x in range(n)})

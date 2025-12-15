@@ -4,7 +4,7 @@ class Solution:
         while l < r:
             total = nums[l] + nums[r]
             if total == target:
-                return [l+1, r+1]
+                return [l+1,r+1]
             elif total < target:
                 l+=1
             else:

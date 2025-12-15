@@ -1,36 +1,18 @@
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.parent = self
-        self.size = 1
-    
-class UnionFind:
-    def find(self, node):
-        if node.parent != node:
-            node.parent = self.find(node.parent)
-        return node.parent
-    
-    def union(self, node1, node2):
-        parent_1 = self.find(node1)
-        parent_2 = self.find(node2)
-        if parent_1 != parent_2:
-            parent_2.parent = parent_1
-            parent_1.size += parent_2.size
-        return parent_1.size
-        
+'''
+Create a set from nums. 
+Iterate items and check if the current n - 1 is not in nums, set cur and begin a loop which grows cur.
+The while loop should increment while n+cur is in nums. Increment by 1
+After the loop update res to max of res and cur
+'''
+
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        uf = UnionFind()
-        nodes = {}
-        max_size = 0
-        for num in nums:
-            if num not in nodes:
-                node = Node(num)
-                nodes[num] = node
-                size = 1
-                if num + 1 in nodes:
-                    size = uf.union(node, nodes[num+1])
-                if num - 1 in nodes:
-                    size = uf.union(node, nodes[num-1])
-                max_size = max(max_size, size)
-        return max_size
+        res, cur, nums = 0, 0, set(nums)
+        for n in nums:
+            if n-1 not in nums:
+                cur = 0
+                while n + cur in nums:
+                    cur += 1
+                res = max(res, cur)
+        return res
+

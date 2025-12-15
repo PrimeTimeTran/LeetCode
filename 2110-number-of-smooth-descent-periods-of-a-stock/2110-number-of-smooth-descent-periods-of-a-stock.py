@@ -1,13 +1,11 @@
 class Solution:
     def getDescentPeriods(self, prices: List[int]) -> int:
-        n = len(prices)
-
-        @lru_cache(None)
-        def dp(i):
-            if i == 0:
-                return 1
+        res = cur = 1
+        for i in range(1, len(prices)):
             if prices[i] == prices[i-1] - 1:
-                return dp(i-1) + 1
-            return 1
+                cur += 1
+            else:
+                cur = 1
+            res += cur
 
-        return sum(dp(i) for i in range(n))
+        return res

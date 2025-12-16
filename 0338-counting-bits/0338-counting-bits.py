@@ -1,13 +1,12 @@
 class Solution:
     def countBits(self, n: int) -> List[int]:
-        def countOnes(v):
+        def hammingWeight(n: int) -> int:
             res = 0
-            while v != 0:
-                res+=1
-                v &= v-1
+            while n:
+                res += 1
+                n &= n-1
             return res
         res = []
         for i in range(n+1):
-            val = countOnes(i)
-            res.append(val)
+            res.append(hammingWeight(i))
         return res

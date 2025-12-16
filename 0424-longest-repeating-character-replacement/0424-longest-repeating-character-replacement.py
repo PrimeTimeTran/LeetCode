@@ -1,24 +1,12 @@
-# class Solution:
-#     def characterReplacement(self, s: str, k: int) -> int:
-#         maxf, res, l, win = 0, 0, 0, {}
-#         for r, c in enumerate(s):
-#             win[c] = win.get(c, 0) + 1
-#             maxf = max(maxf, win[c])
-#             while (r - l + 1) - maxf > k:
-#                 win[s[l]] -= 1
-#                 l += 1
-#             res = max(res, r - l + 1)
-#         return res
-
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        maxf, res, l, win = 0, 0, 0, {}
+        l = res = maxf = 0
+        w = {}
         for r, c in enumerate(s):
-            win[c] = win.get(c, 0) + 1
-            maxf = max(maxf, win[c])
+            w[c] = w.get(c, 0) + 1
+            maxf = max(maxf, w[c])
             while (r-l+1) - maxf > k:
-                win[s[l]] -= 1
-                l += 1
-            res = max(res, r-l + 1)
+                w[s[l]] -= 1
+                l+=1
+            res = max(res, r - l + 1)
         return res
-        

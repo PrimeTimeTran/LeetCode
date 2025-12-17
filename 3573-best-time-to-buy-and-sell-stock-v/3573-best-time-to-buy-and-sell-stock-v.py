@@ -25,7 +25,10 @@ class Solution:
             mx = -inf
             p = prices[i]
             if carry > -1:
-                mx = dp(i+1, rem-1, -1) + (-p if carry == 0 else p)
+                if carry == 0:
+                    mx = dp(i+1, rem-1, -1) - p
+                else:
+                    mx = dp(i+1, rem-1, -1) + p
             else:
                 mx = max(dp(i+1, rem, 0)  + p,
                             dp(i+1, rem, 1)  - p)

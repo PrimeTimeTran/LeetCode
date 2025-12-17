@@ -3,6 +3,6 @@ class Solution:
         x = n1 ^ n2
         res = 0
         while x:
-            res += 1
+            res+=1
             x &= x-1
         return res

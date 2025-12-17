@@ -23,17 +23,17 @@ class Solution:
             if i == len(prices) or rem == 0:
                 return 0 if carry == -1 else -inf
             p, mx = prices[i], -inf
+            i += 1
             if carry > -1:
-                if carry == 0:
-                    mx = dp(i+1, rem - 1, -1) - p
-                else:
-                    mx = dp(i+1, rem - 1, -1) + p
+                # Apply sign
+                sign = -1 if carry == 0 else 1
+                mx = dp(i, rem - 1, -1) + (sign * p)
             else:
                 mx = max(
                     # Sell
-                    dp(i+1, rem, 0) + p,
+                    dp(i, rem, 0) + p,
                     # Buy
-                    dp(i+1, rem, 1) - p,
+                    dp(i, rem, 1) - p,
                 )
-            return max(dp(i+1, rem, carry), mx)
+            return max(dp(i, rem, carry), mx)
         return dp(0, k, -1)

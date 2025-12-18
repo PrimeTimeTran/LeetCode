@@ -4,10 +4,9 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        n = len(prices)
         @lru_cache(None)
         def dp(i: int, completed_count: int, open_position: bool) -> int:
-            if i == n or completed_count == 2:
+            if i == len(prices) or completed_count == 2:
                 return 0 if not open_position else -inf
             price = prices[i]
             i+=1
@@ -16,7 +15,6 @@ class Solution:
                 sell = price + dp(i, completed_count + 1, False)
                 return max(pnl_today_skipped, sell)
             else:
-                # Option 2: buy today
                 buy = -price + dp(i, completed_count, True)
                 return max(pnl_today_skipped, buy)
 

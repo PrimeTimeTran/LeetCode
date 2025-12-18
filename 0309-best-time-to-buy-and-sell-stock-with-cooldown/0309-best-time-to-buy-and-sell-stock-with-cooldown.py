@@ -11,13 +11,13 @@ class Solution:
             price = prices[i]
             i+=1
             if cooldown:
-                return dp(i, None, None)
+                return dp(i, open_position, False)
             if open_position == "buy_to_open":
-                sell_today = price + dp(i, None, True)
-                hold_today = dp(i, open_position, None)
+                sell_today = price + dp(i, False, True)
+                hold_today = dp(i, open_position, False)
                 return max(sell_today, hold_today)
             else:
-                buy_today  = -price + dp(i, "buy_to_open", None)
-                skip_today = dp(i, None, None)
+                buy_today  = -price + dp(i, "buy_to_open", False)
+                skip_today = dp(i, False, False)
                 return max(buy_today, skip_today)
-        return dp(0, None, None)
+        return dp(0, False, False)

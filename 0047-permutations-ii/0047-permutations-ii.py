@@ -9,13 +9,13 @@ Space:   O()
 '''
 class Solution:
     def permuteUnique(self, nums):
-        res = []
         nums.sort()
-        def back(rem, path):
-            if not rem:
+        res = []
+        def back(cur, path):
+            if not cur:
                 res.append(path)
-            for i in range(len(rem)):
-                if i > 0 and rem[i] == rem[i-1]: continue
-                back(rem[:i] + rem[i+1:], path+[rem[i]])
+            for i in range(len(cur)):
+                if i > 0 and cur[i] == cur[i-1]: continue
+                back(cur[:i] + cur[i+1:], path + [cur[i]])
         back(nums, [])
         return res

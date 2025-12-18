@@ -1,39 +1,21 @@
-'''
-1. Understand
-Return an int representing the maximum profit you can make making at most k transactions.
-DP because it's asking to find the best given the constraint k from a list of subproblems.
-
-2. Diagram
-3. Pseudocode
-4. Code
-5. Big O
-Time:   O()
-Space:  O()
-'''
 class Solution:
     def maximumProfit(self, prices: List[int], k: int) -> int:
-        # i             =   day/price
-        # remaining     =   how many transactions remaining
-        # carry         =   action of carries forward prev state. 
-        #                   -1      =   free
-        #                   0       =   sold
-        #                   1       =   bought
         @lru_cache(maxsize=1000*4)
-        def dp(i, rem, carry):
-            if i == len(prices) or rem == 0:
-                return 0 if carry == -1 else -inf
-            p, mx = prices[i], -inf
-            i += 1
-            if carry > -1:
-                # Apply sign
-                sign = -1 if carry == 0 else 1
-                mx = dp(i, rem - 1, -1) + (sign * p)
+        def dp(i: int, completed_transactions: int, position: str):
+            if i == len(prices) or completed_transactions == k:
+                return 0 if position == None else -inf
+            p, pnl_today_included = prices[i], -inf
+            i+=1
+            if position:
+                sign = -1 if position == "sell_to_open" else 1
+                pnl_today = sign * p
+                pnl_unrealized = dp(i, completed_transactions + 1, None)
+                pnl_today_included = pnl_today + pnl_unrealized
             else:
-                mx = max(
-                    # Sell
-                    dp(i, rem, 0) + p,
-                    # Buy
-                    dp(i, rem, 1) - p,
+                pnl_today_included = max(
+                    dp(i, completed_transactions, "sell_to_open") + p,
+                    dp(i, completed_transactions, "buy_to_open") - p,
                 )
-            return max(dp(i, rem, carry), mx)
-        return dp(0, k, -1)
+            pnl_today_skipped = dp(i, completed_transactions, position)
+            return max(pnl_today_skipped, pnl_today_included)
+        return dp(0, 0, None)

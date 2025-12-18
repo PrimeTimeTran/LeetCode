@@ -5,19 +5,19 @@ from typing import List
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         @lru_cache(None)
-        def dp(i: int, open_position, cooldown):
+        def dp(i: int, open_position: Union[str, bool], cooldown):
             if i == len(prices):
-                return 0 if open_position is not "buy_to_open" else -inf
+                return 0 if open_position != "buy_to_open" else -inf
             price = prices[i]
             i+=1
             if cooldown:
                 return dp(i, open_position, False)
             if open_position == "buy_to_open":
-                sell_today = price + dp(i, False, True)
-                hold_today = dp(i, open_position, False)
-                return max(sell_today, hold_today)
+                pnl_from_close = price + dp(i, False, True)
+                pnl_from_holding = dp(i, open_position, False)
+                return max(pnl_from_close, pnl_from_holding)
             else:
-                buy_today  = -price + dp(i, "buy_to_open", False)
-                skip_today = dp(i, False, False)
-                return max(buy_today, skip_today)
+                pnl_from_opening  = -price + dp(i, "buy_to_open", False)
+                pnl_from_waiting = dp(i, False, False)
+                return max(pnl_from_opening, pnl_from_waiting)
         return dp(0, False, False)

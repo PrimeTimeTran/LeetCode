@@ -4,23 +4,20 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        FREE, HOLD = 0, 1
         @lru_cache(None)
-        def dp(i, state):
+        def dp(i: int, open_position, cooldown):
             if i == len(prices):
-                return 0 if state is not HOLD else -inf
+                return 0 if open_position is not "buy_to_open" else -inf
             price = prices[i]
             i+=1
-            if state == FREE:
-                return max(
-                    dp(i, HOLD) - price,
-                    dp(i, FREE)
-                )
-            elif state == HOLD:
-                return max(
-                    dp(i, None) + price,
-                    dp(i, HOLD)
-                )
-            return dp(i, FREE)
-
-        return dp(0, FREE)
+            if cooldown:
+                return dp(i, None, None)
+            if open_position == "buy_to_open":
+                sell_today = price + dp(i, None, True)
+                hold_today = dp(i, open_position, None)
+                return max(sell_today, hold_today)
+            else:
+                buy_today  = -price + dp(i, "buy_to_open", None)
+                skip_today = dp(i, None, None)
+                return max(buy_today, skip_today)
+        return dp(0, None, None)

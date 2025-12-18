@@ -6,22 +6,19 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         n = len(prices)
         @lru_cache(None)
-        def dp(i: int, completed_transactions: int, holding: bool) -> int:
-            # Base cases
-            if i == n or completed_transactions == 2:
-                return 0 if not holding else -inf
-
-            # Option 1: skip today
-            skip = dp(i + 1, completed_transactions, holding)
-
-            if holding:
-                # Option 2: sell today
-                sell = prices[i] + dp(i + 1, completed_transactions + 1, False)
-                return max(skip, sell)
+        def dp(i: int, completed_count: int, open_position: bool) -> int:
+            if i == n or completed_count == 2:
+                return 0 if not open_position else -inf
+            price = prices[i]
+            i+=1
+            pnl_today_skipped = dp(i, completed_count, open_position)
+            if open_position:
+                sell = price + dp(i, completed_count + 1, False)
+                return max(pnl_today_skipped, sell)
             else:
                 # Option 2: buy today
-                buy = -prices[i] + dp(i + 1, completed_transactions, True)
-                return max(skip, buy)
+                buy = -price + dp(i, completed_count, True)
+                return max(pnl_today_skipped, buy)
 
         return dp(0, 0, False)
 

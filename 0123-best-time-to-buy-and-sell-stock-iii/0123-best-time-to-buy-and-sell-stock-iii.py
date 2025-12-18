@@ -7,7 +7,7 @@ class Solution:
         @lru_cache(None)
         def dp(i: int, completed_count: int, open_position: bool) -> int:
             if i == len(prices) or completed_count == 2:
-                return 0 if not open_position else -inf
+                return -inf if open_position else 0
             price = prices[i]
             i+=1
             pnl_today_skipped = dp(i, completed_count, open_position)

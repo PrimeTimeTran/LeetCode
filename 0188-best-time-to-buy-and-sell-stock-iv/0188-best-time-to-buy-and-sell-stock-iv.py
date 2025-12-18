@@ -1,19 +1,18 @@
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
-        def dp(i: int, transactions_completed: int):
-            if i == len(prices) or transactions_completed == k*2:
+        @lru_cache(None)
+        def dp(i,rem):
+            if i == len(prices) or rem == 0:
                 return 0
-            p = prices[i]
-            i += 1
-            sign = -1 if transactions_completed % 2 == 0 else 1
-            pnl_today = sign * p
-
-            pnl_unrealized = dp(i, transactions_completed + 1)
-            pnl_today_included = pnl_today + pnl_unrealized
-
-            pnl_today_skipped = dp(i, transactions_completed)
-            return max(pnl_today_included, pnl_today_skipped)
-        return dp(0, 0)
+            skip = dp(i+1, rem)
+            future = dp(i+1, rem-1)
+            # Apply buy/sell sign
+            # Even number transactions means debit(-)
+            # Odd  number transactions means credit(+)
+            sign = -1 if rem % 2 == 0 else 1
+            take = future + sign * prices[i]
+            return max(skip, take)
+        return dp(0, k * 2)
 
 # class Solution:
 #     def maxProfit(self, k: int, prices: List[int]) -> int:

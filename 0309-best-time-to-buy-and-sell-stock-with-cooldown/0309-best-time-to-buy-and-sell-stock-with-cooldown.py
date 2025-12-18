@@ -4,7 +4,7 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        FREE, HOLD, COOL = 0, 1, 2
+        FREE, HOLD = 0, 1
         @lru_cache(None)
         def dp(i, state):
             if i == len(prices):
@@ -16,13 +16,11 @@ class Solution:
                     dp(i, HOLD) - price,
                     dp(i, FREE)
                 )
-
-            if state == HOLD:
+            elif state == HOLD:
                 return max(
-                    dp(i, COOL) + price,
+                    dp(i, None) + price,
                     dp(i, HOLD)
                 )
-
             return dp(i, FREE)
 
         return dp(0, FREE)

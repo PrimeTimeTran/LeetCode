@@ -11,9 +11,10 @@ class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
         res = []
         def back(start, path):
-            if len(path) > k or sum(path) > n: return
-            if len(path) == k and sum(path) == n:
+            if sum(path) == n and len(path) == k:
                 return res.append(path)
+            if sum(path) > n or len(path) > k:
+                return
             for i in range(start, 10):
                 back(i+1, path+[i])
         back(1, [])

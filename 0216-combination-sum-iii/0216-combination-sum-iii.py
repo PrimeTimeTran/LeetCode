@@ -13,8 +13,7 @@ class Solution:
         def back(start, path):
             if len(path) > k or sum(path) > n: return
             if len(path) == k and sum(path) == n:
-                res.append(path)
-                return
+                return res.append(path)
             for i in range(start, 10):
                 back(i+1, path+[i])
         back(1, [])

@@ -10,13 +10,12 @@ Space:   O()
 
 class Solution:
     def subsetsWithDup(self, nums):
-        res = []
         nums.sort()
-        def back(rem, path):
+        res = []
+        def dp(cur, path):
             res.append(path)
-            for i in range(len(rem)):
-                if i > 0 and rem[i] == rem[i-1]:
-                    continue
-                back(rem[i+1:], path+[rem[i]])
-        back(nums, [])
+            for i in range(len(cur)):
+                if i > 0 and cur[i] == cur[i-1]: continue
+                dp(cur[i+1:], path+[cur[i]])
+        dp(nums, [])
         return res

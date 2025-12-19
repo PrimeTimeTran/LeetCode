@@ -14,10 +14,8 @@ class Solution:
         res = []
         def back(start, path):
             if len(path) == k and sum(path) == n:
-                return res.append(path[:])
+                return res.append(path)
             for i in range(start, 10):
-                path.append(i)
-                back(i+1, path)
-                path.pop()
-        back(1, [])
-        return res
+                back(i+1, path+[i])
+            return res
+        return back(1, [])

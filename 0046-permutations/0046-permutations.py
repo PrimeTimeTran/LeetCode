@@ -10,10 +10,10 @@ Space:   O()
 class Solution:
     def permute(self, nums):
         res = []
-        def back(rem, path):
-            if not rem:
+        def back(cur, path):
+            if not cur:
                 res.append(path)
-            for i in range(len(rem)):
-                back(rem[:i] + rem[i+1:], path+[rem[i]])
-        back(nums, [])
-        return res
+            for i in range(len(cur)):
+                back(cur[:i]+cur[i+1:], path+[cur[i]])                
+            return res
+        return back(nums, [])

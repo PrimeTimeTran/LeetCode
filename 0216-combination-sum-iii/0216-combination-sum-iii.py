@@ -4,18 +4,20 @@
 3. Pseudocode
 4. Code
 5. BigO
-Time:    O()
-Space:   O()
+Time:    O(2⁹⋅k)    ⇒ O(1) 
+k is the length of the path which sums to n. Because the constraints says it's bound by a constant number, 9, it's constant.
+Space:   O(k)       ⇒ O(1)
+k is the length of the path which sums to n. Because the constraints says it's bound by a constant number, 9, it's constant.
 '''
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
         res = []
         def back(start, path):
-            if sum(path) == n and len(path) == k:
-                return res.append(path)
-            if sum(path) > n:
-                return
+            if len(path) == k and sum(path) == n:
+                return res.append(path[:])
             for i in range(start, 10):
-                back(i+1, path+[i])
+                path.append(i)
+                back(i+1, path)
+                path.pop()
         back(1, [])
         return res

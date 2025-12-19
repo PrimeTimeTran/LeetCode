@@ -12,7 +12,7 @@ class Solution:
                 r = m
         if nums[l] != target:
             return [-1, -1]
-        left = l
+        left = r
 
         l, r = 0, len(nums) - 1
         while l < r:

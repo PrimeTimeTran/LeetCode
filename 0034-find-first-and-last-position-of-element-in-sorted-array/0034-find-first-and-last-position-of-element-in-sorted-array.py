@@ -21,6 +21,6 @@ class Solution:
                 r = m - 1
             else:
                 l = m
-        right = l
+        right = r
 
         return [left, right]

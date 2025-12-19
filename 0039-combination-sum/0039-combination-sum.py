@@ -11,12 +11,12 @@ class Solution:
     def combinationSum(self, C: List[int], T: int) -> List[List[int]]:
         res = []
         def back(i, path):
-            if i == len(C) or sum(path) > T:
+            if len(C) == i or sum(path) > T:
                 return
             if sum(path) == T:
                 res.append(path)
-                return 
+                return
             back(i+1, path)
-            back(i, path+[C[i]])
-        back(0, [])
-        return res
+            back(i, path + [C[i]])
+            return res
+        return back(0, [])

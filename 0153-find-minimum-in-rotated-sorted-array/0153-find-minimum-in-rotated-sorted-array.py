@@ -14,4 +14,8 @@ class Solution:
                 l = m + 1
             else:
                 r = m
+            # if nums[m] < nums[r]:
+            #     r = m
+            # else:
+            #     l = m + 1
         return nums[l]

@@ -3,19 +3,14 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+# Using a loop capture the next value and update the head's next value to be previous
+# Update the previous value to be current head and head's value to be next
+# When we no longer have a head, return the previous value
 class Solution:
-  def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-    prev, cur = None, head
-    while cur:
-      tmp = cur.next
-      cur.next = prev
-      prev = cur
-      cur = tmp
-    return prev
-  
-    if not head or not head.next:
-      return head
-    p = self.reverseList(head.next)
-    head.next.next = head
-    head.next = None
-    return p
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev = None
+        while head:
+            nxt, head.next = head.next, prev
+            head, prev = nxt, head
+        return prev

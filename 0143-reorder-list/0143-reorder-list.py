@@ -1,6 +1,6 @@
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
-        s, f = head, head
+        s = f = head
         while f.next and f.next.next:
             s = s.next
             f = f.next.next

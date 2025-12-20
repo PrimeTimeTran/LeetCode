@@ -1,9 +1,7 @@
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
-        d = ListNode(0, head)
-        s, f = d, d
-        # Find the middle of the list
-        while f and f.next:
+        s, f = head, head
+        while f.next and f.next.next:
             s = s.next
             f = f.next.next
         

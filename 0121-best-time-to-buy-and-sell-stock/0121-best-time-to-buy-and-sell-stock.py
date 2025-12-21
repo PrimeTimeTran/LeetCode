@@ -1,11 +1,24 @@
+from functools import lru_cache
+from math import inf
+
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        dp = [0, -prices[0]]
-        for price in prices[1:]:
-            new_dp = [-inf, -inf]
-            new_dp[0] = dp[0]
-            new_dp[1] = dp[1]
-            new_dp[1] = max(new_dp[1], -price)
-            new_dp[0] = max(new_dp[0], dp[1] + price)
-            dp = new_dp
-        return dp[0]
+        n = len(prices)
+
+        @lru_cache(None)
+        def dp(i: int, holding: bool) -> int:
+            if i == n:
+                return 0 if not holding else -inf
+
+            price = prices[i]
+
+            if not holding:
+                skip = dp(i + 1, False)
+                buy  = -price + dp(i + 1, True)
+                return max(skip, buy)
+            else:
+                skip = dp(i + 1, True)
+                sell = price        # once sold, transaction is complete
+                return max(skip, sell)
+
+        return dp(0, False)

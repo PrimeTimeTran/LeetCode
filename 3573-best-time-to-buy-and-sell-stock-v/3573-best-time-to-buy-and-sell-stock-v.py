@@ -14,7 +14,7 @@ class Solution:
         @lru_cache(maxsize=1000*4)
         def dp(i, kount, holding):
             if i == n or kount == k:
-                return 0 if holding is None else -10**18
+                return 0 if holding is None else -inf
             price = prices[i]
             i+=1
             skip = dp(i, kount, holding)

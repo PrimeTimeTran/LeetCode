@@ -8,11 +8,11 @@ class Solution:
             elif nums[l] <= nums[m]:
                 if nums[l] <= target < nums[m]:
                     r = m - 1
-                else:
+                else: 
                     l = m + 1
             else:
                 if nums[m] < target <= nums[r]:
                     l = m + 1
-                else:
+                else: 
                     r = m - 1
         return -1

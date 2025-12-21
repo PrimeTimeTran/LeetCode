@@ -9,7 +9,6 @@ class Solution:
         def dp(i: int, holding: bool) -> int:
             if i == n:
                 return 0
-            
             price = prices[i]
             
             if holding:

@@ -1,12 +1,6 @@
 '''
 1. Understand
-243
-564
-807
 
-342
-465
-807
 '''
 
 class Solution:
@@ -18,4 +12,5 @@ class Solution:
             if n > 9:
                 node.next = tolist(n // 10)
             return node
-        return tolist(toint(l1) + toint(l2))
+
+        return tolist(toint(l1)+toint(l2))

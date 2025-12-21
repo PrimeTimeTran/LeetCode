@@ -6,12 +6,14 @@ class Node:
         self.next = next
         self.random = random
 """
+
 class Solution:
-    def copyRandomList(self, head: "Node") -> "Node":
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if not head: return None
         store, d = {}, head
         while d:
-            store[d],d  = Node(d.val, None, None), d.next
+            store[d] = Node(d.val, None, None)
+            d = d.next
         d = head
         while d:
             if d.next:
@@ -20,3 +22,18 @@ class Solution:
                 store[d].random = store[d.random]
             d = d.next
         return store[head]
+
+# class Solution:
+#     def copyRandomList(self, head: "Node") -> "Node":
+#         if not head: return None
+#         store, d = {}, head
+#         while d:
+#             store[d],d  = Node(d.val, None, None), d.next
+#         d = head
+#         while d:
+#             if d.next:
+#                 store[d].next = store[d.next]
+#             if d.random:
+#                 store[d].random = store[d.random]
+#             d = d.next
+#         return store[head]

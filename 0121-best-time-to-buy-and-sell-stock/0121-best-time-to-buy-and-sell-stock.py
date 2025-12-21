@@ -8,17 +8,17 @@ class Solution:
         @lru_cache(None)
         def dp(i: int, holding: bool) -> int:
             if i == n:
-                return 0 if not holding else -inf
+                return -inf if holding else 0
 
             price = prices[i]
 
-            if not holding:
+            if holding:
+                skip = dp(i + 1, True)
+                sell = price
+                return max(skip, sell)
+            else:
                 skip = dp(i + 1, False)
                 buy  = -price + dp(i + 1, True)
                 return max(skip, buy)
-            else:
-                skip = dp(i + 1, True)
-                sell = price        # once sold, transaction is complete
-                return max(skip, sell)
 
         return dp(0, False)

@@ -22,7 +22,7 @@ class Solution:
         n = len(prices)
         # 1 = buy to open
         # 2 = sell to open
-        @lru_cache(1000**4)
+        @lru_cache(1000*4)
         def dp(i, completed_count, position):
             if i == n or completed_count == k:
                 return 0 if position is None else -inf

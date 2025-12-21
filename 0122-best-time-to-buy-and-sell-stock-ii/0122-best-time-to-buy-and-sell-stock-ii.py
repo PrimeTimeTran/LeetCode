@@ -1,8 +1,6 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-
         n = len(prices)
-
         @lru_cache(None)
         def dp(i: int, holding: int) -> int:
             if i == n: return 0

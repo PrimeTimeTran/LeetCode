@@ -5,17 +5,15 @@ class Solution:
         @lru_cache(None)
         def dp(i: int, holding: bool) -> int:
             if i == n:
-                return 0  # always return 0 at the end
+                return 0
+
+            price = prices[i]
 
             if holding:
-                # Either sell today or skip
-                sell = prices[i]  # profit from selling today
                 skip = dp(i + 1, True)
-                # If we sell, we cannot sell again, so the recursion for future is 0
-                return max(skip, sell)
+                return max(skip, price)
             else:
-                # Either buy today or skip
-                buy = -prices[i] + dp(i + 1, True)
+                buy  = -price + dp(i + 1, True)
                 skip = dp(i + 1, False)
                 return max(skip, buy)
 

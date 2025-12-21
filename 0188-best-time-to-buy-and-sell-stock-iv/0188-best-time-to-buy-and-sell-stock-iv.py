@@ -28,13 +28,10 @@ class Solution:
         def dp(i: int, count: int) -> int:
             if i == n or count == 0:
                 return 0
-            opened = count % 2 == 0
-            price = prices[i]
+            sign = -1 if count % 2 == 0 else 1
+            price = sign * prices[i]
             skip = dp(i + 1, count)
-            if opened:
-                take = -price + dp(i + 1, count - 1)
-            else:
-                take = price + dp(i + 1, count - 1)
+            take = price + dp(i + 1, count - 1)
             return max(skip, take)
         return dp(0, k * 2)
         # n = len(prices)

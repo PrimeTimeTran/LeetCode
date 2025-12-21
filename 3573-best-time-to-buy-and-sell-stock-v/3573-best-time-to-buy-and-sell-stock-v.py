@@ -8,7 +8,7 @@ Can be both short and long positions.
 class Solution:
     def maximumProfit(self, prices: List[int], k: int) -> int:
         n = len(prices)
-        @lru_cache(None)
+        @lru_cache(maxsize=1000*4)
         def dp(i, num, holding):
             if i == n or num == k:
                 return 0 if holding is None else -inf

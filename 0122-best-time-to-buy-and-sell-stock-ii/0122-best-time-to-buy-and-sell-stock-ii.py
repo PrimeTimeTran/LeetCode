@@ -18,11 +18,8 @@ class Solution:
             if i == n:
                 return 0
             skip = dp(i+1, holding)
-            price = prices[i]
-            if holding:
-                sell = price + dp(i+1, False)
-                return max(skip, sell)
-            else:
-                buy = -price + dp(i+1, True)
-                return max(skip, buy)
+            sign = 1 if holding else -1
+            price = sign * prices[i]
+            pnl = price + dp(i+1, not holding)
+            return max(skip, pnl)
         return dp(0, False)

@@ -14,14 +14,18 @@ When moving forward track whether or not you bought/sold so you can know when yo
 '''
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
         @lru_cache(None)
-        def dp(i, holding):
-            if i == len(prices):
+        def dp(i, open):
+            if i == n:
                 return 0
-            skip = dp(i+1, holding)
-            take = prices[i]
-            if not holding:
-                take = -take + dp(i+1, True)
-            return max(skip, take)
+            price = prices[i]
+            i+=1
+            skip = dp(i, open)
+            if open:
+                act = price
+            else:
+                act = -price + dp(i, True)
+            return max(skip, act)
 
         return dp(0, False)

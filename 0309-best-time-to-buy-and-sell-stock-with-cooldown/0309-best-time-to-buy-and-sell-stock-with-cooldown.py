@@ -8,10 +8,10 @@ class Solution:
             skip = dp(i, holding, False)
             if cooldown:
                 return skip
+            # If holding, sell, credit
+            # If not holding, buy, debiting
             realized = price if holding else -price
-            if holding:
-                pnl = realized + dp(i, not holding, True)
-            else:
-                pnl = realized + dp(i, not holding, False)
+            cooldown = holding
+            pnl = realized + dp(i, not holding, cooldown)
             return max(skip, pnl)
         return dp(0, False, False)

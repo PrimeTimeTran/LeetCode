@@ -6,14 +6,12 @@ class Solution:
         def dp(i: int, holding: bool) -> int:
             if i == n:
                 return 0
-
-            price = prices[i]
-
             if holding:
+                sell = prices[i]        # profit from selling today
                 skip = dp(i + 1, True)
-                return max(skip, price)
+                return max(skip, sell)
             else:
-                buy  = -price + dp(i + 1, True)
+                buy  = -prices[i] + dp(i + 1, True)
                 skip = dp(i + 1, False)
                 return max(skip, buy)
 

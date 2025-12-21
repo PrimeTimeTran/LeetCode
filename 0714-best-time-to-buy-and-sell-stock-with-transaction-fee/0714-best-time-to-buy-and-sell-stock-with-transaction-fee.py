@@ -1,6 +1,8 @@
-from functools import lru_cache
-from typing import List
-
+'''
+1. Understand
+Find maximum profit attainable from given prices where a completed transaction is charged a fee.
+You must buy and sell to realize a profit.
+'''
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
         n = len(prices)
@@ -10,18 +12,11 @@ class Solution:
             if i == n:
                 return 0
             price = prices[i]
-            
+            skip = dp(i+1, holding)
             if holding:
-                # Option 1: sell today
-                sell = price  + dp(i+1, False)
-                # Option 2: skip / hold
-                hold = dp(i+1, True)
-                return max(sell, hold)
+                sell = price - fee + dp(i+1, False)
+                return max(sell, skip)
             else:
-                # Option 1: buy today
-                buy = -price - fee + dp(i+1, True)
-                # Option 2: skip
-                skip = dp(i+1, False)
+                buy = -price + dp(i+1, True)
                 return max(buy, skip)
-        
         return dp(0, False)

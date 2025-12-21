@@ -10,24 +10,19 @@ class Solution:
         n = len(prices)
 
         @lru_cache(maxsize=1000*4)
-        def dp(i: int, completed: int, holding: int):
-            # holding: 0 = no position, 1 = buy_to_open, 2 = sell_to_open
-            if i == n or completed == k:
-                return 0 if holding == 0 else -float('inf')
-
-            skip = dp(i + 1, completed, holding)
+        def dp(i, kount, holding):
+            if i == n or kount == k:
+                return 0 if holding is None else -inf
             price = prices[i]
-
-            if holding != 0:
-                sign = 1 if holding == 1 else -1
-                pnl = sign * price + dp(i + 1, completed + 1, 0)
+            i+=1
+            skip = dp(i, kount, holding)
+            if holding:
+                sign = 1 if holding == "sell_to_open" else -1
+                pnl_today_included = (sign * price) + dp(i, kount+1, None)
             else:
-                # Open a position
-                pnl = max(
-                    dp(i + 1, completed, 1) - price,  # buy_to_open
-                    dp(i + 1, completed, 2) + price   # sell_to_open
+                pnl_today_included = max(
+                    dp(i, kount, "buy_to_open") + price,
+                    dp(i, kount, "sell_to_open") - price,
                 )
-
-            return max(skip, pnl)
-
-        return dp(0, 0, 0)
+            return max(skip, pnl_today_included)
+        return dp(0, 0, False)

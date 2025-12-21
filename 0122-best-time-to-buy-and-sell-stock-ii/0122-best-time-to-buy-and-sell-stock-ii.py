@@ -17,9 +17,12 @@ class Solution:
         def dp(i, holding):
             if i == n:
                 return 0
-            skip = dp(i+1, holding)
-            sign = 1 if holding else -1
-            price = sign * prices[i]
-            pnl = price + dp(i+1, not holding)
+            price = prices[i]
+            i+=1
+            skip = dp(i, holding)
+            if holding:
+                pnl = price + dp(i, False)
+            else:
+                pnl = -price + dp(i, True)
             return max(skip, pnl)
         return dp(0, False)

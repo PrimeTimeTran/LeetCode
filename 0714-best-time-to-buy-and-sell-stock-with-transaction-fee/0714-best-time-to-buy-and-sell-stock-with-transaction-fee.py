@@ -12,11 +12,9 @@ class Solution:
             if i == n:
                 return 0
             price = prices[i]
-            skip = dp(i+1, holding)
-            if holding:
-                sell = price - fee + dp(i+1, False)
-                return max(sell, skip)
-            else:
-                buy = -price + dp(i+1, True)
-                return max(buy, skip)
+            i+=1
+            skip = dp(i, holding)
+            unrealized = dp(i, not holding)
+            pnl = price - fee if holding else -price
+            return max(skip, pnl + unrealized)
         return dp(0, False)

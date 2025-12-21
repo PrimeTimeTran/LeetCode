@@ -8,23 +8,26 @@ Can be both short and long positions.
 class Solution:
     def maximumProfit(self, prices: List[int], k: int) -> int:
         n = len(prices)
+
         @lru_cache(maxsize=1000*4)
-        def dp(i, num, holding):
-            if i == n or num == k:
-                return 0 if holding is None else -inf
-            skip = dp(i+1, num, holding)
+        def dp(i: int, completed: int, holding: int):
+            # holding: 0 = no position, 1 = buy_to_open, 2 = sell_to_open
+            if i == n or completed == k:
+                return 0 if holding == 0 else -float('inf')
+
+            skip = dp(i + 1, completed, holding)
             price = prices[i]
-            num += 1 if holding else 0
-            if holding:
-                sign = -1 if holding == "sell_to_open" else 1
-                pnl_today = sign * price
-                pnl = sign * price
-                pnl_unrealized = dp(i+1, num, None)
-                pnl_today_included = pnl + pnl_unrealized
+
+            if holding != 0:
+                sign = 1 if holding == 1 else -1
+                pnl = sign * price + dp(i + 1, completed + 1, 0)
             else:
-                pnl_today_included = max(
-                    dp(i+1, num, "sell_to_open") + price,
-                    dp(i+1, num, "buy_to_open") - price
+                # Open a position
+                pnl = max(
+                    dp(i + 1, completed, 1) - price,  # buy_to_open
+                    dp(i + 1, completed, 2) + price   # sell_to_open
                 )
-            return max(skip, pnl_today_included)
-        return dp(0, 0, False)
+
+            return max(skip, pnl)
+
+        return dp(0, 0, 0)

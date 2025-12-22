@@ -2,7 +2,9 @@ class Solution:
     def searchMatrix(self, mat: List[List[int]], target: int) -> bool:
         m, n = len(mat), len(mat[0])
         for i in range(m):
-            if mat[i][0] <= target and mat[i][-1] >= target:
+            # Find the row which may contain the value.
+            candidate_row = mat[i][0] <= target and mat[i][-1] >= target
+            if candidate_row:
                 l, r = 0, n
                 while l < r:
                     m = (l + r) // 2

@@ -1,3 +1,6 @@
 class Solution:
     def goodNodes(self, n: TreeNode, minimum=-inf) -> int:
-        return self.goodNodes(n.left, max(minimum, n.val)) + self.goodNodes(n.right, max(minimum, n.val)) + (n.val >= minimum) if n else 0
+        if not n: return 0
+        newMax = max(minimum, n.val)
+        l, r = self.goodNodes(n.left, newMax), self.goodNodes(n.right, newMax)
+        return l + r + (n.val >= minimum)

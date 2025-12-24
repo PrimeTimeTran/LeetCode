@@ -1,17 +1,13 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
+# Using a loop check if we can travel down the tree either left or right.
+# In order to go down the left our cur.val must be > p.val and q.val
+# To go down the right our cur.val must be < p.val and q.val
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        cur = root
         while True:
-            if cur.val > p.val and cur.val > q.val:
-                cur = cur.left
-            elif cur.val < p.val and cur.val < q.val:
-                cur = cur.right
+            val = root.val
+            if val > p.val and val > q.val:
+                root = root.left
+            elif val < p.val and val < q.val:
+                root = root.right
             else:
-                return cur
+                return root

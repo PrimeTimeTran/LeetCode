@@ -1,7 +1,6 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         q, res = [root], []
-
         while q: 
             level = []
             for _ in range(len(q)):

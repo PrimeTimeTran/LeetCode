@@ -22,6 +22,6 @@ class Solution:
         if not preorder or not inorder: return
         root = TreeNode(preorder[0])
         m = inorder.index(preorder[0])
-        root.left = self.buildTree(preorder[1:2], inorder[:m])
+        root.left = self.buildTree(preorder[1:m+1], inorder[:m])
         root.right = self.buildTree(preorder[m+1:], inorder[m+1:])
         return root

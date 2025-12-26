@@ -9,6 +9,7 @@ Space: O()
 '''
 class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
+        @lru_cache(None)
         def dp(i, j):
             if i == len(s) or j < 0:
                 return 0

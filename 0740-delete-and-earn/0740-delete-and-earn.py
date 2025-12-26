@@ -9,9 +9,13 @@ Create a counter which counts the number of instances of a number in our list
 '''
 class Solution:
     def deleteAndEarn(self, nums: List[int]) -> int:
-        dp = [0] * (max(nums)+1)
-        for num in nums:
-            dp[num] += num
-        for i in range(2, len(dp)):
-            dp[i] = max(dp[i-1],  dp[i]+dp[i-2])
-        return dp[-1]
+        max_val, count = max(nums), Counter(nums)
+        points = [count[i] * i for i in range(max_val + 1)]
+        best = -inf
+        def dp(i):
+            if i > max_val:
+                return 0
+            skip = dp(i+1)
+            take = points[i] + dp(i+2)
+            return max(skip, take)
+        return dp(0)

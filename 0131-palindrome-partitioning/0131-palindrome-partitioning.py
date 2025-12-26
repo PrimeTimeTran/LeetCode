@@ -9,12 +9,17 @@ Space:   O()
 '''
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
-        res = []
-        def back(cur, path):
+        memo = {}
+        def dp(cur):
+            if cur in memo:
+                return memo[cur]
+            res = []
             if not cur:
-                res.append(path)
+                return [[]]
             for i in range(1, len(cur)+1):
                 if cur[:i] == cur[:i][::-1]:
-                    back(cur[i:], path+[cur[:i]])
+                    for rest in dp(cur[i:]):
+                        res.append([cur[:i]] + rest)
+            memo[cur] = res
             return res
-        return back(s, [])
+        return dp(s)

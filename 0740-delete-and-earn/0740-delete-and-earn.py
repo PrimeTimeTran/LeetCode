@@ -8,10 +8,10 @@ Create a counter which counts the number of instances of a number in our list
 5. BigO
 '''
 class Solution:
-    def deleteAndEarn(self, nums):
-        count, max_val = Counter(nums), max(nums)
-        points = [count[i] * i for i in range(max_val + 1)]
-        prior = prev = 0
-        for p in points:
-            prior, prev = prev, max(prior + p, prev)
-        return prev
+    def deleteAndEarn(self, nums: List[int]) -> int:
+        dp = [0] * (max(nums)+1)
+        for num in nums:
+            dp[num] += num
+        for i in range(2, len(dp)):
+            dp[i] = max(dp[i-1],  dp[i]+dp[i-2])
+        return dp[-1]

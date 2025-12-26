@@ -7,10 +7,10 @@ class Solution(object):
         if len(hand) % groupSize != 0: return False
         count = Counter(hand)
         sorted_keys = sorted(count.keys())
-        for key in sorted_keys:
-            if count[key] > 0:
-                for i in range(1, groupSize):
-                    if count[key+i] < count[key]:
+        for k in sorted_keys:
+            for i in range(1, groupSize):
+                if count[k] > 0:
+                    if count[k] > count[k+i]:
                         return False
-                    count[key+i] -= count[key]
+                    count[k+i] -= count[k]
         return True

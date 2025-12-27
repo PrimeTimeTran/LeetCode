@@ -1,14 +1,26 @@
+'''
+1. Understand
+Greedy.
+
+2. Diagram
+
+1  2  3  4  5
+[  ]
+   [  ]
+      [  ]
+[     ]
+5. Big O
+Time:   O(nlogn)
+Space:  O(1)
+'''
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
         intervals.sort()
-        res = 0 
-        prev_end = intervals[0][1]
-        for i in range(1, len(intervals)):
-            start, new_end = intervals[i]
-            if start >= prev_end:
-                prev_end = new_end
+        res, cur_end = 0, -inf
+        for start, end in intervals:
+            if cur_end <= start:
+                cur_end = end
             else:
                 res += 1
-                prev_end = min(prev_end, new_end)
-        
+                cur_end = min(cur_end, end)
         return res

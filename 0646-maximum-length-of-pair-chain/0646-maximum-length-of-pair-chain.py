@@ -3,15 +3,15 @@
 Greedy.
 
 5. Big O
-Time:   O()
-Space:  O()
+Time:   O(nlogn)
+Space:  O(1)
 '''
 class Solution:
     def findLongestChain(self, pairs: List[List[int]]) -> int:
-        pairs.sort(key = lambda x: x[1])
+        pairs.sort()
         c, cur_end = 0, -inf
         for start, end in pairs:
-            if start > cur_end:
+            if cur_end < start:
                 c+=1
                 cur_end = end
         return c

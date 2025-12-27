@@ -21,19 +21,9 @@ class Solution:
         intervals.sort()
         res = [intervals[0]]
         for start, end in intervals:
-            prev = res[-1]
-            if prev[1] < start:
+            cur_end = res[-1][1]
+            if cur_end < start:
                 res.append([start, end])
             else:
-                res[-1][1] = max(prev[1], end)
+                res[-1][1] = max(cur_end, end)
         return res
-        # intervals.sort()
-        # res = [intervals[0]]
-        # for i in range(1, len(intervals)):
-        #     cur = intervals[i]
-        #     prev = res[-1]
-        #     if prev[1] < cur[0]:
-        #         res.append(cur)
-        #     else:
-        #         res[-1][1] = max(cur[1], prev[1])
-        # return res

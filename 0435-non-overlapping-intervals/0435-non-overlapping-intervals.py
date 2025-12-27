@@ -16,7 +16,7 @@ Space:  O(1)
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
         intervals.sort()
-        cur_end, c = -inf, 0
+        c, cur_end = 0, -inf
         for start, end in intervals:
             if cur_end <= start:
                 cur_end = end

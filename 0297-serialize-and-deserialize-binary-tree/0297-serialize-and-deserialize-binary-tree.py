@@ -7,24 +7,30 @@
 
 class Codec:
     def serialize(self, root):
-        vals = [] 
-        def doit(n):
+        vals = []
+        def dfs(n):
             if n:
                 vals.append(str(n.val))
-                doit(n.left)
-                doit(n.right)
+                dfs(n.left)
+                dfs(n.right)
             else:
                 vals.append('#')
-        doit(root)
-        return " ".join(vals)
+        dfs(root)
+        return ' '.join(vals)
+        
 
     def deserialize(self, data):
-        vals = data.split()
-        def doit(vals):
-            v = vals.pop(0)
+        vals = iter(data.split())
+        def dfs():
+            v = next(vals)
             if v == '#': return
-            root = TreeNode(v)
-            root.left = doit(vals)
-            root.right = doit(vals)
-            return root
-        return doit(vals)
+            n = TreeNode(v)
+            n.left = dfs()
+            n.right = dfs()
+            return n
+        return dfs()        
+
+# Your Codec object will be instantiated and called as such:
+# ser = Codec()
+# deser = Codec()
+# ans = deser.deserialize(ser.serialize(root))

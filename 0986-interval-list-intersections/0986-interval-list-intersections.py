@@ -15,7 +15,6 @@ Space:  O(1) extra (excluding output)
 '''
 class Solution:
     def intervalIntersection(self, l1: List[List[int]], l2: List[List[int]]) -> List[List[int]]:
-        if l1 == [] or l2 == []: return []
         res = []
         i = j = 0
         while i < len(l1) and j < len(l2):

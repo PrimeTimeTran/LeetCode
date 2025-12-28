@@ -17,5 +17,5 @@ class Solution:
             if u in min_stops and min_stops[u] <= accum_stops: continue
             min_stops[u] = accum_stops + 1
             for des, cost in g[u]:
-                heappush(q, [cost + accum_cost, des, min_stops[u]])
+                heappush(q, [accum_cost + cost, des, min_stops[u]])
         return -1

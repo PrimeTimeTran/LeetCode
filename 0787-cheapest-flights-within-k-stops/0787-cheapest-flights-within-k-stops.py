@@ -14,7 +14,8 @@ class Solution:
             accum_cost, u, accum_stops = heappop(q)
             if u == dst: return accum_cost
             if accum_stops > k: continue
-            if u in min_stops and min_stops[u] <= accum_stops: continue
+            not_optimal = u in min_stops and min_stops[u] == accum_stops
+            if not_optimal: continue
             min_stops[u] = accum_stops + 1
             for des, cost in g[u]:
                 heappush(q, [accum_cost + cost, des, min_stops[u]])

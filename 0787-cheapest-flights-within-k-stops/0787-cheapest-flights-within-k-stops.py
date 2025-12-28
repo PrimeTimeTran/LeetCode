@@ -13,7 +13,7 @@ class Solution:
         while q:
             accum_cost, u, accum_stops = heappop(q)
             if u == dst: return accum_cost
-            if accum_stops >= k+1: continue
+            if accum_stops > k: continue
             if u in min_stops and min_stops[u] <= accum_stops: continue
             min_stops[u] = accum_stops + 1
             for des, cost in g[u]:

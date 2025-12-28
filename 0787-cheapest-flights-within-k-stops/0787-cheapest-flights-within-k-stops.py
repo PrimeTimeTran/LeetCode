@@ -8,15 +8,14 @@ maxRemainingStops, q, g = {}, [[0,src,k+1]], defaultdict(list)
 
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
-        g, q, min_stops = defaultdict(list), [[0,src,0]], {}
+        g, q, min_stops = defaultdict(list), [[0, src, 0]], {}
         for u,v,w in flights: g[u].append([v,w])
         while q:
-            accum_cost, u, stops = heappop(q)
+            accum_cost, u, accum_stops = heappop(q)
             if u == dst: return accum_cost
-            if stops >= k+1: continue
-            if u in min_stops and min_stops[u] <= stops: continue
-            min_stops[u] = stops + 1
+            if accum_stops >= k+1: continue
+            if u in min_stops and min_stops[u] < accum_stops: continue
+            min_stops[u] = accum_stops + 1
             for des, cost in g[u]:
-                heappush(q, [cost + accum_cost, des, stops+1])
-            # if stops:
+                heappush(q, [cost + accum_cost, des, min_stops[u]])
         return -1

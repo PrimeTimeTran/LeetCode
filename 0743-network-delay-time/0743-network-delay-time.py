@@ -1,20 +1,12 @@
-'''
-Create G and BFS with vertex and times. PQ items hold accumulated time and node.
-When num of seen node matches n return time. Else return -1
-'''
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        g = defaultdict(list)
-        for u,v,w in times:
-            g[u].append((v,w))
-            
-        pq = [[0,k]]
-        seen = set()
-        while pq:
-            t, u = heappop(pq)
+        g, q, seen = defaultdict(list), [[0,k]], set()
+        for u,v,w in times: g[u].append([v,w])
+        while q:
+            accum_time, u = heappop(q)
             if u in seen: continue
             seen.add(u)
-            if len(seen) == n: return t
-            for v, w in g[u]:
-                heappush(pq, (t+w, v))
+            if len(seen) == n: return accum_time
+            for des, time in g[u]:
+                heappush(q, [time + accum_time, des])
         return -1

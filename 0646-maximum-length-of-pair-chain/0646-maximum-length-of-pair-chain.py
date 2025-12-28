@@ -12,6 +12,6 @@ class Solution:
         c, cur_end = 0, -inf
         for start, end in pairs:
             if cur_end < start:
-                c+=1
                 cur_end = end
+                c+=1
         return c

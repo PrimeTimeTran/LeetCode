@@ -3,9 +3,8 @@
 '''
 class Solution:
     def maxTwoEvents(self, events: List[List[int]]) -> int:
-        n = len(events)
         events.sort()
-        starts = [s for s, _, _ in events]
+        n, starts = len(events), [s for s, _, _ in events]
         @lru_cache(None)
         def dp(i, pluck):
             if i == n or pluck == 2:
@@ -13,6 +12,6 @@ class Solution:
             skip = dp(i+1, pluck)
             _, e, v = events[i]
             j = bisect_right(starts, e)
-            take = v + dp(j, pluck+1)
-            return max(skip, take)
+            pick = v + dp(j, pluck+1)
+            return max(skip, pick)
         return dp(0, 0)

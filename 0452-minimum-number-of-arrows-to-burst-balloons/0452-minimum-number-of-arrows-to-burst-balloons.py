@@ -9,9 +9,11 @@ Space:  O(1) for two pointers
 class Solution:
     def findMinArrowShots(self, points: List[List[int]]) -> int:
         points.sort(key = lambda x: x[1])
-        c, cur_end = 1, points[0][1]
+        c, cur = 1, points[0][1]
         for start, end in points:
-            if cur_end < start:
+            if cur < start:
                 c+=1
-                cur_end = end
+                cur = end
+            else:
+                cur = min(end, cur)
         return c

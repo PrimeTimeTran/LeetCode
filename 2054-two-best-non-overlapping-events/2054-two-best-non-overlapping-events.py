@@ -5,6 +5,7 @@ class Solution:
     def maxTwoEvents(self, events: List[List[int]]) -> int:
         events.sort()
         n, starts = len(events), [s for s, _, _ in events]
+        @lru_cache(None)
         def dp(i, pluck):
             if i == n or pluck == 2:
                 return 0

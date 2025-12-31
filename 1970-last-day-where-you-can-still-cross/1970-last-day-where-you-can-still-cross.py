@@ -16,9 +16,9 @@ class Solution:
             return any(board[0][c] == 0 and dfs(0, c) for c in range(n))        
         l, r = 0, len(cells)
         while l < r:
-            mid = (l + r + 1) // 2
-            if can_cross(mid):
-                l = mid
+            m = (l + r + 1) // 2
+            if can_cross(m):
+                l = m
             else:
-                r = mid - 1
+                r = m - 1
         return l

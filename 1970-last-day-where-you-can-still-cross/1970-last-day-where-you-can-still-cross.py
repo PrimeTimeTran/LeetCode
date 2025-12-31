@@ -13,10 +13,7 @@ class Solution:
                     inbounds = 0 <= nr < m and 0 <= nc < n
                     if inbounds and board[nr][nc] == 0:
                         if dfs(nr, nc): return True
-            for c in range(n):
-                if board[0][c] == 0 and dfs(0, c): return True
-            return False
-        
+            return any(board[0][c] == 0 and dfs(0, c) for c in range(n))        
         l, r = 0, len(cells)
         while l < r:
             mid = (l + r + 1) // 2

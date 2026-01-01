@@ -25,5 +25,5 @@ class Solution:
             if cur_end < start:
                 res.append([start, end])
             else:
-                res[-1][1] = max(cur_end, end)
+                res[-1][1] = max(end, cur_end)
         return res

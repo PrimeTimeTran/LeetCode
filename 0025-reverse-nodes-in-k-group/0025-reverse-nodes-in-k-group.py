@@ -10,11 +10,10 @@ class Solution:
     return prev
     
   def reverse(self, head, count, prev = None):
-      cur = head
       while count > 0:
-        nxt = cur.next
-        cur.next = prev
-        prev = cur
-        cur = nxt
+        nxt = head.next
+        head.next = prev
+        prev = head
+        head = nxt
         count -= 1
-      return (cur, prev)
+      return (head, prev)

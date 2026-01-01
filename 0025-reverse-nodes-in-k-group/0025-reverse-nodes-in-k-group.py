@@ -1,7 +1,3 @@
-'''
-1. Understand
-
-'''
 class Solution:
   def reverseKGroup(self, head, k):
     count, n = 0, head
@@ -14,7 +10,7 @@ class Solution:
     return prev
     
   def reverse(self, head, count, prev = None):
-      cur = nxt = head
+      cur = head
       while count > 0:
         nxt = cur.next
         cur.next = prev

@@ -6,4 +6,4 @@ class Solution:
             head.next = prev
             prev = head
             head = nxt
-        return prev
+        return prev            

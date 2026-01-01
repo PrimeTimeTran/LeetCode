@@ -13,6 +13,6 @@ class Solution:
             n = ListNode(num % 10)
             if num > 9: n.next = tolist(num // 10)
             return n
-        def toint(num):
-            return num.val + 10 * toint(num.next) if num else 0
+        def toint(n):
+            return n.val + 10 * toint(n.next) if n else 0
         return tolist(toint(l1) + toint(l2))

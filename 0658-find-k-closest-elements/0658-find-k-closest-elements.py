@@ -7,4 +7,4 @@ class Solution:
                 l = m + 1
             else:
                 r = m
-        return A[r:r+k]
+        return A[l:r+k]

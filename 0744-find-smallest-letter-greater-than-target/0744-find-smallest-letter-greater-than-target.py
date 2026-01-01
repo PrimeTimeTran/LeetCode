@@ -2,10 +2,9 @@ class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
         l, r = 0, len(letters)
         while l < r:
-            m = (l+r)//2
-            if letters[m] > target:
-                r = m
+            m = (l+r) // 2
+            if letters[m] <= target:
+                l = m + 1
             else:
-                l = m+1
-
+                r = m
         return letters[r % len(letters)]

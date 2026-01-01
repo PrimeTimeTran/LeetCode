@@ -1,11 +1,11 @@
 class Solution:
-    def cloneGraph(self, node: Optional['Node'], seen = {}) -> Optional['Node']:
+    def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
+        seen = {}
         def dfs(n):
-            if not n: return
+            if not n: return None
             if n in seen: return seen[n]
-            node = Node(n.val)
-            seen[n] = node
+            seen[n] = Node(n.val)
             for nei in n.neighbors:
-                node.neighbors.append(dfs(nei))
-            return node
-        return dfs(node) if node else None
+                seen[n].neighbors.append(dfs(nei))
+            return seen[n]
+        return dfs(node)

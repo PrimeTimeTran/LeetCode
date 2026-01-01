@@ -53,12 +53,11 @@ Space:
 
 Total Space:             O(n)
 '''
-
 class Solution:
     def mostBooked(self, n, meetings):
         occupied, vacant = [], [r for r in range(n)]
-        utilization = [0] * n
         heapify(vacant)
+        occupancies = [0] * n
         for start, end in sorted(meetings):
             while occupied and occupied[0][0] <= start:
                 _, r = heappop(occupied)
@@ -67,7 +66,7 @@ class Solution:
                 r = heappop(vacant)
                 heappush(occupied, [end, r])
             else:
-                end_time, r = heappop(occupied)
-                heappush(occupied, [end_time + end - start, r])
-            utilization[r] += 1
-        return utilization.index(max(utilization))
+                t, r = heappop(occupied)
+                heappush(occupied, [t + end - start, r])
+            occupancies[r] += 1
+        return occupancies.index(max(occupancies))

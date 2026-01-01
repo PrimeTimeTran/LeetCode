@@ -3,7 +3,8 @@ class Solution:
         g = defaultdict(int)
         for a, b in trust:
             g[a] -= 1
-            g[b] += 1 
+            g[b] += 1
         for i in range(1, n+1):
-            if n-1 == g[i]: return i
+            if g[i] == n - 1:
+                return i
         return -1

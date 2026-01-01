@@ -1,7 +1,6 @@
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
-        seen = {}
-        def dfs(n):
+        def dfs(n, seen = {}):
             if not n: return None
             if n in seen: return seen[n]
             seen[n] = Node(n.val)

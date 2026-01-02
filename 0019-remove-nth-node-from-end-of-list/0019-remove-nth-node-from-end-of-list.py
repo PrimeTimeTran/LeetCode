@@ -3,7 +3,7 @@ class Solution:
         s = f = tail = ListNode(0, head)
         while n > 0:
             f = f.next
-            n-=1
+            n -= 1
         while f and f.next:
             s = s.next
             f = f.next

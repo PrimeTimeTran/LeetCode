@@ -7,3 +7,4 @@ class Solution:
             if s == f:
                 return True
         return False
+

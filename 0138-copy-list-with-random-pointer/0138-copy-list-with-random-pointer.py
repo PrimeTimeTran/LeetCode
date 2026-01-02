@@ -11,13 +11,14 @@ class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if not head: return None
         store, d = {}, head
-        def get(node):
-            if node not in store:
-                store[node] = Node(node.val)
-            return store[node]
         while d:
-            copy = get(d)
-            copy.next = get(d.next) if d.next else None
-            copy.random = get(d.random) if d.random else None
+            store[d] = Node(d.val, None, None)
+            d = d.next
+        d = head
+        while d:
+            if d.next: 
+                store[d].next = store[d.next]
+            if d.random: 
+                store[d].random = store[d.random]
             d = d.next
         return store[head]

@@ -1,12 +1,9 @@
-'''
-The crux is turning the pair-distance problem into a monotonic counting problem, and making that count O(n) using a non-resetting two-pointer sweep.
-'''
 class Solution:
     def smallestDistancePair(self, nums: List[int], k: int) -> int:
         nums.sort()
         n = len(nums)
         def count_pairs(D):
-            j = count = 0
+            count = j = 0
             for i in range(n):
                 while j < n and nums[j] - nums[i] <= D:
                     j+=1
@@ -19,4 +16,4 @@ class Solution:
                 r = m
             else:
                 l = m + 1
-        return r
+        return l

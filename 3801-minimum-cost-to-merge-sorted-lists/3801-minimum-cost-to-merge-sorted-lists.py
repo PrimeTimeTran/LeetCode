@@ -13,6 +13,7 @@ def gensub(mask):
     while res:
         yield res
         res = (res-1) & mask
+
 class Solution:
     def minMergeCost(self, lists: List[List[int]]) -> int:
         n = len(lists)
@@ -27,8 +28,6 @@ class Solution:
         median=[0]*len(data)
         for i in range(1, len(data)):
             median[i] = data[i][(len(data[i])-1)//2]
-        # print(data)
-        # print(median)
         for i in range(n):
             costs[1<<i] = 0
         costs[0]=0
@@ -37,8 +36,6 @@ class Solution:
                 y = mask-x
                 if x<y: break
                 costs[mask] = min(costs[mask], costs[x] + costs[y] + len(data[x]) + len(data[y]) + abs(median[x]-median[y]))
-                # print(x,y,mask,costs[mask])
-        # print(costs)
         return costs[-1]
             
 

@@ -1,11 +1,10 @@
 class Solution:
     def minEatingSpeed(self, piles, H):
-        beg, end = 0, max(piles)
-        while beg + 1 < end:
-            mid = (beg + end)//2
+        l, r = 0, max(piles)
+        while l + 1 < r:
+            mid = (l + r)//2
             if sum(ceil(i/mid) for i in piles) > H:
-                beg = mid
+                l = mid
             else:
-                end = mid
-                
-        return end
+                r = mid
+        return r

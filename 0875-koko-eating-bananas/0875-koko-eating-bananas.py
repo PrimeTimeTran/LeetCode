@@ -7,7 +7,7 @@ class Solution:
                 r = m
             else:
                 l = m + 1
-        return l
+        return r
 
         # l, r = 1, max(piles)
         # ans = r

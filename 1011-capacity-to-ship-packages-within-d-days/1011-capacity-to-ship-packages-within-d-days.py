@@ -1,15 +1,17 @@
 class Solution:
-    def shipWithinDays(self, weights: List[int], days: int) -> int:
+    def shipWithinDays(self, weights: List[int], day_limit: int) -> int:
         l, r = max(weights), sum(weights)
-        while l < r:
-            capacity, load, days_needed = (l+r) // 2, 0, 1
-            for pack_weight in weights:
-                if load + pack_weight > capacity:
+        def is_feasible(cap, load = 0, days = 1):
+            for pkg_weight in weights:
+                if load + pkg_weight > cap:
+                    days+=1
                     load = 0
-                    days_needed += 1
-                load += pack_weight
-            if days_needed > days:
-                l = capacity + 1
+                load += pkg_weight
+            return days <= day_limit
+        while l < r:
+            m = (l+r) // 2
+            if is_feasible(m):
+                r = m
             else:
-                r = capacity
+                l = m + 1
         return l

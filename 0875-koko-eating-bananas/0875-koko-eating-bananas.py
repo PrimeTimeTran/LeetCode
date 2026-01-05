@@ -20,11 +20,11 @@ class Solution:
         #         l = m + 1
         # return ans
 
-#         l, r = 0, max(piles)
-#         while l + 1 < r:
-#             m = (l+r) // 2
-#             if sum(ceil(p/m) for p in piles) <= h:
-#                 r = m
-#             else:
-#                 l = m
-#         return r
+        # l, r = 0, max(piles)
+        # while l + 1 < r:
+        #     m = (l+r) // 2
+        #     if sum(ceil(p/m) for p in piles) <= h:
+        #         r = m
+        #     else:
+        #         l = m
+        # return r

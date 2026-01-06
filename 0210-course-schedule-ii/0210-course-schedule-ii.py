@@ -1,12 +1,21 @@
 class Solution:
     def findOrder(self, N: int, P: List[List[int]]) -> List[int]:
-        res, g, seen = [], defaultdict(list), {}
-        for u, v in P: g[u].append(v)
-        def dfs(c):
-            if c in seen: return seen[c]
-            seen[c] = False
-            if not all(dfs(p) for p in g[c]): return False
-            seen[c] = True
-            res.append(c)
-            return True
-        return [] if not all(dfs(c) for c in range(N)) else res 
+        g = defaultdict(list)
+        for a, b in P:
+            g[a].append(b)
+        
+        self.res, seen = [], {}
+        
+        def can_complete(n):
+            if n in seen: return seen[n]
+            seen[n] = False
+            for pre in g[n]:
+                if not can_complete(pre): return False
+            seen[n] = True
+            self.res.append(n)
+            return seen[n]
+        
+        for c in range(N):
+            if not can_complete(c):
+                return []
+        return self.res

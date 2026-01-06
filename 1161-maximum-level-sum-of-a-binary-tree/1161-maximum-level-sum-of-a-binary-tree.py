@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def maxLevelSum(self, root: Optional[TreeNode]) -> int:
+        i, ans, cur_max = 0, 1, -inf
         q, res = deque([root]), []
         while q:
             level = []
@@ -17,14 +18,9 @@ class Solution:
                         q.append(cur.left)
                     if cur.right:
                         q.append(cur.right)
-            if level:
-                res.append(level)
-        ans, cur_max = 1, -inf
-        for i, level in enumerate(res):
             total = sum(level)
             if total > cur_max:
                 cur_max = total
                 ans = i + 1
+            i+=1
         return ans
-
-        

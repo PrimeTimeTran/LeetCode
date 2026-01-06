@@ -1,34 +1,19 @@
+def neighbors(R, C, r, c, directions=[(1,0),(-1,0),(0,1),(0,-1)]):
+    return ((r+dr, c+dc) for dr, dc in directions if 0 <= r+dr < R and 0 <= c+dc < C)
+
 class Solution:
     def numIslands(self, g: List[List[str]]) -> int:
-        if not g: return 0
-        parent, rank, m, n = {}, {}, len(g), len(g[0])
-
-        def find(x):
-            if x != parent[x]:
-                parent[x] = find(parent[x])
-            return parent[x]
-        def union(x, y):
-            rx, ry = find(x), find(y)
-            if rx == ry: return
-            if parent[rx] < parent[ry]:
-                parent[rx] = ry
-            elif parent[rx] > parent[ry]:
-                parent[ry] = rx
-            else:
-                parent[ry] = rx
-                rank[rx] += 1
-        
-        for r in range(m):
-            for c in range(n):
-                if g[r][c] == "1":
-                    parent[(r,c)] = (r,c)
-        for r in range(m):
-            for c in range(n):
-                if g[r][c] == "1":
-                    for dr, dc in [(1,0), (0,1)]:
-                        nr, nc = r + dr, c + dc
-                        inbounds = 0 <= nr < m and 0 <= nc < n
-                        if inbounds and g[nr][nc] == "1":
-                            union((r, c), (nr, nc))
-        
-        return len({find(x) for x in parent})
+        R, C = len(g), len(g[0])
+        self.res, seen = 0, set()
+        def dfs(r,c):
+            if (r,c) in seen: return
+            if not g[r][c] == "1": return
+            seen.add((r, c))
+            for dr, dc in neighbors(R, C, r, c):
+                dfs(dr, dc)
+        for r in range(R):
+            for c in range(C):
+                if g[r][c] == '1' and (r,c) not in seen:
+                    dfs(r,c)
+                    self.res += 1
+        return self.res

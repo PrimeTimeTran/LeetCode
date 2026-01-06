@@ -1,3 +1,3 @@
 class Solution:
-    def canMeasureWater(self, j1: int, j2: int, target: int) -> bool:
-        return not target > j1 + j2 and target % gcd(j1, j2) == 0
+    def canMeasureWater(self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int) -> bool:
+        return not targetCapacity > jug1Capacity + jug2Capacity and targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0

@@ -2,7 +2,9 @@ class Solution:
     def shipWithinDays(self, weights: List[int], day_limit: int) -> int:
         def is_feasible(cap, load = 0, days = 1):
             for pkg_weight in weights:
-                if load + pkg_weight > cap: days+=1; load = 0
+                if load + pkg_weight > cap:
+                    days+=1
+                    load = 0
                 load += pkg_weight
             return days <= day_limit
         l, r = max(weights), sum(weights)

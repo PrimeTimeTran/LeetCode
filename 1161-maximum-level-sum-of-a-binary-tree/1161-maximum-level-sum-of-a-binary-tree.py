@@ -19,7 +19,7 @@ class Solution:
                         q.append(cur.right)
             if level:
                 res.append(level)
-        ans, cur_max = 1, 0
+        ans, cur_max = 1, -inf
         for i, level in enumerate(res):
             total = sum(level)
             if total > cur_max:

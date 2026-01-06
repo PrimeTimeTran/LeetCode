@@ -3,8 +3,8 @@ class Solution:
         l, r = 1, max(piles)
         while l < r:
             m = (l+r) // 2
-            if sum(ceil(p/m) for p in piles) <= h:
-                r = m
-            else:
+            if sum(ceil(p/m) for p in piles) > h:
                 l = m + 1
+            else:
+                r = m
         return r

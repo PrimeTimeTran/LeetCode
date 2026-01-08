@@ -22,7 +22,7 @@ class Solution:
         @lru_cache(None)
         def dfs(i, j):
             if i == len(nums1) or j == len(nums2):
-                return float('-inf')
+                return -inf
             # Option 1: pair current elements
             take = nums1[i] * nums2[j] + max(0, dfs(i + 1, j + 1))
             # Option 2 & 3: skip one element

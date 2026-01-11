@@ -28,7 +28,6 @@ class Solution:
             return rows * cols
         self.area = 0
         max_area = 0
-        
         for i in range(rows):
             len_row = 0
             for j in range(cols):
@@ -41,19 +40,18 @@ class Solution:
                 if j+1 == len(a[i]):
                     if a[i][j] == '1':
                         temp = len_row
-                        for _ in range(j-len_row+1, j+1): # текущий левый элемент
-                            for __ in range(1, len_row+1): # текущая длина среза
+                        for _ in range(j-len_row+1, j+1): 
+                            for __ in range(1, len_row+1):
                                 self.area = __
                                 shark(a, i, _, __)
                                 max_area = max(self.area, max_area)
                                 self.area = 0
-
                             len_row -= 1
                 else:
                     if a[i][j] == '1' and a[i][j+1] != '1':
                         temp = len_row
-                        for _ in range(j-len_row+1, j+1): # текущий левый элемент
-                            for __ in range(1, len_row+1): # текущая длина среза
+                        for _ in range(j-len_row+1, j+1):
+                            for __ in range(1, len_row+1):
                                 self.area = __
                                 shark(a, i, _, __)
                                 max_area = max(self.area, max_area)

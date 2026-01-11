@@ -60,4 +60,3 @@ class Solution:
                                 self.area = 0
                             len_row -= 1
         return max_area
-

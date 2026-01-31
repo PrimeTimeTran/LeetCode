@@ -5,6 +5,6 @@ class Solution:
             m = (l+r) // 2
             if letters[m] <= target:
                 l = m + 1
-            else: 
+            else:
                 r = m
-        return letters[l % len(letters)]
+        return letters[r%len(letters)]

@@ -6,7 +6,7 @@ class Solution:
             if nums[m] == target:
                 return True
             elif nums[l] == nums[m]:
-                l = l + 1
+                l += 1
             elif nums[l] <= nums[m]:
                 if nums[l] <= target < nums[m]:
                     r = m - 1

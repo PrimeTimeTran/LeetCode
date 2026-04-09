@@ -5,7 +5,7 @@ class Solution:
             m = (l+r) // 2
             if nums[m] == target:
                 return True
-            if nums[m] == nums[l]:
+            elif nums[l] == nums[m]:
                 l = l + 1
             elif nums[l] <= nums[m]:
                 if nums[l] <= target < nums[m]:

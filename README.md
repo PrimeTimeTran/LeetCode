@@ -12,6 +12,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0704-binary-search](https://github.com/PrimeTimeTran/LeetCode/tree/main/0704-binary-search/) | Easy |
 | [0744-find-smallest-letter-greater-than-target](https://github.com/PrimeTimeTran/LeetCode/tree/main/0744-find-smallest-letter-greater-than-target/) | Easy |
 | [1848-minimum-distance-to-the-target-element](https://github.com/PrimeTimeTran/LeetCode/tree/main/1848-minimum-distance-to-the-target-element/) | Easy |
+| [3488-closest-equal-element-queries](https://github.com/PrimeTimeTran/LeetCode/tree/main/3488-closest-equal-element-queries/) | Medium |
 | [3741-minimum-distance-between-three-equal-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/3741-minimum-distance-between-three-equal-elements-ii/) | Medium |
 ## Binary Search
 | Problem Name | Difficulty |
@@ -23,6 +24,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0374-guess-number-higher-or-lower](https://github.com/PrimeTimeTran/LeetCode/tree/main/0374-guess-number-higher-or-lower/) | Easy |
 | [0704-binary-search](https://github.com/PrimeTimeTran/LeetCode/tree/main/0704-binary-search/) | Easy |
 | [0744-find-smallest-letter-greater-than-target](https://github.com/PrimeTimeTran/LeetCode/tree/main/0744-find-smallest-letter-greater-than-target/) | Easy |
+| [3488-closest-equal-element-queries](https://github.com/PrimeTimeTran/LeetCode/tree/main/3488-closest-equal-element-queries/) | Medium |
 ## Interactive
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -31,6 +33,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Hash Table
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [3488-closest-equal-element-queries](https://github.com/PrimeTimeTran/LeetCode/tree/main/3488-closest-equal-element-queries/) | Medium |
 | [3741-minimum-distance-between-three-equal-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/3741-minimum-distance-between-three-equal-elements-ii/) | Medium |
 ## String
 | Problem Name | Difficulty |

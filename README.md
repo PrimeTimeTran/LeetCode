@@ -12,6 +12,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0704-binary-search](https://github.com/PrimeTimeTran/LeetCode/tree/main/0704-binary-search/) | Easy |
 | [0744-find-smallest-letter-greater-than-target](https://github.com/PrimeTimeTran/LeetCode/tree/main/0744-find-smallest-letter-greater-than-target/) | Easy |
 | [1848-minimum-distance-to-the-target-element](https://github.com/PrimeTimeTran/LeetCode/tree/main/1848-minimum-distance-to-the-target-element/) | Easy |
+| [2452-words-within-two-edits-of-dictionary](https://github.com/PrimeTimeTran/LeetCode/tree/main/2452-words-within-two-edits-of-dictionary/) | Medium |
 | [2615-sum-of-distances](https://github.com/PrimeTimeTran/LeetCode/tree/main/2615-sum-of-distances/) | Medium |
 | [3488-closest-equal-element-queries](https://github.com/PrimeTimeTran/LeetCode/tree/main/3488-closest-equal-element-queries/) | Medium |
 | [3741-minimum-distance-between-three-equal-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/3741-minimum-distance-between-three-equal-elements-ii/) | Medium |
@@ -43,6 +44,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [1320-minimum-distance-to-type-a-word-using-two-fingers](https://github.com/PrimeTimeTran/LeetCode/tree/main/1320-minimum-distance-to-type-a-word-using-two-fingers/) | Hard |
+| [2452-words-within-two-edits-of-dictionary](https://github.com/PrimeTimeTran/LeetCode/tree/main/2452-words-within-two-edits-of-dictionary/) | Medium |
 ## Dynamic Programming
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -56,4 +58,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [2615-sum-of-distances](https://github.com/PrimeTimeTran/LeetCode/tree/main/2615-sum-of-distances/) | Medium |
+## Trie
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [2452-words-within-two-edits-of-dictionary](https://github.com/PrimeTimeTran/LeetCode/tree/main/2452-words-within-two-edits-of-dictionary/) | Medium |
 <!---LeetCode Topics End-->

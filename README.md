@@ -9,6 +9,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0033-search-in-rotated-sorted-array](https://github.com/PrimeTimeTran/LeetCode/tree/main/0033-search-in-rotated-sorted-array/) | Medium |
 | [0081-search-in-rotated-sorted-array-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/0081-search-in-rotated-sorted-array-ii/) | Medium |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/PrimeTimeTran/LeetCode/tree/main/0153-find-minimum-in-rotated-sorted-array/) | Medium |
+| [0462-minimum-moves-to-equal-array-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/0462-minimum-moves-to-equal-array-elements-ii/) | Medium |
 | [0704-binary-search](https://github.com/PrimeTimeTran/LeetCode/tree/main/0704-binary-search/) | Easy |
 | [0744-find-smallest-letter-greater-than-target](https://github.com/PrimeTimeTran/LeetCode/tree/main/0744-find-smallest-letter-greater-than-target/) | Easy |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
@@ -55,6 +56,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Math
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0462-minimum-moves-to-equal-array-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/0462-minimum-moves-to-equal-array-elements-ii/) | Medium |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/2033-minimum-operations-to-make-a-uni-value-grid/) | Medium |
 | [3761-minimum-absolute-distance-between-mirror-pairs](https://github.com/PrimeTimeTran/LeetCode/tree/main/3761-minimum-absolute-distance-between-mirror-pairs/) | Medium |
 | [3783-mirror-distance-of-an-integer](https://github.com/PrimeTimeTran/LeetCode/tree/main/3783-mirror-distance-of-an-integer/) | Easy |
@@ -88,5 +90,6 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Sorting
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0462-minimum-moves-to-equal-array-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/0462-minimum-moves-to-equal-array-elements-ii/) | Medium |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/2033-minimum-operations-to-make-a-uni-value-grid/) | Medium |
 <!---LeetCode Topics End-->

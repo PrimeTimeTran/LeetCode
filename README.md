@@ -18,6 +18,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1848-minimum-distance-to-the-target-element](https://github.com/PrimeTimeTran/LeetCode/tree/main/1848-minimum-distance-to-the-target-element/) | Easy |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/2033-minimum-operations-to-make-a-uni-value-grid/) | Medium |
 | [2452-words-within-two-edits-of-dictionary](https://github.com/PrimeTimeTran/LeetCode/tree/main/2452-words-within-two-edits-of-dictionary/) | Medium |
+| [2553-separate-the-digits-in-an-array](https://github.com/PrimeTimeTran/LeetCode/tree/main/2553-separate-the-digits-in-an-array/) | Easy |
 | [2615-sum-of-distances](https://github.com/PrimeTimeTran/LeetCode/tree/main/2615-sum-of-distances/) | Medium |
 | [3488-closest-equal-element-queries](https://github.com/PrimeTimeTran/LeetCode/tree/main/3488-closest-equal-element-queries/) | Medium |
 | [3741-minimum-distance-between-three-equal-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/3741-minimum-distance-between-three-equal-elements-ii/) | Medium |
@@ -97,4 +98,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- | ------- |
 | [0462-minimum-moves-to-equal-array-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/0462-minimum-moves-to-equal-array-elements-ii/) | Medium |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/2033-minimum-operations-to-make-a-uni-value-grid/) | Medium |
+## Simulation
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [2553-separate-the-digits-in-an-array](https://github.com/PrimeTimeTran/LeetCode/tree/main/2553-separate-the-digits-in-an-array/) | Easy |
 <!---LeetCode Topics End-->

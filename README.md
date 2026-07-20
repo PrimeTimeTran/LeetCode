@@ -13,6 +13,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0462-minimum-moves-to-equal-array-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/0462-minimum-moves-to-equal-array-elements-ii/) | Medium |
 | [0704-binary-search](https://github.com/PrimeTimeTran/LeetCode/tree/main/0704-binary-search/) | Easy |
 | [0744-find-smallest-letter-greater-than-target](https://github.com/PrimeTimeTran/LeetCode/tree/main/0744-find-smallest-letter-greater-than-target/) | Easy |
+| [1260-shift-2d-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/1260-shift-2d-grid/) | Easy |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1722-minimize-hamming-distance-after-swap-operations](https://github.com/PrimeTimeTran/LeetCode/tree/main/1722-minimize-hamming-distance-after-swap-operations/) | Medium |
 | [1848-minimum-distance-to-the-target-element](https://github.com/PrimeTimeTran/LeetCode/tree/main/1848-minimum-distance-to-the-target-element/) | Easy |
@@ -91,6 +92,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Matrix
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1260-shift-2d-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/1260-shift-2d-grid/) | Easy |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/2033-minimum-operations-to-make-a-uni-value-grid/) | Medium |
 ## Sorting
@@ -101,5 +103,6 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Simulation
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1260-shift-2d-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/1260-shift-2d-grid/) | Easy |
 | [2553-separate-the-digits-in-an-array](https://github.com/PrimeTimeTran/LeetCode/tree/main/2553-separate-the-digits-in-an-array/) | Easy |
 <!---LeetCode Topics End-->

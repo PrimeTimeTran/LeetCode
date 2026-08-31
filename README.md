@@ -156,4 +156,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [3734-lexicographically-smallest-palindromic-permutation-greater-than-target](https://github.com/PrimeTimeTran/LeetCode/tree/main/3734-lexicographically-smallest-palindromic-permutation-greater-than-target/) | Hard |
+## Linked List
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [2058-find-the-minimum-and-maximum-number-of-nodes-between-critical-points](https://github.com/PrimeTimeTran/LeetCode/tree/main/2058-find-the-minimum-and-maximum-number-of-nodes-between-critical-points/) | Medium |
 <!---LeetCode Topics End-->

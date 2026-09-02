@@ -31,6 +31,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [3718-smallest-missing-multiple-of-k](https://github.com/PrimeTimeTran/LeetCode/tree/main/3718-smallest-missing-multiple-of-k/) | Easy |
 | [3741-minimum-distance-between-three-equal-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/3741-minimum-distance-between-three-equal-elements-ii/) | Medium |
 | [3761-minimum-absolute-distance-between-mirror-pairs](https://github.com/PrimeTimeTran/LeetCode/tree/main/3761-minimum-absolute-distance-between-mirror-pairs/) | Medium |
+| [3875-construct-uniform-parity-array-i](https://github.com/PrimeTimeTran/LeetCode/tree/main/3875-construct-uniform-parity-array-i/) | Easy |
 ## Binary Search
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -85,6 +86,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [3622-check-divisibility-by-digit-sum-and-product](https://github.com/PrimeTimeTran/LeetCode/tree/main/3622-check-divisibility-by-digit-sum-and-product/) | Easy |
 | [3761-minimum-absolute-distance-between-mirror-pairs](https://github.com/PrimeTimeTran/LeetCode/tree/main/3761-minimum-absolute-distance-between-mirror-pairs/) | Medium |
 | [3783-mirror-distance-of-an-integer](https://github.com/PrimeTimeTran/LeetCode/tree/main/3783-mirror-distance-of-an-integer/) | Easy |
+| [3875-construct-uniform-parity-array-i](https://github.com/PrimeTimeTran/LeetCode/tree/main/3875-construct-uniform-parity-array-i/) | Easy |
 ## Prefix Sum
 | Problem Name | Difficulty |
 | ------- | ------- |

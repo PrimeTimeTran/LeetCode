@@ -7,6 +7,15 @@
 Time: O()
 Space: O()
 '''
+'''
+1. Understand
+2. Diagram
+3. Pseudocode
+4. Code
+5. BigO
+Time: O()
+Space: O()
+'''
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
         m, n = len(s), len(t)

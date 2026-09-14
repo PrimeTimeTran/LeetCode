@@ -94,6 +94,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0396-rotate-function](https://github.com/PrimeTimeTran/LeetCode/tree/main/0396-rotate-function/) | Medium |
 | [0462-minimum-moves-to-equal-array-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/0462-minimum-moves-to-equal-array-elements-ii/) | Medium |
 | [0788-rotated-digits](https://github.com/PrimeTimeTran/LeetCode/tree/main/0788-rotated-digits/) | Medium |
+| [0836-rectangle-overlap](https://github.com/PrimeTimeTran/LeetCode/tree/main/0836-rectangle-overlap/) | Easy |
 | [1927-sum-game](https://github.com/PrimeTimeTran/LeetCode/tree/main/1927-sum-game/) | Medium |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/2033-minimum-operations-to-make-a-uni-value-grid/) | Medium |
 | [3622-check-divisibility-by-digit-sum-and-product](https://github.com/PrimeTimeTran/LeetCode/tree/main/3622-check-divisibility-by-digit-sum-and-product/) | Easy |
@@ -200,4 +201,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [3483-unique-3-digit-even-numbers](https://github.com/PrimeTimeTran/LeetCode/tree/main/3483-unique-3-digit-even-numbers/) | Easy |
+## Geometry
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0836-rectangle-overlap](https://github.com/PrimeTimeTran/LeetCode/tree/main/0836-rectangle-overlap/) | Easy |
 <!---LeetCode Topics End-->

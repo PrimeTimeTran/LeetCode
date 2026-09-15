@@ -8,9 +8,9 @@ class Solution:
       for d in (k, k + 1):
         inbounds = i + d <= n
         substring = s[i : i + d]
-        reversed = substring[::-1]
-        valid_palindrome = substring == reversed
-        if inbounds and valid_palindrome:
+        reversed_substring = substring[::-1]
+        is_palindrome = substring == reversed_substring
+        if inbounds and is_palindrome:
           res += 1  
           i += d
           break

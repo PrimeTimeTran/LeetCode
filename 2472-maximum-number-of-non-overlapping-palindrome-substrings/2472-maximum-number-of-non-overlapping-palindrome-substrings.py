@@ -6,7 +6,10 @@ class Solution:
     res = i = 0
     while i <= n - k:
       for d in (k, k + 1):
-        if i + d <= n and s[i : i + d] == s[i : i + d][::-1]:
+        inbounds = i + d <= n
+        reversed = s[i : i + d][::-1]
+        valid_palindrome = s[i : i + d] == reversed
+        if inbounds and valid_palindrome:
           res += 1  
           i += d
           break

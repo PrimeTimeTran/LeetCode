@@ -88,6 +88,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0788-rotated-digits](https://github.com/PrimeTimeTran/LeetCode/tree/main/0788-rotated-digits/) | Medium |
 | [0940-distinct-subsequences-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/0940-distinct-subsequences-ii/) | Hard |
 | [1320-minimum-distance-to-type-a-word-using-two-fingers](https://github.com/PrimeTimeTran/LeetCode/tree/main/1320-minimum-distance-to-type-a-word-using-two-fingers/) | Hard |
+| [1621-number-of-sets-of-k-non-overlapping-line-segments](https://github.com/PrimeTimeTran/LeetCode/tree/main/1621-number-of-sets-of-k-non-overlapping-line-segments/) | Medium |
 | [2472-maximum-number-of-non-overlapping-palindrome-substrings](https://github.com/PrimeTimeTran/LeetCode/tree/main/2472-maximum-number-of-non-overlapping-palindrome-substrings/) | Hard |
 | [3414-maximum-score-of-non-overlapping-intervals](https://github.com/PrimeTimeTran/LeetCode/tree/main/3414-maximum-score-of-non-overlapping-intervals/) | Hard |
 ## Math
@@ -97,6 +98,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0462-minimum-moves-to-equal-array-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/0462-minimum-moves-to-equal-array-elements-ii/) | Medium |
 | [0788-rotated-digits](https://github.com/PrimeTimeTran/LeetCode/tree/main/0788-rotated-digits/) | Medium |
 | [0836-rectangle-overlap](https://github.com/PrimeTimeTran/LeetCode/tree/main/0836-rectangle-overlap/) | Easy |
+| [1621-number-of-sets-of-k-non-overlapping-line-segments](https://github.com/PrimeTimeTran/LeetCode/tree/main/1621-number-of-sets-of-k-non-overlapping-line-segments/) | Medium |
 | [1927-sum-game](https://github.com/PrimeTimeTran/LeetCode/tree/main/1927-sum-game/) | Medium |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/2033-minimum-operations-to-make-a-uni-value-grid/) | Medium |
 | [3622-check-divisibility-by-digit-sum-and-product](https://github.com/PrimeTimeTran/LeetCode/tree/main/3622-check-divisibility-by-digit-sum-and-product/) | Easy |
@@ -108,6 +110,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Prefix Sum
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1621-number-of-sets-of-k-non-overlapping-line-segments](https://github.com/PrimeTimeTran/LeetCode/tree/main/1621-number-of-sets-of-k-non-overlapping-line-segments/) | Medium |
 | [2615-sum-of-distances](https://github.com/PrimeTimeTran/LeetCode/tree/main/2615-sum-of-distances/) | Medium |
 | [3903-smallest-stable-index-i](https://github.com/PrimeTimeTran/LeetCode/tree/main/3903-smallest-stable-index-i/) | Easy |
 | [3904-smallest-stable-index-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/3904-smallest-stable-index-ii/) | Medium |
@@ -209,4 +212,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0836-rectangle-overlap](https://github.com/PrimeTimeTran/LeetCode/tree/main/0836-rectangle-overlap/) | Easy |
+## Combinatorics
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1621-number-of-sets-of-k-non-overlapping-line-segments](https://github.com/PrimeTimeTran/LeetCode/tree/main/1621-number-of-sets-of-k-non-overlapping-line-segments/) | Medium |
 <!---LeetCode Topics End-->

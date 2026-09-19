@@ -104,6 +104,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0462-minimum-moves-to-equal-array-elements-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/0462-minimum-moves-to-equal-array-elements-ii/) | Medium |
 | [0788-rotated-digits](https://github.com/PrimeTimeTran/LeetCode/tree/main/0788-rotated-digits/) | Medium |
 | [0836-rectangle-overlap](https://github.com/PrimeTimeTran/LeetCode/tree/main/0836-rectangle-overlap/) | Easy |
+| [1401-circle-and-rectangle-overlapping](https://github.com/PrimeTimeTran/LeetCode/tree/main/1401-circle-and-rectangle-overlapping/) | Medium |
 | [1621-number-of-sets-of-k-non-overlapping-line-segments](https://github.com/PrimeTimeTran/LeetCode/tree/main/1621-number-of-sets-of-k-non-overlapping-line-segments/) | Medium |
 | [1927-sum-game](https://github.com/PrimeTimeTran/LeetCode/tree/main/1927-sum-game/) | Medium |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/2033-minimum-operations-to-make-a-uni-value-grid/) | Medium |
@@ -221,6 +222,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0836-rectangle-overlap](https://github.com/PrimeTimeTran/LeetCode/tree/main/0836-rectangle-overlap/) | Easy |
+| [1401-circle-and-rectangle-overlapping](https://github.com/PrimeTimeTran/LeetCode/tree/main/1401-circle-and-rectangle-overlapping/) | Medium |
 ## Combinatorics
 | Problem Name | Difficulty |
 | ------- | ------- |

@@ -4,7 +4,6 @@ class Solution:
         reversed = list(lowercase_str)[::-1]
         total = 0
         for i, c in enumerate(s):
-          contribution = (reversed.index(c)+1) * (i+1)
-          print(contribution)
-          total += contribution
+          total += (reversed.index(c)+1) * (i+1)
+          # total += contribution
         return total

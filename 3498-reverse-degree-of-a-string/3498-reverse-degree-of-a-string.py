@@ -17,8 +17,6 @@
 class Solution:
     def reverseDegree(self, s: str) -> int:
         total = 0
-
         for i, c in enumerate(s.encode(), 1):
             total += (123 - c) * i
-
         return total

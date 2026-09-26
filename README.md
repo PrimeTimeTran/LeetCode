@@ -20,6 +20,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/PrimeTimeTran/LeetCode/tree/main/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum/) | Medium |
 | [1658-minimum-operations-to-reduce-x-to-zero](https://github.com/PrimeTimeTran/LeetCode/tree/main/1658-minimum-operations-to-reduce-x-to-zero/) | Medium |
 | [1722-minimize-hamming-distance-after-swap-operations](https://github.com/PrimeTimeTran/LeetCode/tree/main/1722-minimize-hamming-distance-after-swap-operations/) | Medium |
+| [1807-evaluate-the-bracket-pairs-of-a-string](https://github.com/PrimeTimeTran/LeetCode/tree/main/1807-evaluate-the-bracket-pairs-of-a-string/) | Medium |
 | [1848-minimum-distance-to-the-target-element](https://github.com/PrimeTimeTran/LeetCode/tree/main/1848-minimum-distance-to-the-target-element/) | Easy |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/PrimeTimeTran/LeetCode/tree/main/2033-minimum-operations-to-make-a-uni-value-grid/) | Medium |
 | [2091-removing-minimum-and-maximum-from-array](https://github.com/PrimeTimeTran/LeetCode/tree/main/2091-removing-minimum-and-maximum-from-array/) | Medium |
@@ -70,6 +71,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/PrimeTimeTran/LeetCode/tree/main/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum/) | Medium |
 | [1520-maximum-number-of-non-overlapping-substrings](https://github.com/PrimeTimeTran/LeetCode/tree/main/1520-maximum-number-of-non-overlapping-substrings/) | Hard |
 | [1658-minimum-operations-to-reduce-x-to-zero](https://github.com/PrimeTimeTran/LeetCode/tree/main/1658-minimum-operations-to-reduce-x-to-zero/) | Medium |
+| [1807-evaluate-the-bracket-pairs-of-a-string](https://github.com/PrimeTimeTran/LeetCode/tree/main/1807-evaluate-the-bracket-pairs-of-a-string/) | Medium |
 | [2615-sum-of-distances](https://github.com/PrimeTimeTran/LeetCode/tree/main/2615-sum-of-distances/) | Medium |
 | [3471-find-the-largest-almost-missing-integer](https://github.com/PrimeTimeTran/LeetCode/tree/main/3471-find-the-largest-almost-missing-integer/) | Easy |
 | [3483-unique-3-digit-even-numbers](https://github.com/PrimeTimeTran/LeetCode/tree/main/3483-unique-3-digit-even-numbers/) | Easy |
@@ -87,6 +89,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1096-brace-expansion-ii](https://github.com/PrimeTimeTran/LeetCode/tree/main/1096-brace-expansion-ii/) | Hard |
 | [1320-minimum-distance-to-type-a-word-using-two-fingers](https://github.com/PrimeTimeTran/LeetCode/tree/main/1320-minimum-distance-to-type-a-word-using-two-fingers/) | Hard |
 | [1520-maximum-number-of-non-overlapping-substrings](https://github.com/PrimeTimeTran/LeetCode/tree/main/1520-maximum-number-of-non-overlapping-substrings/) | Hard |
+| [1807-evaluate-the-bracket-pairs-of-a-string](https://github.com/PrimeTimeTran/LeetCode/tree/main/1807-evaluate-the-bracket-pairs-of-a-string/) | Medium |
 | [1927-sum-game](https://github.com/PrimeTimeTran/LeetCode/tree/main/1927-sum-game/) | Medium |
 | [2452-words-within-two-edits-of-dictionary](https://github.com/PrimeTimeTran/LeetCode/tree/main/2452-words-within-two-edits-of-dictionary/) | Medium |
 | [2472-maximum-number-of-non-overlapping-palindrome-substrings](https://github.com/PrimeTimeTran/LeetCode/tree/main/2472-maximum-number-of-non-overlapping-palindrome-substrings/) | Hard |
